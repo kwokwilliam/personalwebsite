@@ -6,6 +6,9 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+
+
+            
                 <svg className="spin" version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
                     <Anime easing="easeOutCubic"
                         duration={3000}
@@ -59,7 +62,6 @@ class App extends Component {
 		c1.879,0,3.214,0.35,4.003,1.046c0.788,0.698,1.184,1.624,1.184,2.775c0,1.092-0.396,2.001-1.184,2.729
 		c-0.789,0.728-2.124,1.092-4.003,1.092H75.705c-1.819,0-3.124-0.364-3.912-1.092c-0.789-0.728-1.183-1.638-1.183-2.729
 		c0-1.151,0.394-2.077,1.183-2.775c0.788-0.697,2.093-1.046,3.912-1.046h5.368l-32.845-33.755L39.493,798.902z"/>
-
                     </Anime>
                 </svg>
             </div>
