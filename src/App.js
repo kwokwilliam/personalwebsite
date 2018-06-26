@@ -3,12 +3,19 @@ import Anime from 'react-anime';
 import './App.css'
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loaded: false,
+            mobile: false
+        }
+    }
+
     render() {
         return (
             <div className="App">
 
 
-            
                 <svg className="spin" version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
                     <Anime easing="easeOutCubic"
                         duration={3000}
