@@ -17,9 +17,9 @@ footer {
 }
 
 .spin {
-    -webkit-animation: spin 20s linear infinite;
-    -moz-animation: spin 20s linear infinite;
-    animation: spin 20s linear infinite;
+    -webkit-animation: spin 90s linear infinite;
+    -moz-animation: spin 90s linear infinite;
+    animation: spin 90s linear infinite;
 }
 
 @-moz-keyframes spin {
@@ -39,4 +39,16 @@ footer {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    -webkit-transition: opacity 15s ease-in-out;
+    -moz-transition: opacity 15s ease-in-out;
+    -ms-transition: opacity 15s ease-in-out;
+    -o-transition: opacity 15s ease-in-out;
+    opacity: 1;
 }
