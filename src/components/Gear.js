@@ -4,20 +4,6 @@ import './Gear.css';
 
 export default class Gear extends Component {
     constructor(props) {
-        // Gear
-        //  prop
-        //     Loaded
-        //     mobile
-        //  state
-        //     position {x%,y%}
-        //     size
-        //     showW
-        //     showK
-        //     spinning
-        // viewbox numbers
-        // width and height numbers
-        // duration
-
         super(props);
         this.state = {
             position: { xPercent: 0.5, yPercent: 0.5 }, // position is stored as an xy object with percentages
@@ -38,13 +24,18 @@ export default class Gear extends Component {
         this.height = 460;
         this.duration = 3000;
         this.delay = 300;
+
+        setInterval(() => {
+            this.setState({spinning: true})
+        }, 1000);
     }
 
     render() {
         return (
-            <svg className={`spin ${this.state.show ? "show" : "hide"}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
+            <div>
+                <svg className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
                     <Anime easing="easeOutCubic"
-                        duration={3000}
+                        duration={500}
                         loop={false}
                         delay={(el, index) => index * 200}
                         strokeDashoffset={(el) => {
@@ -54,7 +45,9 @@ export default class Gear extends Component {
                                 el.setAttribute('stroke-dasharray', pathLength);
                             }
                             return [pathLength, 0];
-                        }}>
+                        }
+                        }
+                        key={"1"}>
                         <circle className="st1" cx="0.172" cy="792" r="164.928"/>
                         <path className="st1" d="
                             M226.84,806.436V777.54c-10.004,0-18.738-4.737-23.651-11.835c-1.192-9.3-2.988-18.407-5.383-27.274
@@ -97,6 +90,7 @@ export default class Gear extends Component {
                             c0-1.151,0.394-2.077,1.183-2.775c0.788-0.697,2.093-1.046,3.912-1.046h5.368l-32.845-33.755L39.493,798.902z"/>
                     </Anime>
                 </svg>
+            </div>
         )
     }
 }

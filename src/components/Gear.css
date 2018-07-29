@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: #000000;
+    background-color: #eeeeee;
 }
 
 footer {
@@ -9,7 +9,16 @@ footer {
 
 .st1 {
     fill: none;
-    stroke: #ffffff;
+    stroke: #010049;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    transform-origin: center center;
+}
+
+.st2 {
+    fill: #010049;
+    stroke: #010049;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-miterlimit: 10;
@@ -17,9 +26,10 @@ footer {
 }
 
 .spin {
-    -webkit-animation: spin 90s linear infinite;
-    -moz-animation: spin 90s linear infinite;
-    animation: spin 90s linear infinite;
+    -webkit-animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
+    -moz-animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
+    animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
+    stroke: #010049;
 }
 
 @-moz-keyframes spin {
