@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Anime from 'react-anime';
 import './Gear.css';
+import {Redirect} from 'react-router-dom';
 
 export default class Gear extends Component {
     constructor(props) {
@@ -15,7 +16,6 @@ export default class Gear extends Component {
             // used
             show: true
 
-
             // react transition group
         }
 
@@ -26,12 +26,20 @@ export default class Gear extends Component {
         this.delay = 300;
 
         setInterval(() => {
-            this.setState({spinning: true})
+            if(this.mounted) this.setState({spinning: true})
         }, 1000);
 
         setInterval(() => {
-            this.props.fadeOutGear();
+            if(this.mounted) this.props.fadeOutGear();
         }, 1500);
+    }
+
+    componentWillMount() {
+        this.mounted = true;
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     render() {
