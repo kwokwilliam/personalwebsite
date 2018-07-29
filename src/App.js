@@ -39,16 +39,31 @@ class App extends Component {
                         {this.state.finishedGear && <Route exact path="/" render={() => (
                             <Redirect to="/home" />
                         )} />}
+
+                        {/* Navigation bar */}
                         <TransitionGroup>
                             <CSSTransition
                                 key={location.key}
                                 classNames="fade"
                                 timeout={300}
                             >
+                                <Switch location={location}>
+                                    <Route exact path="/" render={() => { return <div></div> }} />
+                                    <Route render={routerProps => { return (<div>fdsafdsa</div>) }} />
+                                </Switch>
+                            </CSSTransition>
+                        </TransitionGroup>
 
+                        {/* Content */}
+                        <TransitionGroup>
+                            <CSSTransition
+                                key={location.key}
+                                classNames="fade"
+                                timeout={300}
+                            >
                                 <Switch location={location}>
                                     <Route exact path="/" render={routerProps => (
-                                        <div>
+                                        <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
                                             <Fade clear enter={false} spy when={this.state.gearIn}>
                                                 <Gear fadeOutGear={this.fadeOutGear} />
                                             </Fade>

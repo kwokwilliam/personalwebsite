@@ -19,11 +19,14 @@ export default class Gear extends Component {
             // react transition group
         }
 
-
+        if(this.state.documentSize.x < 560) {
+            this.width = this.state.documentSize.x * 0.8;
+            this.height = this.width;
+        } else {
+            this.height = this.state.documentSize.y * 0.4;
+            this.width = this.height;
+        }
         this.viewboxNumbers = "-230 562 460 460" // play around with these numbers when resizing
-        this.width = 460;
-        this.height = 460;
-        this.delay = 300;
 
         setInterval(() => {
             if(this.mounted) this.setState({spinning: true})
@@ -44,8 +47,8 @@ export default class Gear extends Component {
 
     render() {
         return (
-            <div style={{margin: 'auto'}}>
-                <svg style={{margin: 'auto', display: 'block'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
+            <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
+                <svg style={{ display: 'block'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
                     <Anime easing="easeOutCubic"
                         duration={500}
                         loop={false}
