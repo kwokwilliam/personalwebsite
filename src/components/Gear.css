@@ -9,7 +9,7 @@ footer {
 
 .st1 {
     fill: none;
-    stroke: #010049;
+    stroke: #005696;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-miterlimit: 10;
@@ -17,8 +17,8 @@ footer {
 }
 
 .st2 {
-    fill: #010049;
-    stroke: #010049;
+    fill: #005696;
+    stroke: #005696;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-miterlimit: 10;
@@ -29,7 +29,7 @@ footer {
     -webkit-animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
     -moz-animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
     animation: spin 1s cubic-bezier(0.25, 0.15, 0.15, 1);
-    stroke: #010049;
+    stroke: #005696;
 }
 
 @-moz-keyframes spin {

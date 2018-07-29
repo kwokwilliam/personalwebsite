@@ -19,21 +19,25 @@ export default class Gear extends Component {
             // react transition group
         }
 
+
         this.viewboxNumbers = "-230 562 460 460" // play around with these numbers when resizing
         this.width = 460;
         this.height = 460;
-        this.duration = 3000;
         this.delay = 300;
 
         setInterval(() => {
             this.setState({spinning: true})
         }, 1000);
+
+        setInterval(() => {
+            this.props.fadeOutGear();
+        }, 1500);
     }
 
     render() {
         return (
-            <div>
-                <svg className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
+            <div style={{margin: 'auto'}}>
+                <svg style={{margin: 'auto', display: 'block'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={460} height={460} viewBox="-230 562 460 460">
                     <Anime easing="easeOutCubic"
                         duration={500}
                         loop={false}
