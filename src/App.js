@@ -69,7 +69,7 @@ class App extends Component {
                                             </Fade>
                                         </div>
                                     )} />
-                                    <Route exact path="/home" render={routerProps => (<div><div>asdf</div></div>)} />
+                                    <Route path="/home" render={routerProps => (<div><div>asdf</div></div>)} />
                                     <Route render={() => <div>Not Found</div>} />
                                 </Switch>
                             </CSSTransition>

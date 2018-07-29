@@ -49,6 +49,8 @@ export default class Gear extends Component {
         return (
             <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
                 <svg style={{ display: 'block'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
+                    {/* Must go into react-anime.js and comment out the componentWillReceiveProps
+                        method because it is bugged */}
                     <Anime easing="easeOutCubic"
                         duration={500}
                         loop={false}
