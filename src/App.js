@@ -48,13 +48,13 @@ class App extends Component {
 
                                 <Switch location={location}>
                                     <Route exact path="/" render={routerProps => (
-                                        <div {...routerProps}>
+                                        <div>
                                             <Fade clear enter={false} spy when={this.state.gearIn}>
                                                 <Gear fadeOutGear={this.fadeOutGear} />
                                             </Fade>
                                         </div>
                                     )} />
-                                    <Route exact path="/home" render={routerProps => (<div {...routerProps}>asdf</div>)} />
+                                    <Route exact path="/home" render={routerProps => (<div><div>asdf</div></div>)} />
                                     <Route render={() => <div>Not Found</div>} />
                                 </Switch>
                             </CSSTransition>
