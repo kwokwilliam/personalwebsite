@@ -6,6 +6,8 @@ import {
     Link,
     Redirect
 } from 'react-router-dom';
+import Logo from './Logo';
+import './Navbar.css';
 
 export default class Navbar extends Component {
     constructor(props) {
@@ -26,11 +28,12 @@ export default class Navbar extends Component {
 
     render() {
         return <div style={{ display: 'flex', margin: 'auto', width: '100%', textAlign: 'center' }}>
-            <div style={{ margin: 'auto', display: 'flex' }}>
+            <div style={{ margin: 'auto', display: 'flex', padding: 10, paddingRight: 10, lineHeight: "70px" }}>
+                <div style={{ marginRight: 80 }}><Logo /></div>
                 {
                     this.props.pages.map(d => {
-                        return <div key={d}>
-                            <Link to={`/${d}`}>{d}</Link>
+                        return <div key={d} style={{ marginLeft: 10, marginRight: 10 }}>
+                            <Link to={`/${d}`} style={{ textDecoration: 'none', color: '#005696' }} ><div className={'link'}>{d}</div></Link>
                         </div>
                     })
                 }

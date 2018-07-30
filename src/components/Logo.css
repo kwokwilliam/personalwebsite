@@ -3,39 +3,33 @@ body {
     background-color: #eeeeee;
 }
 
-.fix-container {
-    position: fixed;
-    width: 100%;
-}
-
-.fade-enter {
-    opacity: 0;
-    z-index: 1;
-}
-
-.fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-}
-
-.fade-exit {
-    opacity: 1;
-    z-index: 1;
-}
-
-.fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 250ms ease-in;
-}
-
 footer {
     padding-top: 2em;
 }
 
-.spin {
-    -webkit-animation: spin 90s linear infinite;
-    -moz-animation: spin 90s linear infinite;
-    animation: spin 90s linear infinite;
+.logost1 {
+    fill: none;
+    stroke: #005696;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    transform-origin: center center;
+}
+
+.st2 {
+    fill: #005696;
+    stroke: #005696;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    transform-origin: center center;
+}
+
+.logospin {
+    -webkit-animation: spin 15s linear infinite;
+    -moz-animation: spin 15s linear infinite;
+    animation: spin 15s linear infinite;
+    stroke: #005696;
 }
 
 @-moz-keyframes spin {
