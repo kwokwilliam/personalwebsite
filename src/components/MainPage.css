@@ -1,0 +1,13 @@
+.mainimg {
+    width: 40%;
+    height: 40%;
+}
+
+.mainimg-mobile {
+    width: 80%;
+    height: 80%;
+}
+
+.mainimg-1 {
+    border-radius: 30px;
+}
