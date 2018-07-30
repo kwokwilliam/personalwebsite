@@ -9,7 +9,9 @@ import {
     Route,
     Link,
     Redirect
-} from 'react-router-dom'
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Page from './components/Page';
 
 class App extends Component {
     constructor() {
@@ -22,6 +24,16 @@ class App extends Component {
             finishedGear: false
         }
         this.fadeOutGear = this.fadeOutGear.bind(this);
+
+        window.addEventListener("resize", () => {
+            if (!this.state.mobile && window.innerWidth < 560) {
+                this.setState({ mobile: true });
+            } else if (this.state.mobile && window.innerWidth >= 560) {
+                this.setState({ mobile: false });
+            }
+        });
+
+        this.pages = ["main", "about", "projects"];
     }
 
     fadeOutGear() {
@@ -37,41 +49,34 @@ class App extends Component {
                 <Route render={({ location }) => (
                     <div>
                         {this.state.finishedGear && <Route exact path="/" render={() => (
-                            <Redirect to="/home" />
+                            <Redirect to="/main" />
                         )} />}
-
-                        {/* Navigation bar */}
-                        <TransitionGroup>
-                            <CSSTransition
-                                key={location.key}
-                                classNames="fade"
-                                timeout={300}
-                            >
-                                <Switch location={location}>
-                                    <Route exact path="/" render={() => { return <div></div> }} />
-                                    <Route render={routerProps => { return (<div>fdsafdsa</div>) }} />
-                                </Switch>
-                            </CSSTransition>
-                        </TransitionGroup>
-
                         {/* Content */}
+                        {location.path !== "/" &&
+                            <Navbar pages={this.pages} />
+                        }
                         <TransitionGroup>
                             <CSSTransition
                                 key={location.key}
                                 classNames="fade"
-                                timeout={300}
+                                timeout={{ enter: 300, exit: 300 }}
                             >
-                                <Switch location={location}>
-                                    <Route exact path="/" render={routerProps => (
-                                        <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-                                            <Fade clear enter={false} spy when={this.state.gearIn}>
-                                                <Gear fadeOutGear={this.fadeOutGear} />
-                                            </Fade>
-                                        </div>
-                                    )} />
-                                    <Route path="/home" render={routerProps => (<div><div>asdf</div></div>)} />
-                                    <Route render={() => <div>Not Found</div>} />
-                                </Switch>
+                                <div className={"fix-container"}>
+                                    <Switch location={location}>
+                                        <Route exact path="/" render={routerProps => (
+                                            <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+                                                <Fade clear enter={false} spy when={this.state.gearIn}>
+                                                    <Gear fadeOutGear={this.fadeOutGear} />
+                                                </Fade>
+                                            </div>
+                                        )} />
+                                        {this.pages.map(d => {
+                                            return <Route key={d} path={`/${d}`} render={() => <Page page={d} />} />
+                                        })}
+                                        <Route path="/main" render={routerProps => (<div><div>asdf</div></div>)} />
+                                        <Route render={() => <div>Not Found</div>} />
+                                    </Switch>
+                                </div>
                             </CSSTransition>
                         </TransitionGroup>
                     </div>

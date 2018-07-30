@@ -3,6 +3,10 @@ body {
     background-color: #000000;
 }
 
+.fix-container {
+    position: fixed;
+}
+
 .fade-enter {
     opacity: 0;
     z-index: 1;
@@ -10,6 +14,16 @@ body {
 
 .fade-enter.fade-enter-active {
     opacity: 1;
+    transition: opacity 250ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+    z-index: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
     transition: opacity 250ms ease-in;
 }
 
