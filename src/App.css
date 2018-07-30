@@ -5,6 +5,7 @@ body {
 
 .fix-container {
     position: fixed;
+    width: 100%;
 }
 
 .fade-enter {

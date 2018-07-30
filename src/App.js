@@ -52,9 +52,7 @@ class App extends Component {
                             <Redirect to="/main" />
                         )} />}
                         {/* Content */}
-                        {location.path !== "/" &&
-                            <Navbar pages={this.pages} />
-                        }
+
                         <TransitionGroup>
                             <CSSTransition
                                 key={location.key}
@@ -62,6 +60,10 @@ class App extends Component {
                                 timeout={{ enter: 300, exit: 300 }}
                             >
                                 <div className={"fix-container"}>
+                                    <Switch location={location}>
+                                        <Route exact path="/" render={() => null} />
+                                        <Route render={() => <Navbar pages={this.pages} />} />
+                                    </Switch>
                                     <Switch location={location}>
                                         <Route exact path="/" render={routerProps => (
                                             <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>

@@ -25,12 +25,16 @@ export default class Navbar extends Component {
     }
 
     render() {
-        return <div>{
-            this.props.pages.map(d => {
-                return <div>
-                    <Link to={`/${d}`}>{d}</Link>
-                </div>
-            })
-        }</div>
+        return <div style={{ display: 'flex', margin: 'auto', width: '100%', textAlign: 'center' }}>
+            <div style={{ margin: 'auto', display: 'flex' }}>
+                {
+                    this.props.pages.map(d => {
+                        return <div key={d}>
+                            <Link to={`/${d}`}>{d}</Link>
+                        </div>
+                    })
+                }
+            </div>
+        </div>
     }
 }
