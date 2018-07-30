@@ -7,22 +7,33 @@ import About from './About';
 export default class Page extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            mobile: false
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ mobile: this.props.mobile });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ mobile: nextProps.mobile });
     }
 
     renderPage() {
         switch (this.props.page) {
             case "main":
-                return <MainPage />;
+                return <MainPage mobile={this.state.mobile} />;
             case "projects":
-                return <Projects />;
+                return <Projects mobile={this.state.mobile} />;
             case "about":
-                return <About />;
+                return <About mobile={this.state.mobile} />;
             default:
                 return <div>error</div>;
         }
     }
 
     render() {
-        return <div className={"page"}>{this.renderPage()}</div>
+        return <div className={"page"} style={{ height: window.innerHeight - 92 }}>{this.renderPage()}</div>
     }
 }

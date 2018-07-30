@@ -27,7 +27,7 @@ export default class Navbar extends Component {
     }
 
     render() {
-        return <div style={{ display: 'flex', margin: 'auto', width: '100%', textAlign: 'center' }}>
+        return <div style={{ display: 'flex' }}>
             <div style={{ margin: 'auto', display: 'flex', padding: 10, paddingRight: 10, lineHeight: "70px" }}>
                 <div style={{ marginRight: 80 }}><Logo /></div>
                 {

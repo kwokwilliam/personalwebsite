@@ -73,7 +73,7 @@ class App extends Component {
                                             </div>
                                         )} />
                                         {this.pages.map(d => {
-                                            return <Route key={d} path={`/${d}`} render={() => <Page page={d} />} />
+                                            return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
                                         })}
                                         <Route path="/main" render={routerProps => (<div><div>asdf</div></div>)} />
                                         <Route render={() => <div>Not Found</div>} />
