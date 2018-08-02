@@ -1,6 +1,12 @@
+@font-face {
+    font-family: QuicksandReg;
+    src: url(./assets/fonts/Quicksand-Regular.ttf);
+}
+
 html,
 body {
     background-color: #eeeeee;
+    font-family: QuicksandReg;
 }
 
 .fix-container {
