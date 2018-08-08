@@ -57,7 +57,8 @@ export default class MainPage extends Component {
             <Row>
                 <Col xs={12} md={6}>
                     <Fade clear when={this.state.loaded}>
-                        <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`} />
+                        <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`}
+                            alt={"William Kwok"} />
                     </Fade>
                 </Col>
                 <Col xs={12} md={6}>
@@ -107,7 +108,6 @@ export default class MainPage extends Component {
                                         })}
                                     </Row>
                                 }
-
                             </div>
                         </Fade>
                     </div>
