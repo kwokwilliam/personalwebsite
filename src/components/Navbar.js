@@ -33,7 +33,7 @@ export default class Navbar extends Component {
                 {
                     this.props.pages.map(d => {
                         return <div key={d} style={{ marginLeft: 10, marginRight: 10 }}>
-                            <Link to={`/${d}`} style={{ textDecoration: 'none', color: '#005696', fontSize: 30 }} ><div className={'link'}>{d}</div></Link>
+                            <Link to={`/${d}`} style={{ textDecoration: 'none', color: '#005696', fontSize: 20 }} ><div className={'link'}>{d}</div></Link>
                         </div>
                     })
                 }

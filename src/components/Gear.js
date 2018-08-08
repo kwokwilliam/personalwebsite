@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Anime from 'react-anime';
 import './Gear.css';
-import {Redirect} from 'react-router-dom';
 
 export default class Gear extends Component {
     constructor(props) {

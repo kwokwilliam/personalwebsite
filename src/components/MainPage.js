@@ -3,6 +3,10 @@ import mainImg from '../assets/imgs/main/main.jpg'; // TODO: make file smaller, 
 import './MainPage.css';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import resume from '../assets/resume/resume7-18.pdf';
 
 export default class MainPage extends Component {
     constructor(props) {
@@ -10,6 +14,36 @@ export default class MainPage extends Component {
         this.state = {
             loaded: false
         }
+
+        this.iconsRender = [
+            {
+                icon: faGithub,
+                text: "kwokwilliam",
+                link: "https://github.com/kwokwilliam"
+            },
+            {
+                icon: faLinkedin,
+                text: "william-w-kwok",
+                link: "https://linkedin.com/in/william-w-kwok/"
+            },
+            {
+                icon: faEnvelope,
+                text: "wkwok16@uw.edu",
+                link: "mailto:wkwok16@uw.edu"
+            },
+            {
+                icon: faFileAlt,
+                text: "resume (july '18)",
+                link: resume
+            }
+        ];
+
+        this.mainText = {
+            __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a degree in Informatics with a minor in Mathematics.<br/><br/>
+            Currently, I work with Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" href="http://faculty.washington.edu/ajko/students">Code and Cognition Lab</a><br/><br/>
+            I enjoy playing video games and programming side projects.`
+        }
+
     }
     render() {
         return <Grid fluid>
@@ -19,10 +53,52 @@ export default class MainPage extends Component {
                         <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`} />
                     </Fade>
                 </Col>
-                <Col xs={12} md={6}><div>Content</div></Col>
-            </Row>
+                <Col xs={12} md={6}>
+                    <div style={{ padding: 20 }}>
+                        <Fade clear cascade duration={1500}>
+                            <div>
+                                <Row>
+                                    <div style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
+                                        William Kwok
+                                    </div>
+                                </Row>
+                                <Row style={{ marginBottom: this.props.mobile ? 30 : 20 }}>
+                                    <div style={{ fontSize: window.innerHeight < 700 ? 12 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={this.mainText}>
+                                    </div>
+                                </Row>
+                                {!this.props.mobile &&
+                                    this.iconsRender.map((d, i) => {
+                                        return (
 
-            <div>fdsafdsa</div>
+                                            <Row middle="xs" style={{ marginBottom: 10 }} key={"iconsRender" + i}>
+                                                <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <FontAwesomeIcon icon={d.icon} size={"3x"} />
+                                                </a>
+                                                <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                    <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
+                                                </a>
+                                            </Row>
+                                        )
+                                    })}
+                                {this.props.mobile &&
+                                    <Row>
+                                        {this.iconsRender.map((d, i) => {
+                                            return (
+
+                                                <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
+                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                    </a>
+                                                </Col>
+                                            )
+                                        })}
+                                    </Row>
+                                }
+                            </div>
+                        </Fade>
+                    </div>
+                </Col>
+            </Row>
         </Grid >
     }
 }

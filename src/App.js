@@ -25,15 +25,23 @@ class App extends Component {
         }
         this.fadeOutGear = this.fadeOutGear.bind(this);
 
+        this.mobileSize = 768;
+
         window.addEventListener("resize", () => {
-            if (!this.state.mobile && window.innerWidth < 560) {
+            if (!this.state.mobile && window.innerWidth < this.mobileSize) {
                 this.setState({ mobile: true });
-            } else if (this.state.mobile && window.innerWidth >= 560) {
+            } else if (this.state.mobile && window.innerWidth >= this.mobileSize) {
                 this.setState({ mobile: false });
             }
         });
 
         this.pages = ["main", "about", "projects"];
+    }
+
+    componentWillMount() {
+        if (window.innerWidth < this.mobileSize) {
+            this.setState({ mobile: true });
+        }
     }
 
     fadeOutGear() {
