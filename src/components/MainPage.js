@@ -63,7 +63,7 @@ export default class MainPage extends Component {
                 </Col>
                 <Col xs={12} md={6}>
                     <div style={{ padding: 20 }}>
-                        <Fade right cascade duration={1000}>
+                        <Fade right cascade >
                             <div>
                                 <div>
                                     <Row>

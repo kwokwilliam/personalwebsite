@@ -83,7 +83,7 @@ class App extends Component {
                                             return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
                                         })}
                                         <Route path="/main" render={routerProps => (<div><div>asdf</div></div>)} />
-                                        <Route render={() => <div>Not Found</div>} />
+                                        <Route render={() => <div style={{ margin: 20 }}>Error: Page Not Found</div>} />
                                     </Switch>
                                 </div>
                             </CSSTransition>
