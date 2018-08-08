@@ -62,7 +62,7 @@ export default class MainPage extends Component {
                 </Col>
                 <Col xs={12} md={6}>
                     <div style={{ padding: 20 }}>
-                        <Fade right cascade duration={1500}>
+                        <Fade right cascade duration={1000}>
                             <div>
                                 <div>
                                     <Row>
@@ -78,11 +78,11 @@ export default class MainPage extends Component {
                                     </Row>
                                 })}
 
-                                <div>
-                                    {!this.props.mobile &&
-                                        this.iconsRender.map((d, i) => {
-                                            return (
-                                                <Row middle="xs" style={{ marginBottom: 10 }} key={"iconsRender" + i}>
+                                {!this.props.mobile &&
+                                    this.iconsRender.map((d, i) => {
+                                        return (
+                                            <div key={"iconsRender" + i}>
+                                                <Row middle="xs" style={{ marginBottom: 10 }}>
                                                     <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
                                                         <FontAwesomeIcon icon={d.icon} size={"3x"} />
                                                     </a>
@@ -90,24 +90,23 @@ export default class MainPage extends Component {
                                                         <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
                                                     </a>
                                                 </Row>
+                                            </div>
+                                        )
+                                    })}
+
+                                {this.props.mobile &&
+                                    <Row>
+                                        {this.iconsRender.map((d, i) => {
+                                            return (
+                                                <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
+                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                    </a>
+                                                </Col>
                                             )
                                         })}
-
-                                    {this.props.mobile &&
-                                        <Row>
-                                            {this.iconsRender.map((d, i) => {
-                                                return (
-
-                                                    <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
-                                                        <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                            <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
-                                                        </a>
-                                                    </Col>
-                                                )
-                                            })}
-                                        </Row>
-                                    }
-                                </div>
+                                    </Row>
+                                }
 
                             </div>
                         </Fade>
