@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import mainImg from '../assets/imgs/main/main.jpg'; // TODO: make file smaller, prefetch img
+import mainImg from '../assets/imgs/main/main.png'; // TODO: make file smaller, prefetch img
 import './MainPage.css';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -62,7 +62,7 @@ export default class MainPage extends Component {
                     </Fade>
                 </Col>
                 <Col xs={12} md={6}>
-                    <div style={{ padding: 20 }}>
+                    <div style={{ padding: 20, paddingTop: this.props.mobile ? 20 : 0 }}>
                         <Fade right cascade >
                             <div>
                                 <div>

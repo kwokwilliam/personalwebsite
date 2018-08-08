@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
+import mainImg from './assets/imgs/main/main.png';
 import Gear from './components/Gear';
 import Fade from 'react-reveal/Fade';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -34,6 +35,9 @@ class App extends Component {
             }
         });
 
+        this.images = [mainImg];
+        this.prefetchImages();
+
         this.pages = ["main", "about", "projects"];
     }
 
@@ -41,6 +45,14 @@ class App extends Component {
         if (window.innerWidth < this.mobileSize) {
             this.setState({ mobile: true });
         }
+    }
+
+    prefetchImages() {
+        this.images.forEach(d => {
+            const img = new Image();
+            img.src = d;
+        })
+
     }
 
     fadeOutGear() {
@@ -69,7 +81,7 @@ class App extends Component {
                                 <div className={"fix-container"}>
                                     <Switch location={location}>
                                         <Route exact path="/" render={() => null} />
-                                        <Route render={() => <Navbar pages={this.pages} />} />
+                                        <Route render={() => <Navbar pages={this.pages} mobile={this.state.mobile} />} />
                                     </Switch>
                                     <Switch location={location}>
                                         <Route exact path="/" render={routerProps => (
