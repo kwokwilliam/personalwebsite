@@ -1,11 +1,14 @@
 .mainimg {
-    width: 40%;
-    height: 40%;
+    width: 100%;
+    height: auto;
 }
 
 .mainimg-mobile {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .mainimg-1 {
