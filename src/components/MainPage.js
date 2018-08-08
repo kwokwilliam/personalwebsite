@@ -38,11 +38,18 @@ export default class MainPage extends Component {
             }
         ];
 
-        this.mainText = {
-            __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a degree in Informatics with a minor in Mathematics.<br/><br/>
-            Currently, I work with Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" href="http://faculty.washington.edu/ajko/students">Code and Cognition Lab</a><br/><br/>
-            I enjoy playing video games and programming side projects.`
-        }
+        this.mainText = [
+            {
+                __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a degree in Informatics with a minor in Mathematics.`
+            },
+            {
+                __html: `Currently, I work with Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" href="http://faculty.washington.edu/ajko/students" 
+                alt="Code and Cognition Lab">Code and Cognition Lab</a>`
+            },
+            {
+                __html: `I enjoy playing video games and programming side projects.`
+            }
+        ]
 
     }
     render() {
@@ -55,45 +62,53 @@ export default class MainPage extends Component {
                 </Col>
                 <Col xs={12} md={6}>
                     <div style={{ padding: 20 }}>
-                        <Fade clear cascade duration={1500}>
+                        <Fade right cascade duration={1500}>
                             <div>
-                                <Row>
-                                    <div style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
-                                        William Kwok
-                                    </div>
-                                </Row>
-                                <Row style={{ marginBottom: this.props.mobile ? 30 : 20 }}>
-                                    <div style={{ fontSize: window.innerHeight < 700 ? 12 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={this.mainText}>
-                                    </div>
-                                </Row>
-                                {!this.props.mobile &&
-                                    this.iconsRender.map((d, i) => {
-                                        return (
-
-                                            <Row middle="xs" style={{ marginBottom: 10 }} key={"iconsRender" + i}>
-                                                <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                    <FontAwesomeIcon icon={d.icon} size={"3x"} />
-                                                </a>
-                                                <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696' }}>
-                                                    <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
-                                                </a>
-                                            </Row>
-                                        )
-                                    })}
-                                {this.props.mobile &&
+                                <div>
                                     <Row>
-                                        {this.iconsRender.map((d, i) => {
-                                            return (
+                                        <div style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
+                                            William Kwok
+                                        </div>
+                                    </Row>
+                                </div>
+                                {this.mainText.map((d, i) => {
+                                    return <Row style={{ marginBottom: this.props.mobile ? 10 : 20 }} key={"text" + i}>
+                                        <div style={{ fontSize: window.innerHeight < 700 ? 12 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
+                                        </div>
+                                    </Row>
+                                })}
 
-                                                <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
+                                <div>
+                                    {!this.props.mobile &&
+                                        this.iconsRender.map((d, i) => {
+                                            return (
+                                                <Row middle="xs" style={{ marginBottom: 10 }} key={"iconsRender" + i}>
                                                     <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                        <FontAwesomeIcon icon={d.icon} size={"3x"} />
                                                     </a>
-                                                </Col>
+                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                        <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
+                                                    </a>
+                                                </Row>
                                             )
                                         })}
-                                    </Row>
-                                }
+
+                                    {this.props.mobile &&
+                                        <Row>
+                                            {this.iconsRender.map((d, i) => {
+                                                return (
+
+                                                    <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
+                                                        <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                            <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                        </a>
+                                                    </Col>
+                                                )
+                                            })}
+                                        </Row>
+                                    }
+                                </div>
+
                             </div>
                         </Fade>
                     </div>
