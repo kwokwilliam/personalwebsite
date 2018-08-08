@@ -34,11 +34,11 @@ class App extends Component {
                 this.setState({ mobile: false });
             }
         });
-
+        document.title = "William Kwok"
         this.images = [mainImg];
         this.prefetchImages();
 
-        this.pages = ["main", "about", "projects"];
+        this.pages = ["main", "projects"];
     }
 
     componentWillMount() {
