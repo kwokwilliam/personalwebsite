@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome';
 
 
 export default class About extends Component {
@@ -232,7 +233,7 @@ export default class About extends Component {
                                                         return <Col key={"job" + i} md={12} style={{
                                                             marginBottom: 30
                                                         }}>
-                                                            {job.place}
+                                                            <span style={{ textAlign: 'center', marginRight: 8 }}><FontAwesomeIcon icon={job.icon} size={"1x"} /></span>{job.place}
                                                             <div style={{ fontSize: 18 }}>{job.role}</div>
                                                             <div style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 5 }}>{job.timeAt}</div>
                                                             <div style={{ fontSize: 15 }}>{job.blurb}</div>
@@ -245,13 +246,15 @@ export default class About extends Component {
                                                                                     style={{
                                                                                         textDecoration: 'none',
                                                                                         color: '#005696',
-                                                                                        marginBottom: 10
+                                                                                        marginBottom: 20,
+                                                                                        textAlign: 'center',
+
                                                                                     }}>
                                                                                     <div style={{
-                                                                                        marginRight: 10,
                                                                                         border: '1px solid gray',
                                                                                         padding: 4,
-                                                                                        borderRadius: '10px'
+                                                                                        borderRadius: '10px',
+                                                                                        height: '80%',
                                                                                     }}>
                                                                                         {link.title}
                                                                                     </div>
