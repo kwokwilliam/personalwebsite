@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-svg-icons';
+
 
 export default class About extends Component {
     constructor() {
@@ -38,10 +40,84 @@ export default class About extends Component {
 
         this.workExp = [
             {
-                place: "",
-                timeAt: "",
-                blurb: "",
-                icon: ""
+                place: "Code and Cognition Lab - Seattle, Washington",
+                role: "Undergraduate Researcher",
+                timeAt: "June 2018 - Present",
+                blurb: `At the Code and Cognition Lab led by Dr. Andy Ko, I design and build research prototypes using ReactJS, 
+                    plan studies, gather data, and prepare presentations.`,
+                links: [
+                    {
+                        title: "Lab website",
+                        link: "http://faculty.washington.edu/ajko/students"
+                    },
+                    {
+                        title: "Bits and Behavior - Lab blog",
+                        link: "https://medium.com/bits-and-behavior"
+                    }
+                ],
+                icon: faFlask
+            },
+            {
+                place: "Washington iGEM - Seattle, Washington",
+                role: "Hardware/Software Lead Engineer and Web Development Lead",
+                timeAt: "February 2017 - Present",
+                blurb: `iGEM is the international Genetically Engineered Machine competition held in Boston anually. 
+                I design and oversee a yearly hardware and software project that is made in conjunction with a synthetic biology aspect of the project.
+                I also am in charge of development of the team website and iGEM Team Wiki (required for competition judging). The 2018 website uses the React framework.`,
+                links: [
+                    {
+                        title: "2018 Website (WIP)",
+                        link: "http://2018.igem.org/Team:Washington"
+                    },
+                    {
+                        title: "2017 Website",
+                        link: "http://2018.igem.org/Team:Washington"
+                    },
+                    {
+                        title: "Team Website",
+                        link: "http://students.washington.edu/uwigem/"
+                    },
+                    {
+                        title: "VIP Course Site",
+                        link: "http://students.washington.edu/uwigem/18sp/"
+                    }
+                ],
+                icon: faWrench
+            },
+            {
+                place: "Biomedical Image Computing Group - Seattle, Washington",
+                role: "Undergraduate Researcher",
+                timeAt: "January 2018 - June 2018",
+                blurb: `At the BICG lab, led by Dr. Colin Studholme, I worked closely with my mentor on a convolutional
+                neural network program to autonomously map out the brain. When I joined, I eagerly took on the hurdle of 
+                programming in a new language and studying how machine learning operates.`,
+                links: [
+                    {
+                        title: "BICG Homepage",
+                        link: "http://depts.washington.edu/bicg/home/"
+                    },
+                    {
+                        title: "Paper reference",
+                        link: "https://arxiv.org/abs/1703.02083"
+                    }
+                ],
+                icon: faFlask
+            },
+            {
+                place: "Punahou School - Honolulu, Hawaii",
+                role: "Summer Teacher Aide",
+                timeAt: "June 2015 - July 2015",
+                blurb: `During this summer teacher aide experience in high school, I did the standard job of
+                helping the teacher organize paperwork and supplies. Along with that, I got to solder underwater ROV
+                controllers, and help middle school students build PVC ROVs, to get them excited about robotics and
+                engineering.`,
+                icon: faChalkboardTeacher,
+                links: [
+                    {
+                        title: "Punahou School",
+                        link: "https://www.punahou.edu/"
+                    }
+                ]
             },
         ]
 
