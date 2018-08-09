@@ -8,8 +8,6 @@ export default class About extends Component {
     constructor() {
         super();
 
-
-
         this.skills = [
             {
                 section: "Languages and Frameworks",
@@ -204,12 +202,12 @@ export default class About extends Component {
                                     Skills and Familiarities
                                     <Grid fluid>
                                         <Row style={styles(this.props.mobile).quarterSegText}>
-                                            {this.skills.map(skill => {
+                                            {this.skills.map((skill, i) => {
                                                 let orderedSkillList = skill.list.sort();
-                                                return <Col md={4}>{skill.section}
+                                                return <Col md={4} key={"skill" + i}>{skill.section}
                                                     <ul style={{ margin: 0, fontSize: 15, marginBottom: 5 }}>
-                                                        {orderedSkillList.map(className => {
-                                                            return <li>{className}</li>
+                                                        {orderedSkillList.map((className, j) => {
+                                                            return <li key={"subskill" + i + '-' + j}>{className}</li>
                                                         })}
                                                     </ul>
                                                 </Col>
@@ -230,8 +228,8 @@ export default class About extends Component {
                                         <Row style={styles(this.props.mobile).quarterSegText}>
                                             <Fade right cascade>
                                                 <div>
-                                                    {this.workExp.map(job => {
-                                                        return <Col md={12} style={{
+                                                    {this.workExp.map((job, i) => {
+                                                        return <Col key={"job" + i} md={12} style={{
                                                             marginBottom: 30
                                                         }}>
                                                             {job.place}
@@ -242,8 +240,8 @@ export default class About extends Component {
                                                                 <Grid fluid>
                                                                     <Row>
                                                                         {
-                                                                            job.links.map(link => {
-                                                                                return <Col xs={6} md={3}><a href={link.link}
+                                                                            job.links.map((link, j) => {
+                                                                                return <Col xs={6} md={3} key={"job-" + i + '-' + j}><a href={link.link}
                                                                                     style={{
                                                                                         textDecoration: 'none',
                                                                                         color: '#005696',
@@ -282,11 +280,11 @@ export default class About extends Component {
                                     Coursework @ University of Washington
                                     <Grid fluid>
                                         <Row style={styles(this.props.mobile).quarterSegText}>
-                                            {this.quarters.map(quarter => {
-                                                return <Col md={3}>{quarter.quarter}
+                                            {this.quarters.map((quarter, i) => {
+                                                return <Col md={3} key={'quarter' + i}>{quarter.quarter}
                                                     <ul style={{ margin: 0, fontSize: 15, marginBottom: 5 }}>
-                                                        {quarter.classes.map(className => {
-                                                            return <li>{className}</li>
+                                                        {quarter.classes.map((className, j) => {
+                                                            return <li key={'quarter' + i + '-' + j}>{className}</li>
                                                         })}
                                                     </ul>
                                                 </Col>
