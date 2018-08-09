@@ -3,7 +3,7 @@ import './Logo.css';
 
 export default class Logo extends Component {
     render() {
-        return <div><svg style={{ display: 'inline', position: 'fixed'}} className={`logospin`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={70} height={70} viewBox="-230 562 460 460">
+        return <div><svg style={{ display: 'inline', position: 'absolute'}} className={`logospin`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={70} height={70} viewBox="-230 562 460 460">
             <circle className="logost1" cx="0.172" cy="792" r="164.928"/>
             <path className="logost1" d="
                 M226.84,806.436V777.54c-10.004,0-18.738-4.737-23.651-11.835c-1.192-9.3-2.988-18.407-5.383-27.274
@@ -27,7 +27,7 @@ export default class Logo extends Component {
                 l11.059-26.697c-9.205-3.813-15.449-11.484-17.3-19.882c2.397-8.87,4.193-17.981,5.385-27.285
                 C208.103,811.183,216.835,806.436,226.84,806.436z"/>
     </svg>
-    <svg style={{ display: 'float', position: 'fixed'}} version="1.1" xmlns="http://www.w3.org/2000/svg" width={70} height={70} viewBox="-230 562 460 460">
+    <svg style={{ display: 'float', position: 'absolute'}} version="1.1" xmlns="http://www.w3.org/2000/svg" width={70} height={70} viewBox="-230 562 460 460">
     <path className="logost1" d="M-30.474,832.93l-9.463,0.091
                 l-16.832-49.131l-16.741,49.131l-9.462-0.091l-15.832-71.059h-3.73c-1.82,0-3.125-0.364-3.913-1.092
                 c-0.789-0.728-1.183-1.667-1.183-2.821c0-1.092,0.394-2.001,1.183-2.729c0.788-0.728,2.093-1.092,3.913-1.092h21.017

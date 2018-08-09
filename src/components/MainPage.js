@@ -62,7 +62,7 @@ export default class MainPage extends Component {
                     </Fade>
                 </Col>
                 <Col xs={12} md={6}>
-                    <div style={{ padding: 20, paddingTop: this.props.mobile ? 20 : 0 }}>
+                    <div style={{ padding: 20, paddingTop: this.props.mobile ? 20 : 0, paddingBottom: this.props.mobile ? 10 : 0 }}>
                         <Fade right cascade >
                             <div>
                                 <div>

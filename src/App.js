@@ -38,7 +38,7 @@ class App extends Component {
         this.images = [mainImg];
         this.prefetchImages();
 
-        this.pages = ["main", "projects"];
+        this.pages = ["main", "about", "projects"];
     }
 
     componentWillMount() {
@@ -94,7 +94,6 @@ class App extends Component {
                                         {this.pages.map(d => {
                                             return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
                                         })}
-                                        <Route path="/main" render={routerProps => (<div><div>asdf</div></div>)} />
                                         <Route render={() => <div style={{ margin: 20 }}>Error: Page Not Found</div>} />
                                     </Switch>
                                 </div>

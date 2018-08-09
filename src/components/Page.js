@@ -33,7 +33,7 @@ export default class Page extends Component {
         }
     }
 
-    render() {
-        return <div className={"page"} style={{ height: window.innerHeight - 92 }}>{this.renderPage()}</div>
+    render() { // height: window.innerHeight - 92 style={{ height: '100%' }}
+        return <div className={"page"} >{this.renderPage()}</div>
     }
 }
