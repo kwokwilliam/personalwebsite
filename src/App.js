@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css'
-import mainImg from './assets/imgs/main/main.png';
 import Gear from './components/Gear';
 import Fade from 'react-reveal/Fade';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -12,6 +11,9 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Page from './components/Page';
+
+import mainImg from './assets/imgs/main/main.png';
+import walkerImg from './assets/imgs/projects/walker.png';
 
 class App extends Component {
     constructor() {
@@ -35,8 +37,7 @@ class App extends Component {
             }
         });
         document.title = "William Kwok"
-        this.images = [mainImg];
-        this.prefetchImages();
+        this.images = [mainImg, walkerImg];
 
         this.pages = ["main", "about", "projects"];
     }
@@ -51,8 +52,11 @@ class App extends Component {
         this.images.forEach(d => {
             const img = new Image();
             img.src = d;
-        })
+        });
+    }
 
+    componentDidMount() {
+        this.prefetchImages();
     }
 
     fadeOutGear() {

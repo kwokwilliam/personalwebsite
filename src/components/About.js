@@ -297,14 +297,27 @@ export default class About extends Component {
                                 </div>
                             </Row>
                         </div>
+                        {/* <div>
+                            <Row style={styles(this.props.mobile).row}>
+                                <div style={{
+                                    ...styles(this.props.mobile).headingText,
+                                    ...styles(this.props.mobile).courseworkList
+                                }}>
+                                    Hobbies and Extracurriculars
+                                    <Grid fluid>
+                                        <Row style={styles(this.props.mobile).quarterSegText}>
+                                            <div>
+                                                
+                                            </div>
+                                        </Row>
+                                    </Grid>
+                                </div>
+                            </Row>
+                        </div> */}
                     </div>
                 </Fade>
             </Row>
         </Grid>
-
-        // Coursework
-        // Skills
-        // Places worked
     }
 }
 
