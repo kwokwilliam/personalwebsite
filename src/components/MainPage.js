@@ -40,7 +40,7 @@ export default class MainPage extends Component {
 
         this.mainText = [
             {
-                __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a degree in Informatics with a minor in Mathematics.`
+                __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a B.S. degree in Informatics with a minor in Mathematics.`
             },
             {
                 __html: `Currently, I work with Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" href="http://faculty.washington.edu/ajko/students" 

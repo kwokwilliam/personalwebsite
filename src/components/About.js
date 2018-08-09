@@ -196,7 +196,7 @@ export default class About extends Component {
                 <Fade right cascade collapse>
                     <div>
                         <div>
-                            <Row>
+                            <Row style={styles(this.props.mobile).row}>
                                 <div style={{
                                     ...styles(this.props.mobile).headingText,
                                     ...styles(this.props.mobile).courseworkList
@@ -220,15 +220,66 @@ export default class About extends Component {
                             </Row>
                         </div>
                         <div>
-                            <Row>Places worked</Row>
-                        </div>
-                        <div>
-                            <Row>
+                            <Row style={styles(this.props.mobile).row}>
                                 <div style={{
                                     ...styles(this.props.mobile).headingText,
                                     ...styles(this.props.mobile).courseworkList
                                 }}>
-                                    Coursework
+                                    Work and Experience
+                                    <Grid fluid>
+                                        <Row style={styles(this.props.mobile).quarterSegText}>
+                                            <Fade right cascade>
+                                                <div>
+                                                    {this.workExp.map(job => {
+                                                        return <Col md={12} style={{
+                                                            marginBottom: 30
+                                                        }}>
+                                                            {job.place}
+                                                            <div style={{ fontSize: 18 }}>{job.role}</div>
+                                                            <div style={{ fontSize: 15, fontWeight: 'bold', marginBottom: 5 }}>{job.timeAt}</div>
+                                                            <div style={{ fontSize: 15 }}>{job.blurb}</div>
+                                                            <div style={{ fontSize: 13, marginTop: 10 }}>
+                                                                <Grid fluid>
+                                                                    <Row>
+                                                                        {
+                                                                            job.links.map(link => {
+                                                                                return <Col xs={6} md={3}><a href={link.link}
+                                                                                    style={{
+                                                                                        textDecoration: 'none',
+                                                                                        color: '#005696',
+                                                                                        marginBottom: 10
+                                                                                    }}>
+                                                                                    <div style={{
+                                                                                        marginRight: 10,
+                                                                                        border: '1px solid gray',
+                                                                                        padding: 4,
+                                                                                        borderRadius: '10px'
+                                                                                    }}>
+                                                                                        {link.title}
+                                                                                    </div>
+
+                                                                                </a></Col>
+                                                                            })
+                                                                        }
+                                                                    </Row>
+                                                                </Grid>
+                                                            </div>
+                                                        </Col>
+                                                    })}
+                                                </div>
+                                            </Fade>
+                                        </Row>
+                                    </Grid>
+                                </div>
+                            </Row>
+                        </div>
+                        <div>
+                            <Row style={styles(this.props.mobile).row}>
+                                <div style={{
+                                    ...styles(this.props.mobile).headingText,
+                                    ...styles(this.props.mobile).courseworkList
+                                }}>
+                                    Coursework @ University of Washington
                                     <Grid fluid>
                                         <Row style={styles(this.props.mobile).quarterSegText}>
                                             {this.quarters.map(quarter => {
@@ -263,8 +314,8 @@ const styles = (mobile) => {
             border: '1px solid gray',
             padding: '7px',
             borderRadius: '5px',
-            minWidth: '100%',
             background: '#efefef',
+            width: '100%',
             boxShadow: '5px 5px 5px #dddddd',
             height: '100%'
         },
@@ -276,6 +327,9 @@ const styles = (mobile) => {
             marginLeft: '2%',
             cursor: 'text',
             color: 'black'
+        },
+        row: {
+            marginBottom: 20
         }
     }
 }
