@@ -29,7 +29,7 @@ export default class Page extends Component {
             case "about":
                 return <About mobile={this.state.mobile} />;
             default:
-                return <div>error</div>;
+                return <div>Error: Page doesn't exist</div>;
         }
     }
 
