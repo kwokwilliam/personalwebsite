@@ -5,18 +5,44 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 export default class About extends Component {
     constructor() {
         super();
-        this.state = {
-            courseworkList: false
-        };
 
-        window.addEventListener('resize', () => {
-            this.setState({ courseworkList: false });
-        })
+
 
         this.skills = [
             {
-
+                section: "Languages and Frameworks",
+                list: [
+                    "Javascript", "React",
+                    "HTML", "CSS", "NodeJS",
+                    "Jest", "Flow", "Java",
+                    "Python", "R", "MATLAB",
+                    "C++", "LaTeX", "Firebase"
+                ]
+            },
+            {
+                section: "Tools",
+                list: [
+                    "Microsoft Office", "Solidworks", "VSCode",
+                    "WebStorm", "Eclipse Java Neon", "Photoshop",
+                    "Illustrator", "Fusion 360", "Inventor"
+                ]
+            },
+            {
+                section: "Experience",
+                list: [
+                    "Web Development", "Data Analysis", "Research",
+                    "Teaching", "Managing"
+                ]
             }
+        ];
+
+        this.workExp = [
+            {
+                place: "",
+                timeAt: "",
+                blurb: "",
+                icon: ""
+            },
         ]
 
         this.quarters = [
@@ -88,12 +114,6 @@ export default class About extends Component {
 
     }
 
-    toggleCourseworkList = () => {
-        this.setState({
-            courseworkList: !this.state.courseworkList
-        });
-    }
-
     render() {
         return <Grid fluid>
             <Row>
@@ -101,13 +121,25 @@ export default class About extends Component {
                     <div>
                         <div>
                             <Row>
-                                <div style={styles(this.props.mobile).headingText}>
-                                    Skills
-                                    <Fade>
-                                        <div style={{ ...styles(this.props.mobile).quarterSegText, marginLeft: 15 }}>
-                                            test
-                                        </div>
-                                    </Fade>
+                                <div style={{
+                                    ...styles(this.props.mobile).headingText,
+                                    ...styles(this.props.mobile).courseworkList
+                                }}>
+                                    Skills and Familiarities
+                                    <Grid fluid>
+                                        <Row style={styles(this.props.mobile).quarterSegText}>
+                                            {this.skills.map(skill => {
+                                                let orderedSkillList = skill.list.sort();
+                                                return <Col md={4}>{skill.section}
+                                                    <ul style={{ margin: 0, fontSize: 15, marginBottom: 5 }}>
+                                                        {orderedSkillList.map(className => {
+                                                            return <li>{className}</li>
+                                                        })}
+                                                    </ul>
+                                                </Col>
+                                            })}
+                                        </Row>
+                                    </Grid>
                                 </div>
                             </Row>
                         </div>
@@ -155,7 +187,7 @@ const styles = (mobile) => {
             border: '1px solid gray',
             padding: '7px',
             borderRadius: '5px',
-            minWidth: '10vw',
+            minWidth: '100%',
             background: '#efefef',
             boxShadow: '5px 5px 5px #dddddd',
             height: '100%'
