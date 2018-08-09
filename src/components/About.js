@@ -13,11 +13,11 @@ export default class About extends Component {
             {
                 section: "Languages and Frameworks",
                 list: [
-                    "Javascript", "React",
+                    "JavaScript", "React",
                     "HTML", "CSS", "NodeJS",
                     "Jest", "Flow", "Java",
                     "Python", "R", "MATLAB",
-                    "C++", "LaTeX", "Firebase"
+                    "C++", "LaTeX", "Firebase", "jQuery"
                 ]
             },
             {
