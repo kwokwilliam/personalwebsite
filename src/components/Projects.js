@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import walkerImg from '../assets/imgs/projects/walker.png';
 
+import { Button } from 'reactstrap';
 export default class Projects extends Component {
     constructor() {
         super();
@@ -197,6 +198,8 @@ export default class Projects extends Component {
 
 
     render() {
-        return <div>Projects Page</div>
+        return <div>Projects Page
+            <Button>asdf</Button>
+        </div>
     }
 }
