@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
-import { Collapse, CardBody, Card, CardHeader, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import { Collapse, CardBody, Card, CardHeader, Input } from 'reactstrap';
 
 import walkerImg from '../assets/imgs/projects/walker.png';
 import dfSim from '../assets/imgs/projects/dfSim.png';
@@ -222,25 +221,42 @@ export default class Projects extends Component {
 
   getProjectsOrder = (po, fs) => {
     let temp = [];
+    let fse = fs.split(",");
     switch (po) {
       case poType.date:
         return this.projects;
       case poType.tool:
-        this.projects.forEach(project => {
-          if (project.tools.indexOf(fs) !== -1) {
-            temp.push(project);
-          }
-        });
-        return temp;
+        if (fse.length > 0 && fse[fse.length - 1] !== "") {
+          this.projects.forEach(project => {
+            let count = 0;
+            project.tools.forEach((tool) => {
+              fse.forEach(fsee => {
+                if (tool.toLowerCase() === fsee.trim().toLowerCase()) {
+                  count++
+                }
+              })
+            })
+            if (count === fse.length) {
+              temp.push(project);
+            }
+          });
+          return temp;
+        } else {
+          return this.projects;
+        }
       case poType.type:
-        this.projects.forEach(project => {
-          if (project.type.indexOf(fs) !== -1) {
-            temp.push(project);
-          }
-        });
-        return temp;
+        if (fse.length > 0) {
+          this.projects.forEach(project => {
+            if (project.type.indexOf(fse[0]) !== -1) {
+              temp.push(project);
+            }
+          });
+          return temp;
+        } else {
+          return this.projects;
+        }
       case poType.dateRev:
-        return this.projects.reverse();
+        return this.projects.slice().reverse();
       default:
         return this.projects;
     }
@@ -287,16 +303,21 @@ export default class Projects extends Component {
         <div style={{ width: '100%' }}>
           <Fade right cascade>
             <div>
-              <Row style={{ marginBottom: 20 }}>
-                <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
-                  <DropdownToggle caret>
-                    Sort by
-                  </DropdownToggle>
-                  <DropdownMenu>
-
-                  </DropdownMenu>
-
-                </ButtonDropdown>
+              <Row style={{ marginBottom: 20, marginLeft: 10 }}>
+                <span style={{ textAlign: 'center', fontSize: 25, marginBottom: 10 }}>Sort by: </span>
+                {sortby.map((d, i) => {
+                  return <Button key={'sort' + i}
+                    onClick={() => this.setState({ po: d.set })}
+                    style={{ marginLeft: 10, backgroundColor: '#005696', marginBottom: 10 }}>
+                    {d.name}
+                  </Button>
+                })}
+                <span style={{ marginLeft: 10, width: '100%' }}>
+                  <Fade when={this.state.po === poType.tool || this.state.po === poType.type} collapse style={{ width: '100%' }}>
+                    <Input type="text" name="filter by" placeholder={this.state.po === poType.type ? "Programming, Design, Hardware" : "JavaScript, R, Java"}
+                      onChange={this.setFS} style={{ width: '70%' }} />
+                  </Fade>
+                </span>
               </Row>
               {projects.map((project, index) => {
                 return <Card style={{ marginBottom: '1rem' }}
