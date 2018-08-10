@@ -85,7 +85,7 @@ class App extends Component {
 
     render() {
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <Route render={({ location }) => (
                     <div>
                         {this.state.finishedGear && <Route exact path="/" render={() => (
