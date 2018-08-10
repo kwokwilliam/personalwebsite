@@ -342,7 +342,7 @@ export default class Projects extends Component {
                                         <CardBody>
                                             <Fade clear when={this.state.expanded[index]}>
                                                 <Row>
-                                                    {project.thumbnail && <Col xs={12} md={6}>
+                                                    {project.thumbnail !== "" && <Col xs={12} md={6}>
                                                         <div style={{ textAlign: 'center' }}><img src={project.thumbnail} style={{
                                                             maxHeight: 400,
                                                             maxWidth: '100%',
