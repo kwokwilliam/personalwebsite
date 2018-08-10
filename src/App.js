@@ -14,6 +14,14 @@ import Page from './components/Page';
 
 import mainImg from './assets/imgs/main/main.png';
 import walkerImg from './assets/imgs/projects/walker.png';
+import dfSim from './assets/imgs/projects/dfSim.png';
+import igem2017 from './assets/imgs/projects/igem2017.jpg';
+import planet from './assets/imgs/projects/planet.png';
+import pr from './assets/imgs/projects/pr.png';
+import safecycleJS from './assets/imgs/projects/safecycleJS.png';
+import safecycleR from './assets/imgs/projects/safecycleR.png';
+import scout from './assets/imgs/projects/scout.png';
+import teammanager from './assets/imgs/projects/teammanager.png';
 
 class App extends Component {
     constructor() {
@@ -37,7 +45,16 @@ class App extends Component {
             }
         });
         document.title = "William Kwok"
-        this.images = [mainImg, walkerImg];
+        this.images = [mainImg,
+            walkerImg,
+            dfSim,
+            igem2017,
+            planet,
+            pr,
+            safecycleJS,
+            safecycleR,
+            scout,
+            teammanager];
 
         this.pages = ["main", "about", "projects"];
     }
