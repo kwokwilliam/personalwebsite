@@ -75,7 +75,7 @@ export default class About extends Component {
                     },
                     {
                         title: "2017 Website",
-                        link: "http://2018.igem.org/Team:Washington"
+                        link: "http://2017.igem.org/Team:Washington"
                     },
                     {
                         title: "Team Website",
