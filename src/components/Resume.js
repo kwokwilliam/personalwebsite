@@ -28,8 +28,10 @@ export default class Projects extends Component {
             <PDFExport paperSize={'Letter'}
                 ref={(r) => this.resume = r}>
                 <div style={styles(this.props.mobile).paperStyle}> {/* Resume content starts in here */}
-                    fdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
-            </div>
+                    <div style={styles().paperBorder}>
+                        fdsaaaaaaaaaaaaaaaaaaaaaaafdsaaaaaaaaaaaaaaaaaaaaaaafdsaaaaaaa
+                    </div>
+                </div>
             </PDFExport>;
         return <Grid fluid>
             <Row>
@@ -60,7 +62,17 @@ const styles = (mobile) => {
             padding: 'none',
             backgroundColor: 'white',
             boxShadow: '5px 5px 5px #888888',
-            margin: 'auto'
+            margin: 'auto',
+            overflowX: 'hidden',
+            overflowY: 'hidden'
+        },
+        paperBorder: {
+            height: '100%',
+            width: '100%',
+            padding: '12px',
+            overflowX: 'hidden',
+            overflowY: 'hidden'
+
         }
     }
 }
