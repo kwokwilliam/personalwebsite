@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 
-import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
 import { PDFExport } from '@progress/kendo-react-pdf';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import { faDownload, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -39,7 +39,7 @@ export default class Projects extends Component {
 
     render() {
         const htmlString = ReactDOMServer.renderToStaticMarkup(
-            <FontAwesomeIcon icon={faDownload} size={"1x"} style={{ color: '#005696', height: '20px', width: '20px' }} />
+            <FontAwesomeIcon icon={faDownload} size={"3x"} style={{ color: '#005696', height: '500px', width: '500px' }} />
         );
         let canv = this.refs.canvas;
 
@@ -55,21 +55,23 @@ export default class Projects extends Component {
                 ref={(r) => this.resume = r}>
                 <div style={styles(this.props.mobile).paperStyle} className={'resume'}> {/* Resume content starts in here */}
                     <div style={styles().paperBorder}>
-                        <Grid fluid>
+                        <Grid fluid style={{ padding: 0 }}>
                             <Row style={styles().header}>
-                                <Col md={3} style={styles().col}>
+                                <div style={{ ...styles().col, ...styles().minHCol }}>
                                     {this.leftHeader.map((item, index) => {
-                                        return <Row middle="xs" style={styles().headerItems} key={'hiL' + index}>
+                                        return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiL' + index}>
                                             <span style={styles().headerItem}>
-                                                <FontAwesomeIcon icon={item.icon} size={"2x"} />
+                                                {/* <FontAwesomeIcon icon={item.icon} size={"2x"} /> */}
+                                                {this.image && <img src={this.image} style={{ height: 20, width: 20 }} />}
+
                                             </span>
                                             {item.text}
-                                            {this.image && <img src={this.image} />}
+
                                         </Row>
                                     })}
-                                </Col>
-                                <Col md={6} style={styles().col}>middle</Col>
-                                <Col md={3} style={styles().col}>right</Col>
+                                </div>
+                                <div sm={6} md={6} style={{ ...styles().col, ...styles().maxHCol }}>middle</div>
+                                <div sm={3} md={3} style={{ ...styles().col, ...styles().minHCol }}>right</div>
                             </Row>
                         </Grid>
                     </div>
@@ -127,13 +129,21 @@ const styles = (mobile) => {
         },
         headerItems: {
             fontSize: 10,
-            color: '#005696'
+            color: '#005696',
+            marginLeft: 0,
+            marginBottom: 10
         },
         headerItem: {
             textDecoration: 'none',
             minWidth: "20px",
             textAlign: 'center',
             marginRight: 9,
+        },
+        minHCol: {
+            width: (612 - 24) / 4 + 'px'
+        },
+        maxHCol: {
+            width: (612 - 24) / 2 + 'px'
         }
     }
 }
