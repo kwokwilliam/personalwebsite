@@ -11,6 +11,7 @@
         "@progress/kendo-drawing": "^1.5.7",
         "@progress/kendo-react-pdf": "^1.2.0",
         "bootstrap": "^4.1.1",
+        "canvg": "^1.5.2",
         "react": "^16.3.2",
         "react-anime": "^2.1.0",
         "react-dom": "^16.3.2",
@@ -21,7 +22,8 @@
         "react-router-dom": "^4.3.1",
         "react-scripts": "1.1.4",
         "react-transition-group": "^2.4.0",
-        "reactstrap": "^6.3.1"
+        "reactstrap": "^6.3.1",
+        "svg-to-img": "^2.0.7"
     },
     "scripts": {
         "start": "react-scripts start",

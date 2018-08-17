@@ -4,9 +4,11 @@ import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
 import { PDFExport } from '@progress/kendo-react-pdf';
 
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactDOMServer from 'react-dom/server';
 import './Resume.css';
+import canvg from 'canvg';
 
 export default class Projects extends Component {
     resume;
@@ -14,6 +16,17 @@ export default class Projects extends Component {
         super();
         this.state = {
         }
+
+        this.leftHeader = [
+            {
+                icon: faEnvelope,
+                text: 'wkwok16@uw.edu'
+            },
+            {
+                icon: faPhone,
+                text: '(808) 218 - 3017'
+            }
+        ]
     }
 
     exportPDFWithMethod = () => {
@@ -25,6 +38,18 @@ export default class Projects extends Component {
     }
 
     render() {
+        const htmlString = ReactDOMServer.renderToStaticMarkup(
+            <FontAwesomeIcon icon={faDownload} size={"1x"} style={{ color: '#005696', height: '20px', width: '20px' }} />
+        );
+        let canv = this.refs.canvas;
+
+        if (canv) {
+            let ctx = canv.getContext("2d");
+            canvg(canv, htmlString);
+            this.image = canv.toDataURL("image/png");
+        }
+
+
         let resumeObj =
             <PDFExport paperSize={'Letter'}
                 ref={(r) => this.resume = r}>
@@ -33,7 +58,15 @@ export default class Projects extends Component {
                         <Grid fluid>
                             <Row style={styles().header}>
                                 <Col md={3} style={styles().col}>
-
+                                    {this.leftHeader.map((item, index) => {
+                                        return <Row middle="xs" style={styles().headerItems} key={'hiL' + index}>
+                                            <span style={styles().headerItem}>
+                                                <FontAwesomeIcon icon={item.icon} size={"2x"} />
+                                            </span>
+                                            {item.text}
+                                            {this.image && <img src={this.image} />}
+                                        </Row>
+                                    })}
                                 </Col>
                                 <Col md={6} style={styles().col}>middle</Col>
                                 <Col md={3} style={styles().col}>right</Col>
@@ -45,6 +78,7 @@ export default class Projects extends Component {
         return <Grid fluid>
             <Row>
                 <div style={{ width: '100%' }}>
+                    <canvas ref="canvas" style={{ display: 'none' }}></canvas>
                     <Fade clear cascade>
                         <div>
 
@@ -85,10 +119,21 @@ const styles = (mobile) => {
         },
         header: {
             height: '100px',
-            padding: 0
+            padding: 0,
+            margin: 0
         },
         col: {
             padding: 0
+        },
+        headerItems: {
+            fontSize: 10,
+            color: '#005696'
+        },
+        headerItem: {
+            textDecoration: 'none',
+            minWidth: "20px",
+            textAlign: 'center',
+            marginRight: 9,
         }
     }
 }
