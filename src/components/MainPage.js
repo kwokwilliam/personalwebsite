@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import resume from '../assets/resume/resume7-18.pdf';
+import {
+    Link,
+} from 'react-router-dom';
 
 export default class MainPage extends Component {
     constructor(props) {
@@ -93,7 +96,19 @@ export default class MainPage extends Component {
                                                 </Row>
                                             </div>
                                         )
-                                    })}
+                                    })
+                                }
+                                {!this.props.mobile &&
+                                    <Row middle="xs" style={{ marginBottom: 10 }}>
+                                        <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+
+                                            <FontAwesomeIcon icon={faFileAlt} size={"3x"} />
+                                        </Link>
+                                        <Link to="/resume" style={{ textDecoration: 'none', color: '#005696' }}>
+                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{"Resume"}</span>
+                                        </Link>
+                                    </Row>
+                                }
 
                                 {this.props.mobile &&
                                     <Row>
@@ -101,11 +116,16 @@ export default class MainPage extends Component {
                                             return (
                                                 <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
                                                     <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                        <FontAwesomeIcon icon={faFileAlt} size={this.props.mobile ? "2x" : "3x"} />
                                                     </a>
                                                 </Col>
                                             )
                                         })}
+                                        <Col xs={3} style={{ marginBottom: 0 }}>
+                                            <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                <FontAwesomeIcon icon={faFileAlt} size={this.props.mobile ? "2x" : "3x"} />
+                                            </Link>
+                                        </Col>
                                     </Row>
                                 }
                             </div>

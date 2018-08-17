@@ -21,8 +21,8 @@ export default class About extends Component {
                     "HTML", "CSS", "NodeJS",
                     "Jest", "Flow", "Java",
                     "Python", "R", "MATLAB",
-                    "C++", "LaTeX", "Firebase", "jQuery", "React Router", 'Bootstrap',
-                    "MaterialUI", "git"
+                    "C++", "LaTeX", "Firebase", "JQuery", "React Router", 'Bootstrap',
+                    "MaterialUI", "Git"
                 ]
             },
             {

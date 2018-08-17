@@ -3,6 +3,7 @@ import './Page.css';
 import MainPage from './MainPage';
 import Projects from './Projects';
 import About from './About';
+import Resume from './Resume';
 
 export default class Page extends Component {
     constructor(props) {
@@ -28,6 +29,8 @@ export default class Page extends Component {
                 return <Projects mobile={this.state.mobile} />;
             case "about":
                 return <About mobile={this.state.mobile} />;
+            case "resume":
+                return <Resume mobile={this.state.mobile} />
             default:
                 return <div>Error: Page doesn't exist</div>;
         }

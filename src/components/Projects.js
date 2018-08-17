@@ -73,7 +73,7 @@ export default class Projects extends Component {
                 Laura Freeman, Farrah Lee, and Sangchul Hwang.`],
                 link: "https://students.washington.edu/wkwok16/info343-final-project/#/",
                 githubLink: "https://github.com/ferily7/info343-final-project",
-                tools: ['Firebase', "JavaScript", "React Router", "Firebase", "MaterialUI"],
+                tools: ['Firebase', "JavaScript", "React Router", "MaterialUI"],
                 seeAlso: [],
                 time: "February 2018 - March 2018",
                 type: "Programming",
@@ -398,7 +398,7 @@ export default class Projects extends Component {
                                                         </Row>
                                                         Tools used:
                             <Row style={{ marginTop: 10, marginLeft: 15 }}>
-                                                            {project.tools.map((tool, toolIndex) => {
+                                                            {project.tools.sort().map((tool, toolIndex) => {
                                                                 return <div style={{
                                                                     border: '1px solid gray',
                                                                     padding: 4,
