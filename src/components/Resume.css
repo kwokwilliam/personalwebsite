@@ -1,0 +1,8 @@
+@font-face {
+    font-family: SFNS;
+    src: url(..//assets/fonts/SFNSDisplay.ttf);
+}
+
+.resume {
+    font-family: SFNS;
+}

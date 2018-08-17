@@ -6,6 +6,7 @@ import { PDFExport } from '@progress/kendo-react-pdf';
 
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Resume.css';
 
 export default class Projects extends Component {
     resume;
@@ -27,9 +28,17 @@ export default class Projects extends Component {
         let resumeObj =
             <PDFExport paperSize={'Letter'}
                 ref={(r) => this.resume = r}>
-                <div style={styles(this.props.mobile).paperStyle}> {/* Resume content starts in here */}
+                <div style={styles(this.props.mobile).paperStyle} className={'resume'}> {/* Resume content starts in here */}
                     <div style={styles().paperBorder}>
-                        fdsaaaaaaaaaaaaaaaaaaaaaaafdsaaaaaaaaaaaaaaaaaaaaaaafdsaaaaaaa
+                        <Grid fluid>
+                            <Row style={styles().header}>
+                                <Col md={3} style={styles().col}>
+
+                                </Col>
+                                <Col md={6} style={styles().col}>middle</Col>
+                                <Col md={3} style={styles().col}>right</Col>
+                            </Row>
+                        </Grid>
                     </div>
                 </div>
             </PDFExport>;
@@ -73,6 +82,13 @@ const styles = (mobile) => {
             overflowX: 'hidden',
             overflowY: 'hidden'
 
+        },
+        header: {
+            height: '100px',
+            padding: 0
+        },
+        col: {
+            padding: 0
         }
     }
 }
