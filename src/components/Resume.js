@@ -80,7 +80,7 @@ export default class Resume extends Component {
                         ]
                     },
                     {
-                        title: "Washington iGEM, Hardware / Software Lead Engineer, Web Development Lead",
+                        title: "Washington iGEM, Hardware / Software Lead Engineer, Web Dev Lead",
                         rightContent: "February 2017 - Present",
                         bullets: [
                             "Design and oversee a yearly hardware and software project that is made alongside a synthetic biology aspect of the project",
@@ -247,16 +247,23 @@ export default class Resume extends Component {
                             {/* =============================== Main Body =============================== */}
                             {this.mainBody.map((bodyItem, index) => {
                                 return <Row style={{ ...styles().body }} key={"mainBody" + index}>
-                                    <Row middle="xs" style={{ ...styles().bodyHeaders }}>
+                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 5 }}>
                                         <span style={styles().bodyItemIcon}>
                                             <img src={bodyItem.icon} style={styles().bodyIconSize} />
                                         </span>
                                         {bodyItem.title}
                                     </Row>
                                     {bodyItem.content.map((contentItem, j) => {
-                                        return <Row key={"bc" + index + ' ' + j} style={{ ...styles().bodyContentHeaders }}>
-                                            <div style={{ ...styles().contentItemTitle, width: '70%' }}> {contentItem.title}</div>
+                                        return <Row key={"bc" + index + '-' + j} style={{ ...styles().bodyContentHeaders, padding: 0, marginBottom: 5 }}>
+                                            <div style={{ ...styles().contentItemTitle, width: '70%', paddingLeft: 3, marginBottom: 2 }}>{contentItem.title}</div>
                                             <div style={{ ...styles().contentItemRightContent, width: '30%', }}>{contentItem.rightContent}</div>
+                                            <ul style={{ paddingLeft: 0, margin: 0, listStylePosition: 'inside', fontSize: 8 }}>
+                                                {contentItem.bullets.map((bullet, k) => {
+                                                    return <li key={'bc' + index + '-' + j + '-' + k} style={{ marginBottom: 0, paddingLeft: 7 }}>
+                                                        <span style={{ marginLeft: -4, fontSize: 10 }}>{bullet}</span>
+                                                    </li>
+                                                })}
+                                            </ul>
                                         </Row>
                                     })}
 
@@ -328,7 +335,7 @@ const styles = (mobile) => {
             fontWeight: 'bold',
             margin: 0,
             width: '100%',
-            paddingBottom: 2,
+            paddingBottom: 4,
             borderBottom: "0.5px solid #005696"
         },
         bodyContentHeaders: {
