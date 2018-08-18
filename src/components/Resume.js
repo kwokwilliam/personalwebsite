@@ -248,7 +248,7 @@ export default class Resume extends Component {
                             {this.mainBody.map((bodyItem, index) => {
                                 return <Row style={{ ...styles().body }} key={"mainBody" + index}>
                                     <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 5 }}>
-                                        <span style={styles().bodyItemIcon}>
+                                        <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
                                             <img src={bodyItem.icon} style={styles().bodyIconSize} />
                                         </span>
                                         {bodyItem.title}
@@ -266,12 +266,31 @@ export default class Resume extends Component {
                                             </ul>
                                         </Row>
                                     })}
-
                                 </Row>
-                            })
+                            })}
 
-                            }
+                            {/* =============================== Bottom =============================== */}
+                            {this.bottom.map((bodyItem, index) => {
+                                return <Row style={{ ...styles().body }} key={"bottomBody" + index}>
+                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 5 }}>
+                                        <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
+                                            <img src={bodyItem.icon} style={styles().bodyIconSize} />
+                                        </span>
+                                        {bodyItem.title}
+                                    </Row>
+                                    {bodyItem.items.map((contentItem, j) => {
+                                        return <Row key={"bc" + index + '-' + j} style={{ ...styles().bodyContentHeaders, padding: 0, marginBottom: 0 }}>
+                                            <div style={{ ...styles().contentItemTitle, paddingLeft: 3, marginBottom: 2 }}>
+                                                {contentItem.title}
+                                                <span style={{ fontSize: 10, color: 'black', fontWeight: 'normal' }}>
+                                                    {contentItem.list.join(", ")}
+                                                </span>
+                                            </div>
 
+                                        </Row>
+                                    })}
+                                </Row>
+                            })}
 
                         </Grid>
                     </div>
