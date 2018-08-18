@@ -33,11 +33,6 @@ export default class MainPage extends Component {
                 icon: faEnvelope,
                 text: "wkwok16@uw.edu",
                 link: "mailto:wkwok16@uw.edu"
-            },
-            {
-                icon: faFileAlt,
-                text: "resume (july '18)",
-                link: resume
             }
         ];
 
@@ -105,7 +100,7 @@ export default class MainPage extends Component {
                                             <FontAwesomeIcon icon={faFileAlt} size={"3x"} />
                                         </Link>
                                         <Link to="/resume" style={{ textDecoration: 'none', color: '#005696' }}>
-                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{"Resume"}</span>
+                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{"resume (august '18)"}</span>
                                         </Link>
                                     </Row>
                                 }
@@ -116,7 +111,7 @@ export default class MainPage extends Component {
                                             return (
                                                 <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
                                                     <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                        <FontAwesomeIcon icon={faFileAlt} size={this.props.mobile ? "2x" : "3x"} />
+                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
                                                     </a>
                                                 </Col>
                                             )

@@ -302,7 +302,7 @@ export default class Resume extends Component {
             <Row>
                 <div style={{ width: '100%' }}>
                     {!this.canvLoaded && <canvas ref="canvas" style={{ display: 'none' }}></canvas>}
-                    <Fade clear cascade>
+                    <Fade right cascade>
                         <div>
                             <div style={{ margin: 'auto', textAlign: 'center', marginBottom: 10 }}>
                                 This page doesn't appear correctly on mobile, sorry!<br /><br />
@@ -310,7 +310,9 @@ export default class Resume extends Component {
                                     <FontAwesomeIcon icon={faDownload} size={"2x"} /> Download PDF
                                 </a>
                             </div>
-                            {resumeObj}
+                            <div>
+                                {resumeObj}
+                            </div>
                         </div>
                     </Fade>
                 </div>
