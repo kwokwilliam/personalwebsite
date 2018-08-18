@@ -27,6 +27,7 @@ export default class Projects extends Component {
                 text: '(808) 218 - 3017'
             }
         ]
+        this.canvLoaded = false;
     }
 
     exportPDFWithMethod = () => {
@@ -37,16 +38,24 @@ export default class Projects extends Component {
         return 72 * inch;
     }
 
+    convertSvgToImage = (canv, arr) => {
+        arr.forEach((d, i) => {
+            let htmlString = ReactDOMServer.renderToStaticMarkup(
+                <FontAwesomeIcon icon={d.icon} size={"3x"} style={{ color: '#005696', height: '500px', width: '500px' }} />
+            );
+            canvg(canv, htmlString);
+            d.icon = canv.toDataURL("image/png");
+        })
+    }
+
+
     render() {
-        const htmlString = ReactDOMServer.renderToStaticMarkup(
-            <FontAwesomeIcon icon={faDownload} size={"3x"} style={{ color: '#005696', height: '500px', width: '500px' }} />
-        );
         let canv = this.refs.canvas;
 
-        if (canv) {
+        if (canv && !this.canvLoaded) {
+            this.canvLoaded = true;
             let ctx = canv.getContext("2d");
-            canvg(canv, htmlString);
-            this.image = canv.toDataURL("image/png");
+            this.convertSvgToImage(canv, this.leftHeader);
         }
 
 
@@ -61,8 +70,9 @@ export default class Projects extends Component {
                                     {this.leftHeader.map((item, index) => {
                                         return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiL' + index}>
                                             <span style={styles().headerItem}>
+
                                                 {/* <FontAwesomeIcon icon={item.icon} size={"2x"} /> */}
-                                                {this.image && <img src={this.image} style={{ height: 20, width: 20 }} />}
+                                                <img src={item.icon} style={{ height: 20, width: 20 }} />
 
                                             </span>
                                             {item.text}
@@ -77,13 +87,14 @@ export default class Projects extends Component {
                     </div>
                 </div>
             </PDFExport>;
+
+
         return <Grid fluid>
             <Row>
                 <div style={{ width: '100%' }}>
-                    <canvas ref="canvas" style={{ display: 'none' }}></canvas>
+                    {!this.canvLoaded && <canvas ref="canvas" style={{ display: 'none' }}></canvas>}
                     <Fade clear cascade>
                         <div>
-
                             <div style={{ margin: 'auto', textAlign: 'center', marginBottom: 10 }}>
                                 This page doesn't appear correctly on mobile, sorry!<br /><br />
                                 <a onClick={this.exportPDFWithMethod} style={{ cursor: 'pointer', margin: 'auto', textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
