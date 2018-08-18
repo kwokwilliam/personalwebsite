@@ -4,13 +4,14 @@ import Fade from 'react-reveal/Fade';
 import { PDFExport } from '@progress/kendo-react-pdf';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import { faDownload, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEnvelope, faPhone, faGlobe, faGraduationCap, faBriefcase, faLaptop, faFileCode, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOMServer from 'react-dom/server';
 import './Resume.css';
 import canvg from 'canvg';
 
-export default class Projects extends Component {
+export default class Resume extends Component {
     resume;
     constructor() {
         super();
@@ -32,10 +33,47 @@ export default class Projects extends Component {
             "William Kwok"
         ];
 
+        this.rightHeader = [
+            {
+                icon: faGithub,
+                text: 'kwokwilliam'
+            },
+            {
+                icon: faLinkedin,
+                text: 'william-w-kwok'
+            },
+            {
+                icon: faGlobe,
+                text: 'https://williamk.info'
+            }
+        ]
 
+        this.mainBody = [
+            {
+                title: "EDUCATION",
+                icon: faGraduationCap,
+                content: [
+                    {
+                        title: "University of Washington - Seattle, Washington",
+                        rightContent: "June 2020",
+                        bullets: [
+                            "GPA: 3.66/4.0 (Dean's List)",
+                            "Bachelor of Science in Informatics with a focus in Data Science, Human-Computer Interaction, and Information Architecture",
+                            "Minor in Mathematics",
+                            "Current coursework: Databases and Data Modeling, Research Methods in Data Science, Design Methods",
+                            `Past coursework: Computer Programming II, Matrix Algebra, Beginning Scientific Computing, Foundations of Data Science, 
+                             Introductory Web Programming, Differential Equations, Client Side Development, Visual Information Design, Statistical Methods
+                             in Engineering and Science, Data Structures and Algorithms`
+                        ]
+                    }
+                ]
+            },
+
+        ]
 
 
         this.canvLoaded = false;
+        this.remainingHeightForBody = styles().paperStyle.height - (styles().paperBorder.padding * 2 + styles().header.height);
     }
 
     exportPDFWithMethod = () => {
@@ -64,6 +102,8 @@ export default class Projects extends Component {
             this.canvLoaded = true;
             let ctx = canv.getContext("2d");
             this.convertSvgToImage(canv, this.leftHeader);
+            this.convertSvgToImage(canv, this.rightHeader);
+            this.convertSvgToImage(canv, this.mainBody);
         }
 
 
@@ -77,20 +117,31 @@ export default class Projects extends Component {
                 <div style={styles(this.props.mobile).paperStyle} className={'resume'}> {/* Resume content starts in here */}
                     <div style={styles().paperBorder}>
                         <Grid fluid style={{ padding: 0 }}>
+                            {/* =============================== Header =============================== */}
                             <Row style={styles().header}>
                                 <div style={{ ...styles().col, ...styles().minHCol }}>
                                     {this.leftHeader.map((item, index) => {
                                         return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiL' + index}>
                                             <span style={styles().headerItemIcon}>
-                                                <img src={item.icon} style={{ height: 20, width: 20 }} />
+                                                <img src={item.icon} style={styles().headerIconSize} />
                                             </span>
                                             {item.text}
                                         </Row>
                                     })}
                                 </div>
                                 <div style={{ ...styles().col, ...styles().maxHCol, ...styles().middleHeader }}>{this.middleHeader[0]}</div>
-                                <div style={{ ...styles().col, ...styles().minHCol }}>right</div>
+                                <div style={{ ...styles().col, ...styles().minHCol, ...styles().rightHeader }}>
+                                    {this.rightHeader.map((item, index) => {
+                                        return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiR' + index}>
+                                            <span style={styles().headerItemIcon}>
+                                                <img src={item.icon} style={styles().headerIconSize} />
+                                            </span>
+                                            {item.text}
+                                        </Row>
+                                    })}
+                                </div>
                             </Row>
+
                         </Grid>
                     </div>
                 </div>
@@ -121,8 +172,8 @@ export default class Projects extends Component {
 const styles = (mobile) => {
     return {
         paperStyle: {
-            height: '792px',
-            width: '612px',
+            height: 792,
+            width: 612,
             padding: 'none',
             backgroundColor: 'white',
             boxShadow: '5px 5px 5px #888888',
@@ -133,13 +184,13 @@ const styles = (mobile) => {
         paperBorder: {
             height: '100%',
             width: '100%',
-            padding: '12px',
+            padding: 12,
             overflowX: 'hidden',
             overflowY: 'hidden'
 
         },
         header: {
-            height: '100px',
+            height: 60,
             padding: 0,
             margin: 0
         },
@@ -147,16 +198,16 @@ const styles = (mobile) => {
             padding: 0
         },
         headerItems: {
-            fontSize: 12,
+            fontSize: 10.5,
             color: '#005696',
             marginLeft: 0,
-            marginBottom: 10
+            marginBottom: 5        // between header items
         },
         headerItemIcon: {
             textDecoration: 'none',
             minWidth: "20px",
             textAlign: 'center',
-            marginRight: 9,
+            marginRight: 5,
         },
         minHCol: {
             width: (612 - 24) / 4 + 'px'
@@ -169,6 +220,13 @@ const styles = (mobile) => {
             fontSize: 40,
             fontWeight: 'bold',
             color: '#005696'
+        },
+        rightHeader: {
+            paddingLeft: 35 /// padding for right header
+        },
+        headerIconSize: {
+            height: 15,
+            width: 15
         }
     }
 }
