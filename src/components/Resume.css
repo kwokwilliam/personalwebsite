@@ -1,8 +1,3 @@
-@font-face {
-    font-family: SFNSDisplay;
-    src: url(..//assets/fonts/SFNSDisplayThin.ttf);
-}
-
 .resume {
-    font-family: SFNSDisplay;
+    font-family: Quicksand;
 }

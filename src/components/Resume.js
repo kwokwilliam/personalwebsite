@@ -68,9 +68,110 @@ export default class Resume extends Component {
                     }
                 ]
             },
-
+            {
+                title: "EXPERIENCE",
+                icon: faBriefcase,
+                content: [
+                    {
+                        title: "Code and Cognition Lab, Undergraduate Researcher",
+                        rightContent: "June 2018 - Present",
+                        bullets: [
+                            "Design and build research prototypes using ReactJS, plan studies, gather data, and prepare presentations"
+                        ]
+                    },
+                    {
+                        title: "Washington iGEM, Hardware / Software Lead Engineer, Web Development Lead",
+                        rightContent: "February 2017 - Present",
+                        bullets: [
+                            "Design and oversee a yearly hardware and software project that is made alongside a synthetic biology aspect of the project",
+                            "Develop the team website and iGEM Team Wiki (required for competition judging) using ReactJS"
+                        ]
+                    },
+                    {
+                        title: "Biomedical Image Computing Group, Undergraduate Researcher",
+                        rightContent: "January 2018 - June 2018",
+                        bullets: [
+                            "Statistical/data analysis of MRI scans using Python, R, and C++",
+                            "Process MRI scans using in house software libraries",
+                            "Create neural network models in TinyCNN, MXNet, and Tensorflow"
+                        ]
+                    },
+                    {
+                        title: "Punahou School, Teacher Aide",
+                        rightContent: "June 2015 - July 2015",
+                        bullets: [
+                            "Soldered underwater ROV controllers",
+                            "Helped middle school students build PVC ROVs and got them excited about robotics and engineering"
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "RECENT PROJECTS",
+                icon: faFileCode,
+                content: [
+                    {
+                        title: "Koconut, Code and Cognition Lab",
+                        rightContent: "June 2018 - September 2018",
+                        bullets: [
+                            "A web tutor that uses the Bayesian Knowledge Tracing algorithm to help users effectively learn programming concepts.",
+                            "Enzyme, Express, Firebase, Flow, JavaScript, Jest, Lodash, MaterialUI, React, React Router, Sass"
+                        ]
+                    },
+                    {
+                        title: "PSTutor, Code and Cognition Lab",
+                        rightContent: "June 2018 - July 2018",
+                        bullets: [
+                            "A web tutor for problem solving process in the context of canvas drawings",
+                            "Firebase, JavaScript, Lodash, MaterialUI, React, React Router"
+                        ]
+                    },
+                    {
+                        title: "FRC Scouting App 2018",
+                        rightContent: "March 2018",
+                        bullets: [
+                            "A web application that allows the Hawaii Robotics community to visualize their performance at the state championships.",
+                            "Bootstrap, D3js, Firebase, JavaScript, React, React Router"
+                        ]
+                    },
+                    {
+                        title: "Planet Trip Planner",
+                        rightContent: "February 2018 - March 2018",
+                        bullets: [
+                            "A trip planner application that allows users to interactively create an itinerary and visualize their budget.",
+                            "Firebase, JavaScript, MaterialUI, React, React Router"
+                        ]
+                    }
+                ]
+            }
         ]
 
+        this.bottom = [
+            {
+                title: "SKILLS",
+                icon: faWrench,
+                items: [
+                    {
+                        title: "Languages: ",
+                        list: [
+                            "C++", "CSS", "HTML", "Java", "JavaScript (ES6)", "LaTeX", "MATLAB", "Python", "R"
+                        ]
+                    },
+                    {
+                        title: "Tools and Frameworks: ",
+                        list: [
+                            "Bootstrap", "Enzyme", "Firebase", "Flow", "git", "Jest", "jQuery", "MaterialUI", "React", "React Native", "React Router", "R Shiny", "Vue"
+                        ]
+                    },
+                    {
+                        title: "Processes: ",
+                        list: [
+                            "Agile Development, Data Analysis, Managing, Research, Teaching, Web Development"
+                        ]
+                    }
+                ]
+            }
+        ]
 
         this.canvLoaded = false;
         this.remainingHeightForBody = styles().paperStyle.height - (styles().paperBorder.padding * 2 + styles().header.height);
@@ -104,6 +205,7 @@ export default class Resume extends Component {
             this.convertSvgToImage(canv, this.leftHeader);
             this.convertSvgToImage(canv, this.rightHeader);
             this.convertSvgToImage(canv, this.mainBody);
+            this.convertSvgToImage(canv, this.bottom);
         }
 
 
@@ -141,6 +243,28 @@ export default class Resume extends Component {
                                     })}
                                 </div>
                             </Row>
+
+                            {/* =============================== Main Body =============================== */}
+                            {this.mainBody.map((bodyItem, index) => {
+                                return <Row style={{ ...styles().body }} key={"mainBody" + index}>
+                                    <Row middle="xs" style={{ ...styles().bodyHeaders }}>
+                                        <span style={styles().bodyItemIcon}>
+                                            <img src={bodyItem.icon} style={styles().bodyIconSize} />
+                                        </span>
+                                        {bodyItem.title}
+                                    </Row>
+                                    {bodyItem.content.map((contentItem, j) => {
+                                        return <Row key={"bc" + index + ' ' + j} style={{ ...styles().bodyContentHeaders }}>
+                                            <div style={{ ...styles().contentItemTitle, width: '70%' }}> {contentItem.title}</div>
+                                            <div style={{ ...styles().contentItemRightContent, width: '30%', }}>{contentItem.rightContent}</div>
+                                        </Row>
+                                    })}
+
+                                </Row>
+                            })
+
+                            }
+
 
                         </Grid>
                     </div>
@@ -194,6 +318,34 @@ const styles = (mobile) => {
             padding: 0,
             margin: 0
         },
+        body: {
+            padding: 0,
+            margin: 0
+        },
+        bodyHeaders: {
+            color: "#005696",
+            fontSize: 19,
+            fontWeight: 'bold',
+            margin: 0,
+            width: '100%',
+            paddingBottom: 2,
+            borderBottom: "0.5px solid #005696"
+        },
+        bodyContentHeaders: {
+            margin: 0,
+            width: '100%'
+        },
+        contentItemTitle: {
+            color: "#005696",
+            fontSize: 12,
+            fontWeight: 'bold',
+            padding: 0
+        },
+        contentItemRightContent: {
+            fontSize: 12,
+            textAlign: 'right',
+            padding: 0
+        },
         col: {
             padding: 0
         },
@@ -205,7 +357,11 @@ const styles = (mobile) => {
         },
         headerItemIcon: {
             textDecoration: 'none',
-            minWidth: "20px",
+            textAlign: 'center',
+            marginRight: 5,
+        },
+        bodyItemIcon: {
+            textDecoration: 'none',
             textAlign: 'center',
             marginRight: 5,
         },
@@ -227,6 +383,10 @@ const styles = (mobile) => {
         headerIconSize: {
             height: 15,
             width: 15
+        },
+        bodyIconSize: {
+            height: 20,
+            width: 20
         }
     }
 }

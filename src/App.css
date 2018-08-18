@@ -1,12 +1,30 @@
 @font-face {
-    font-family: QuicksandReg;
+    font-family: Quicksand;
     src: url(./assets/fonts/Quicksand-Regular.ttf);
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(./assets/fonts/Quicksand-Bold.ttf);
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(./assets/fonts/Quicksand-Medium.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(./assets/fonts/Quicksand-Light.ttf);
+    font-weight: lighter;
 }
 
 html,
 body {
     background-color: #eeeeee;
-    font-family: QuicksandReg;
+    font-family: Quicksand;
 }
 
 .fix-container {
