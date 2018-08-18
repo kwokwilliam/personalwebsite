@@ -26,7 +26,15 @@ export default class Projects extends Component {
                 icon: faPhone,
                 text: '(808) 218 - 3017'
             }
-        ]
+        ];
+
+        this.middleHeader = [
+            "William Kwok"
+        ];
+
+
+
+
         this.canvLoaded = false;
     }
 
@@ -61,6 +69,10 @@ export default class Projects extends Component {
 
         let resumeObj =
             <PDFExport paperSize={'Letter'}
+                fileName="WilliamKwokResume.pdf"
+                title="William Kwok"
+                subject="William Kwok"
+                keywords="William Kwok Resume React Javascript Java Python C++ Vue ReactJS Native VueJS Bootstrap CSS HTML HTML5 JQuery LaTeX NodeJS Node.js Node Git Flow Firebase Router Redux"
                 ref={(r) => this.resume = r}>
                 <div style={styles(this.props.mobile).paperStyle} className={'resume'}> {/* Resume content starts in here */}
                     <div style={styles().paperBorder}>
@@ -69,19 +81,15 @@ export default class Projects extends Component {
                                 <div style={{ ...styles().col, ...styles().minHCol }}>
                                     {this.leftHeader.map((item, index) => {
                                         return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiL' + index}>
-                                            <span style={styles().headerItem}>
-
-                                                {/* <FontAwesomeIcon icon={item.icon} size={"2x"} /> */}
+                                            <span style={styles().headerItemIcon}>
                                                 <img src={item.icon} style={{ height: 20, width: 20 }} />
-
                                             </span>
                                             {item.text}
-
                                         </Row>
                                     })}
                                 </div>
-                                <div sm={6} md={6} style={{ ...styles().col, ...styles().maxHCol }}>middle</div>
-                                <div sm={3} md={3} style={{ ...styles().col, ...styles().minHCol }}>right</div>
+                                <div style={{ ...styles().col, ...styles().maxHCol, ...styles().middleHeader }}>{this.middleHeader[0]}</div>
+                                <div style={{ ...styles().col, ...styles().minHCol }}>right</div>
                             </Row>
                         </Grid>
                     </div>
@@ -139,12 +147,12 @@ const styles = (mobile) => {
             padding: 0
         },
         headerItems: {
-            fontSize: 10,
+            fontSize: 12,
             color: '#005696',
             marginLeft: 0,
             marginBottom: 10
         },
-        headerItem: {
+        headerItemIcon: {
             textDecoration: 'none',
             minWidth: "20px",
             textAlign: 'center',
@@ -155,6 +163,12 @@ const styles = (mobile) => {
         },
         maxHCol: {
             width: (612 - 24) / 2 + 'px'
+        },
+        middleHeader: {
+            textAlign: 'center',
+            fontSize: 40,
+            fontWeight: 'bold',
+            color: '#005696'
         }
     }
 }
