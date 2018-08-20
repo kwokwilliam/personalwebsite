@@ -41,6 +41,20 @@ export default class Projects extends Component {
             },
             */
             {
+                title: "React Resume PDF",
+                thumbnail: "",
+                description: [`I set out to solve the problem of creating a resume in React. There were some
+                    self-set specifications that were difficult to meet, but I figured out a way to do it. I 
+                    also wrote about it in a medium article, to teach others how to do it!`,],
+                link: "https://medium.com/@wkwok16/lets-make-a-resume-in-react-2c9c5540f51a",
+                githubLink: "https://github.com/kwokwilliam/react-resume-pdf",
+                tools: [],
+                seeAlso: [],
+                time: "August 2018",
+                type: "Programming",
+                hash: "reactresumepdf"
+            },
+            {
                 title: "FRC Scouting App",
                 thumbnail: scout,
                 description: [`During spring break, I headed back home to Hawaii. The FIRST Robotics 

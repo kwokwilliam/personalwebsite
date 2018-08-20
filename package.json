@@ -18,6 +18,7 @@
         "@progress/kendo-react-pdf": "^1.2.0",
         "bootstrap": "^4.1.1",
         "canvg": "^1.5.2",
+        "firebase": "^5.4.0",
         "react": "^16.3.2",
         "react-anime": "^2.1.0",
         "react-dom": "^16.3.2",
