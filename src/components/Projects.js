@@ -13,6 +13,8 @@ import scout from '../assets/imgs/projects/scout.png';
 import teammanager from '../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
 
+import firebase from 'firebase';
+
 import { Button } from 'reactstrap';
 import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
 export default class Projects extends Component {
@@ -24,6 +26,14 @@ export default class Projects extends Component {
             filterString: '',
             highlighted: '',
             dropdownOpen: false
+        }
+
+        if (!sessionStorage.getItem("projectsVisited")) {
+            sessionStorage.setItem("projectsVisited", true);
+            firebase.database().ref('/timesViewedProjectsPage').once('value').then((s) => {
+                let val = s.val();
+                firebase.database().ref('/timesViewedProjectsPage').set(val + 1);
+            })
         }
 
         this.projects = [

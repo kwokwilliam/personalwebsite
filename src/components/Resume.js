@@ -2,20 +2,29 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import { PDFExport } from '@progress/kendo-react-pdf';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Grid, Row } from 'react-flexbox-grid';
 
-import { faDownload, faEnvelope, faPhone, faGlobe, faGraduationCap, faBriefcase, faLaptop, faFileCode, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEnvelope, faPhone, faGlobe, faGraduationCap, faBriefcase, faFileCode, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOMServer from 'react-dom/server';
 import './Resume.css';
 import canvg from 'canvg';
+import firebase from 'firebase';
 
 export default class Resume extends Component {
     resume;
     constructor() {
         super();
         this.state = {
+        }
+
+        if (!sessionStorage.getItem("resumeVisited")) {
+            sessionStorage.setItem("resumeVisited", true);
+            firebase.database().ref('/timesViewedResumePage').once('value').then((s) => {
+                let val = s.val();
+                firebase.database().ref('/timesViewedResumePage').set(val + 1);
+            })
         }
 
         this.leftHeader = [
@@ -179,13 +188,25 @@ export default class Resume extends Component {
 
     exportPDFWithMethod = () => {
         this.resume.save();
+        if (!sessionStorage.getItem("resumeDownloaded")) {
+            sessionStorage.setItem("resumeDownloaded", true);
+            firebase.database().ref('/timesDownloadedResume').once('value').then((s) => {
+                let val = s.val();
+                firebase.database().ref('/timesDownloadedResume').set(val + 1);
+            })
+        }
     }
 
     inchToPixels = (inch) => {
         return 72 * inch;
     }
 
-    convertSvgToImage = (canv, arr) => {
+    convertSvgToImage = (arr) => {
+
+        let canv = this.refs.canvas;
+        canv.getContext("2d");
+
+
         arr.forEach((d, i) => {
             let htmlString = ReactDOMServer.renderToStaticMarkup(
                 <FontAwesomeIcon icon={d.icon} size={"3x"} style={{ color: '#005696', height: '500px', width: '500px' }} />
@@ -195,20 +216,14 @@ export default class Resume extends Component {
         })
     }
 
+    componentDidMount() {
+        this.convertSvgToImage(this.leftHeader);
+        this.convertSvgToImage(this.rightHeader);
+        this.convertSvgToImage(this.mainBody);
+        this.convertSvgToImage(this.bottom);
+    }
 
     render() {
-        let canv = this.refs.canvas;
-
-        if (canv && !this.canvLoaded) {
-            this.canvLoaded = true;
-            let ctx = canv.getContext("2d");
-            this.convertSvgToImage(canv, this.leftHeader);
-            this.convertSvgToImage(canv, this.rightHeader);
-            this.convertSvgToImage(canv, this.mainBody);
-            this.convertSvgToImage(canv, this.bottom);
-        }
-
-
         let resumeObj =
             <PDFExport paperSize={'Letter'}
                 fileName="WilliamKwokResume.pdf"

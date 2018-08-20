@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
+import firebase from 'firebase';
 
 export default class About extends Component {
     constructor() {
@@ -11,6 +12,14 @@ export default class About extends Component {
 
         this.state = {
             expanded: []
+        }
+
+        if (!sessionStorage.getItem("aboutVisited")) {
+            sessionStorage.setItem("aboutVisited", true);
+            firebase.database().ref('/timesViewedAboutPage').once('value').then((s) => {
+                let val = s.val();
+                firebase.database().ref('/timesViewedAboutPage').set(val + 1);
+            })
         }
 
         this.skills = [

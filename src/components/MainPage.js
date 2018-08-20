@@ -6,7 +6,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import resume from '../assets/resume/resume7-18.pdf';
 import {
     Link,
 } from 'react-router-dom';

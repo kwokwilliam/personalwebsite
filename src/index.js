@@ -16,7 +16,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Firebase is just used to log how many visits my site has gotten
+// Firebase is just used to log how many visits each page of my site has gotten
 // No other data is stored. 
 if (!sessionStorage.getItem("visited")) {
     sessionStorage.setItem("visited", true);
