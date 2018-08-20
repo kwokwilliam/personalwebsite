@@ -22,6 +22,7 @@ import safecycleJS from './assets/imgs/projects/safecycleJS.png';
 import safecycleR from './assets/imgs/projects/safecycleR.png';
 import scout from './assets/imgs/projects/scout.png';
 import teammanager from './assets/imgs/projects/teammanager.png';
+import reactresumepdf from './assets/imgs/projects/reactresumepdf.png';
 
 class App extends Component {
     constructor() {
@@ -54,7 +55,8 @@ class App extends Component {
             safecycleJS,
             safecycleR,
             scout,
-            teammanager];
+            teammanager,
+            reactresumepdf];
 
         this.pages = ["main", "about", "projects"];
     }

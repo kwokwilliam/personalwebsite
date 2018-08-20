@@ -11,6 +11,7 @@ import safecycleJS from '../assets/imgs/projects/safecycleJS.png';
 import safecycleR from '../assets/imgs/projects/safecycleR.png';
 import scout from '../assets/imgs/projects/scout.png';
 import teammanager from '../assets/imgs/projects/teammanager.png';
+import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
 
 import { Button } from 'reactstrap';
 import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
@@ -42,7 +43,7 @@ export default class Projects extends Component {
             */
             {
                 title: "React Resume PDF",
-                thumbnail: "",
+                thumbnail: reactresumepdf,
                 description: [`I set out to solve the problem of creating a resume in React. There were some
                     self-set specifications that were difficult to meet, but I figured out a way to do it. I 
                     also wrote about it in a medium article, to teach others how to do it!`,],
