@@ -5,6 +5,7 @@ import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
 import firebase from 'firebase';
+import cookies from 'browser-cookies';
 
 export default class About extends Component {
     constructor() {
@@ -16,10 +17,11 @@ export default class About extends Component {
 
         if (!sessionStorage.getItem("aboutVisited")) {
             sessionStorage.setItem("aboutVisited", true);
-            firebase.database().ref('/timesViewedAboutPage').once('value').then((s) => {
-                let val = s.val();
-                firebase.database().ref('/timesViewedAboutPage').set(val + 1);
-            })
+            let id = cookies.get('id');
+            firebase.database().ref('/aboutPageView').push({
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                id
+            });
         }
 
         this.skills = [

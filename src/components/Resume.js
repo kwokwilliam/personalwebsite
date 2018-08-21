@@ -11,6 +11,7 @@ import ReactDOMServer from 'react-dom/server';
 import './Resume.css';
 import canvg from 'canvg';
 import firebase from 'firebase';
+import cookies from 'browser-cookies';
 
 export default class Resume extends Component {
     resume;
@@ -19,12 +20,14 @@ export default class Resume extends Component {
         this.state = {
         }
 
+
         if (!sessionStorage.getItem("resumeVisited")) {
             sessionStorage.setItem("resumeVisited", true);
-            firebase.database().ref('/timesViewedResumePage').once('value').then((s) => {
-                let val = s.val();
-                firebase.database().ref('/timesViewedResumePage').set(val + 1);
-            })
+            let id = cookies.get('id');
+            firebase.database().ref('/resumePageView').push({
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                id
+            });
         }
 
         this.leftHeader = [
@@ -190,10 +193,11 @@ export default class Resume extends Component {
         this.resume.save();
         if (!sessionStorage.getItem("resumeDownloaded")) {
             sessionStorage.setItem("resumeDownloaded", true);
-            firebase.database().ref('/timesDownloadedResume').once('value').then((s) => {
-                let val = s.val();
-                firebase.database().ref('/timesDownloadedResume').set(val + 1);
-            })
+            let id = cookies.get('id');
+            firebase.database().ref('/resumeDownload').push({
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                id
+            });
         }
     }
 

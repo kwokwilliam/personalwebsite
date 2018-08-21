@@ -17,6 +17,7 @@
         "@progress/kendo-react-intl": "^1.2.0",
         "@progress/kendo-react-pdf": "^1.2.0",
         "bootstrap": "^4.1.1",
+        "browser-cookies": "^1.2.0",
         "canvg": "^1.5.2",
         "firebase": "^5.4.0",
         "react": "^16.3.2",

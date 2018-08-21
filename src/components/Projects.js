@@ -14,6 +14,7 @@ import teammanager from '../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
 
 import firebase from 'firebase';
+import cookies from 'browser-cookies';
 
 import { Button } from 'reactstrap';
 import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
@@ -30,10 +31,11 @@ export default class Projects extends Component {
 
         if (!sessionStorage.getItem("projectsVisited")) {
             sessionStorage.setItem("projectsVisited", true);
-            firebase.database().ref('/timesViewedProjectsPage').once('value').then((s) => {
-                let val = s.val();
-                firebase.database().ref('/timesViewedProjectsPage').set(val + 1);
-            })
+            let id = cookies.get('id');
+            firebase.database().ref('/projectsPageView').push({
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                id
+            });
         }
 
         this.projects = [
