@@ -24,6 +24,14 @@ import scout from './assets/imgs/projects/scout.png';
 import teammanager from './assets/imgs/projects/teammanager.png';
 import reactresumepdf from './assets/imgs/projects/reactresumepdf.png';
 
+import Loadable from 'react-loadable';
+
+const Loading = () => <div>loading</div>;
+const Test = Loadable({
+    loader: () => import('./projects/Test'),
+    loading: Loading,
+})
+
 class App extends Component {
     constructor() {
         super();
@@ -89,41 +97,45 @@ class App extends Component {
         return (
             <Router basename={process.env.PUBLIC_URL}>
                 <Route render={({ location }) => (
-                    <div>
-                        {this.state.finishedGear && <Route exact path="/" render={() => (
-                            <Redirect to="/main" />
-                        )} />}
-                        {/* Content */}
+                    <Switch>
+                        <Route exact path="/Test" component={Test} />
+                        <Route exact path="/Tes6t" component={Test} />
+                        <div>
+                            {this.state.finishedGear && <Route exact path="/" render={() => (
+                                <Redirect to="/main" />
+                            )} />}
+                            {/* Content */}
 
-                        <TransitionGroup>
-                            <CSSTransition
-                                key={location.key}
-                                classNames="fade"
-                                timeout={{ enter: 300, exit: 300 }}
-                            >
-                                <div className={"fix-container"}>
-                                    <Switch location={location}>
-                                        <Route exact path="/" render={() => null} />
-                                        <Route render={() => <Navbar pages={this.pages} mobile={this.state.mobile} />} />
-                                    </Switch>
-                                    <Switch location={location}>
-                                        <Route exact path="/" render={routerProps => (
-                                            <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-                                                <Fade clear enter={false} spy when={this.state.gearIn}>
-                                                    <Gear fadeOutGear={this.fadeOutGear} />
-                                                </Fade>
-                                            </div>
-                                        )} />
-                                        {this.pages.map(d => {
-                                            return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
-                                        })}
-                                        <Route path={"/resume"} render={() => <Page page={'resume'} mobile={this.state.mobile} />} />
-                                        <Route render={() => <div style={{ margin: 20 }}>Error: Page not found :(</div>} />
-                                    </Switch>
-                                </div>
-                            </CSSTransition>
-                        </TransitionGroup>
-                    </div>
+                            <TransitionGroup>
+                                <CSSTransition
+                                    key={location.key}
+                                    classNames="fade"
+                                    timeout={{ enter: 300, exit: 300 }}
+                                >
+                                    <div className={"fix-container"}>
+                                        <Switch location={location}>
+                                            <Route exact path="/" render={() => null} />
+                                            <Route render={() => <Navbar pages={this.pages} mobile={this.state.mobile} />} />
+                                        </Switch>
+                                        <Switch location={location}>
+                                            <Route exact path="/" render={routerProps => (
+                                                <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+                                                    <Fade clear enter={false} spy when={this.state.gearIn}>
+                                                        <Gear fadeOutGear={this.fadeOutGear} />
+                                                    </Fade>
+                                                </div>
+                                            )} />
+                                            {this.pages.map(d => {
+                                                return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
+                                            })}
+                                            <Route path={"/resume"} render={() => <Page page={'resume'} mobile={this.state.mobile} />} />
+                                            <Route render={() => <div style={{ margin: 20 }}>Error: Page not found :(</div>} />
+                                        </Switch>
+                                    </div>
+                                </CSSTransition>
+                            </TransitionGroup>
+                        </div>
+                    </Switch>
                 )} />
             </Router>
         );
