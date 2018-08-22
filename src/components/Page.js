@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
 import './Page.css';
-import MainPage from './MainPage';
-import Projects from './Projects';
-import About from './About';
-import Resume from './Resume';
+// import MainPage from './MainPage';
+// import Projects from './Projects';
+// import About from './About';
+// import Resume from './Resume';
+import Loadable from 'react-loadable';
+
+const Loading = () => <div>Loading content...</div>;
+const MainPage = Loadable({
+    loader: () => import('./MainPage'),
+    loading: Loading,
+});
+const Projects = Loadable({
+    loader: () => import('./Projects'),
+    loading: Loading,
+});
+const About = Loadable({
+    loader: () => import('./About'),
+    loading: Loading,
+});
+const Resume = Loadable({
+    loader: () => import('./Resume'),
+    loading: Loading,
+})
 
 export default class Page extends Component {
     constructor(props) {
