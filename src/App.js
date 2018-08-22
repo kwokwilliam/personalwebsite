@@ -100,7 +100,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/Test" component={Test} />
                         <Route exact path="/Tes6t" component={Test} />
-                        <div>
+                        <Route render={() => <div>
                             {this.state.finishedGear && <Route exact path="/" render={() => (
                                 <Redirect to="/main" />
                             )} />}
@@ -134,7 +134,7 @@ class App extends Component {
                                     </div>
                                 </CSSTransition>
                             </TransitionGroup>
-                        </div>
+                        </div>} />
                     </Switch>
                 )} />
             </Router>

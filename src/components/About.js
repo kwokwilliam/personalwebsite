@@ -4,7 +4,8 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import cookies from 'browser-cookies';
 
 export default class About extends Component {

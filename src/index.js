@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './bootstrap.css';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import crypto from 'crypto';
 import cookies from 'browser-cookies';
 

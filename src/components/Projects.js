@@ -13,7 +13,8 @@ import scout from '../assets/imgs/projects/scout.png';
 import teammanager from '../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
 
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import cookies from 'browser-cookies';
 
 import { Button } from 'reactstrap';
