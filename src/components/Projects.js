@@ -62,7 +62,7 @@ export default class Projects extends Component {
                     also wrote about it in a medium article, to teach others how to do it!`,],
                 link: "https://medium.com/@wkwok16/lets-make-a-resume-in-react-2c9c5540f51a",
                 githubLink: "https://github.com/kwokwilliam/react-resume-pdf",
-                tools: [],
+                tools: ["React"],
                 seeAlso: [],
                 time: "August 2018",
                 type: "Programming",

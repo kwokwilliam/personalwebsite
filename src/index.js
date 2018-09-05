@@ -19,6 +19,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+let dataHelper = window.location.href.split("?q=");
+
 // Firebase is just used to log how many visits each page of my site has gotten
 // No other data is stored. 
 
@@ -39,6 +41,21 @@ if (!id) {
         });
     }
 }
+
+if (dataHelper.length > 1) {
+    let comeFrom = dataHelper[1];
+    let listOfComeFrom = [
+        "jdb", "med", "lin", "inst", "fb"
+    ];
+    if (listOfComeFrom.indexOf(comeFrom) !== -1) {
+        firebase.database().ref('/cameFrom').push({
+            comeFrom,
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            id
+        })
+    }
+}
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
