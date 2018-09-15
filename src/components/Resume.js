@@ -74,9 +74,9 @@ export default class Resume extends Component {
                             "Bachelor of Science in Informatics with a focus in Data Science, Human-Computer Interaction, and Information Architecture",
                             "Minor in Mathematics",
                             "Current coursework: Databases and Data Modeling, Research Methods in Data Science, Design Methods",
-                            `Past coursework: Computer Programming II, Matrix Algebra, Beginning Scientific Computing, Foundations of Data Science, 
-                             Introductory Web Programming, Differential Equations, Client Side Development, Visual Information Design, Statistical Methods
-                             in Engineering and Science, Data Structures and Algorithms`
+                            // `Past coursework: Computer Programming II, Matrix Algebra, Beginning Scientific Computing, Foundations of Data Science, 
+                            //  Introductory Web Programming, Differential Equations, Client Side Development, Visual Information Design, Statistical Methods
+                            //  in Engineering and Science, Data Structures and Algorithms`
                         ]
                     }
                 ]
@@ -86,10 +86,23 @@ export default class Resume extends Component {
                 icon: faBriefcase,
                 content: [
                     {
+                        title: "University of Washington iSchool, Teaching Assistant",
+                        rightContent: "September 2018 - Present",
+                        bullets: [
+                            "Teach students the foundational skills for building client side applications (INFO 340)",
+                            "Host lab sections of about 35 students and answering content related questions on a class Slack channel",
+                            "Grade problem sets and project-based assignments",
+                            "Hold office hours for help understanding material"
+                        ]
+                    },
+                    {
                         title: "Code and Cognition Lab, Undergraduate Researcher",
                         rightContent: "June 2018 - Present",
                         bullets: [
-                            "Design and build research prototypes using ReactJS, plan studies, gather data, and prepare presentations"
+                            "Apply Agile development principles for assisting with research projects",
+                            "Design, build, and user test computer science tutoring applications using JavaScript/ES6 and React",
+                            "Collect and analyze data and write for a paper submitted to SIGCSE 2019"
+
                         ]
                     },
                     {
@@ -97,26 +110,26 @@ export default class Resume extends Component {
                         rightContent: "February 2017 - Present",
                         bullets: [
                             "Design and oversee a yearly hardware and software project that is made alongside a synthetic biology aspect of the project",
-                            "Develop the team website and iGEM Team Wiki (required for competition judging) using ReactJS"
+                            "Develop the team website and iGEM Team Wiki (required for competition judging) using React"
                         ]
                     },
                     {
                         title: "Biomedical Image Computing Group, Undergraduate Researcher",
                         rightContent: "January 2018 - June 2018",
                         bullets: [
-                            "Statistical/data analysis of MRI scans using Python, R, and C++",
+                            "Provide statistical/data analysis of MRI scans using Python, R, and C++",
                             "Process MRI scans using in house software libraries",
                             "Create neural network models in TinyCNN, MXNet, and Tensorflow"
                         ]
                     },
-                    {
-                        title: "Punahou School, Teacher Aide",
-                        rightContent: "June 2015 - July 2015",
-                        bullets: [
-                            "Soldered underwater ROV controllers",
-                            "Helped middle school students build PVC ROVs and got them excited about robotics and engineering"
-                        ]
-                    }
+                    // {
+                    //     title: "Punahou School, Teacher Aide",
+                    //     rightContent: "June 2015 - July 2015",
+                    //     bullets: [
+                    //         "Soldered underwater ROV controllers",
+                    //         "Helped middle school students build PVC ROVs and got them excited about robotics and engineering"
+                    //     ]
+                    // }
                 ]
             },
             {
@@ -124,37 +137,49 @@ export default class Resume extends Component {
                 icon: faFileCode,
                 content: [
                     {
+                        title: "Programming Side Project - React Resume PDF",
+                        rightContent: "August 2018",
+                        bullets: [
+                            "Wrote a Medium article on how to put certain tools together to produce the a robust React based resume.",
+                            "Ensured the exported PDF could use React, be highlightable, include SVGs",
+                            "KendoUI, React"
+                        ]
+                    },
+                    {
                         title: "Koconut, Code and Cognition Lab",
                         rightContent: "June 2018 - September 2018",
                         bullets: [
-                            "A web tutor that uses the Bayesian Knowledge Tracing algorithm to help users effectively learn programming concepts.",
+                            "Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts.",
+                            "I established the framework for writing unit tests in the application and helped removed code redundancy.",
                             "Enzyme, Express, Firebase, Flow, JavaScript, Jest, Lodash, MaterialUI, React, React Router, Sass"
                         ]
                     },
+                    // {
+                    //     title: "PSTutor, Code and Cognition Lab",
+                    //     rightContent: "June 2018 - July 2018",
+                    //     bullets: [
+                    //         "A web tutor for problem solving process in the context of canvas drawings",
+                    //         "Firebase, JavaScript, Lodash, MaterialUI, React, React Router"
+                    //     ]
+                    // },
                     {
-                        title: "PSTutor, Code and Cognition Lab",
-                        rightContent: "June 2018 - July 2018",
-                        bullets: [
-                            "A web tutor for problem solving process in the context of canvas drawings",
-                            "Firebase, JavaScript, Lodash, MaterialUI, React, React Router"
-                        ]
-                    },
-                    {
-                        title: "FRC Scouting App 2018",
+                        title: "App Development Personal Project - FRC Scouting App 2018",
                         rightContent: "March 2018",
                         bullets: [
                             "A web application that allows the Hawaii Robotics community to visualize their performance at the state championships.",
+                            "The application was built a day before the competition, and had data input in it by my old high school team.",
+                            "The data was released to the local community so teams could see their performance going into the world championship.",
                             "Bootstrap, D3js, Firebase, JavaScript, React, React Router"
                         ]
                     },
-                    {
-                        title: "Planet Trip Planner",
-                        rightContent: "February 2018 - March 2018",
-                        bullets: [
-                            "A trip planner application that allows users to interactively create an itinerary and visualize their budget.",
-                            "Firebase, JavaScript, MaterialUI, React, React Router"
-                        ]
-                    }
+                    // {
+                    //     title: "Planet Trip Planner",
+                    //     rightContent: "February 2018 - March 2018",
+                    //     bullets: [
+                    //         "A trip planner application that allows users to interactively create an itinerary and visualize their budget.",
+                    //         "Firebase, JavaScript, MaterialUI, React, React Router"
+                    //     ]
+                    // }
                 ]
             }
         ]
@@ -173,7 +198,7 @@ export default class Resume extends Component {
                     {
                         title: "Tools and Frameworks: ",
                         list: [
-                            "Bootstrap", "Enzyme", "Firebase", "Flow", "git", "Jest", "jQuery", "MaterialUI", "React", "React Native", "React Router", "R Shiny", "Vue"
+                            "Enzyme", "Firebase", "Flow", "git", "Jest", "jQuery", "MaterialUI", "React", "React Native", "React Router", "R Shiny", "Vue"
                         ]
                     },
                     {
@@ -226,6 +251,7 @@ export default class Resume extends Component {
         this.convertSvgToImage(this.rightHeader);
         this.convertSvgToImage(this.mainBody);
         this.convertSvgToImage(this.bottom);
+        this.forceUpdate();
     }
 
     render() {

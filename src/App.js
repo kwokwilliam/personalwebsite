@@ -26,7 +26,7 @@ import reactresumepdf from './assets/imgs/projects/reactresumepdf.png';
 
 import Loadable from 'react-loadable';
 
-const Loading = () => <div>loading</div>;
+const Loading = () => <div></div>;
 const Test = Loadable({
     loader: () => import('./projects/Test'),
     loading: Loading,

@@ -45,7 +45,7 @@ if (!id) {
 if (dataHelper.length > 1) {
     let comeFrom = dataHelper[1];
     let listOfComeFrom = [
-        "jdb", "med", "lin", "inst", "fb"
+        "jdb", "med", "lin", "inst", "fb", 'icareer', 'tw'
     ];
     if (listOfComeFrom.indexOf(comeFrom) !== -1) {
         firebase.database().ref('/cameFrom').push({
