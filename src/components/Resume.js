@@ -4,7 +4,7 @@ import Fade from 'react-reveal/Fade';
 import { PDFExport } from '@progress/kendo-react-pdf';
 import { Grid, Row } from 'react-flexbox-grid';
 
-import { faDownload, faEnvelope, faPhone, faGlobe, faGraduationCap, faBriefcase, faFileCode, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEnvelope, faPhone, faGlobe, faGraduationCap, faBriefcase, faFileCode, faWrench, faCircle } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ReactDOMServer from 'react-dom/server';
@@ -59,7 +59,13 @@ export default class Resume extends Component {
                 icon: faGlobe,
                 text: 'https://williamk.info'
             }
-        ]
+        ],
+
+            this.bullet = [
+                {
+                    icon: faCircle
+                }
+            ]
 
         this.mainBody = [
             {
@@ -246,15 +252,32 @@ export default class Resume extends Component {
         })
     }
 
+    convertBulletToImage = (arr) => {
+
+        let canv = this.refs.canvas;
+        canv.getContext("2d");
+
+
+        arr.forEach((d, i) => {
+            let htmlString = ReactDOMServer.renderToStaticMarkup(
+                <FontAwesomeIcon icon={d.icon} size={"2x"} style={{ color: '#000000', height: '500px', width: '500px' }} />
+            );
+            canvg(canv, htmlString);
+            d.icon = canv.toDataURL("image/png");
+        })
+    }
+
     componentDidMount() {
         this.convertSvgToImage(this.leftHeader);
         this.convertSvgToImage(this.rightHeader);
         this.convertSvgToImage(this.mainBody);
         this.convertSvgToImage(this.bottom);
+        this.convertBulletToImage(this.bullet);
         this.forceUpdate();
     }
 
     render() {
+        console.log(this.bullet[0].icon);
         let resumeObj =
             <PDFExport paperSize={'Letter'}
                 fileName="WilliamKwokResume.pdf"
@@ -293,7 +316,7 @@ export default class Resume extends Component {
                             {/* =============================== Main Body =============================== */}
                             {this.mainBody.map((bodyItem, index) => {
                                 return <Row style={{ ...styles().body }} key={"mainBody" + index}>
-                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 5 }}>
+                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 3 }}>
                                         <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
                                             <img src={bodyItem.icon} style={styles().bodyIconSize} />
                                         </span>
@@ -303,10 +326,12 @@ export default class Resume extends Component {
                                         return <Row key={"bc" + index + '-' + j} style={{ ...styles().bodyContentHeaders, padding: 0, marginBottom: 5 }}>
                                             <div style={{ ...styles().contentItemTitle, width: '70%', paddingLeft: 3, marginBottom: 2 }}>{contentItem.title}</div>
                                             <div style={{ ...styles().contentItemRightContent, width: '30%', }}>{contentItem.rightContent}</div>
-                                            <ul style={{ paddingLeft: 0, margin: 0, listStylePosition: 'inside', fontSize: 8 }}>
+                                            <ul style={{ paddingLeft: 0, margin: 0, fontSize: 8, listStyleType: 'none' }}>
                                                 {contentItem.bullets.map((bullet, k) => {
                                                     return <li key={'bc' + index + '-' + j + '-' + k} style={{ marginBottom: 0, paddingLeft: 7 }}>
-                                                        <span style={{ marginLeft: -4, fontSize: 10 }}>{bullet}</span>
+                                                        <span style={{ marginLeft: -4, fontSize: 10 }}>
+                                                            <img src={this.bullet[0].icon} style={{ width: 3, height: 3, marginRight: 5 }} />{bullet}
+                                                        </span>
                                                     </li>
                                                 })}
                                             </ul>
@@ -318,7 +343,7 @@ export default class Resume extends Component {
                             {/* =============================== Bottom =============================== */}
                             {this.bottom.map((bodyItem, index) => {
                                 return <Row style={{ ...styles().body }} key={"bottomBody" + index}>
-                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 5 }}>
+                                    <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 3 }}>
                                         <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
                                             <img src={bodyItem.icon} style={styles().bodyIconSize} />
                                         </span>
