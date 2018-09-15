@@ -99,7 +99,7 @@ export default class MainPage extends Component {
                                             <FontAwesomeIcon icon={faFileAlt} size={"3x"} />
                                         </Link>
                                         <Link to="/resume" style={{ textDecoration: 'none', color: '#005696' }}>
-                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{"resume (august '18)"}</span>
+                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{"resume (september '18)"}</span>
                                         </Link>
                                     </Row>
                                 }
