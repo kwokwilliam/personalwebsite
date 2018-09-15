@@ -277,7 +277,6 @@ export default class Resume extends Component {
     }
 
     render() {
-        console.log(this.bullet[0].icon);
         let resumeObj =
             <PDFExport paperSize={'Letter'}
                 fileName="WilliamKwokResume.pdf"
