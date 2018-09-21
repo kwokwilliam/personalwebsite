@@ -201,7 +201,15 @@ export default class About extends Component {
                     "CSE 373 - Data Structures and Algorithms"
                 ]
             },
-
+            {
+                quarter: "Autumn 2018",
+                classes: [
+                    "INFO 300 - Research Methods",
+                    "INFO 330 - Databases and Data Modeling",
+                    "(TA) INFO 340 - Client Side Development",
+                    "INFO 360 - Design Methods"
+                ]
+            }
         ];
 
 
