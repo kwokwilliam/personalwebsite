@@ -45,7 +45,7 @@ if (!id) {
 if (dataHelper.length > 1) {
     let comeFrom = dataHelper[1];
     let listOfComeFrom = [
-        "jdb", "med", "lin", "inst", "fb", 'icareer', 'tw', 'iuga', 'reddit'
+        "jdb", "med", "lin", "inst", "fb", 'icareer', 'tw', 'iuga', 'reddit', 'cc'
     ];
     if (listOfComeFrom.indexOf(comeFrom) !== -1) {
         firebase.database().ref('/cameFrom').push({
@@ -54,6 +54,15 @@ if (dataHelper.length > 1) {
             id
         })
     }
+
+    if (document.referrer && document.referrer !== "") {
+        firebase.database().ref('/cameFromReferrer').push({
+            comeFrom: document.referrer,
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            id
+        })
+    }
+
 }
 
 
