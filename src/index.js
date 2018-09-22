@@ -9,6 +9,8 @@ import 'firebase/database';
 import crypto from 'crypto';
 import cookies from 'browser-cookies';
 
+console.log("v1.0.0");
+
 var config = {
     apiKey: "AIzaSyBJCJ5AivGAldYdv9IYyhGeOEWskuaBE8k",
     authDomain: "personalsite-visitcounter.firebaseapp.com",
