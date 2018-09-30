@@ -46,16 +46,16 @@ if (!id) {
 
 if (dataHelper.length > 1) {
     let comeFrom = dataHelper[1];
-    let listOfComeFrom = [
-        "jdb", "med", "lin", "inst", "fb", 'icareer', 'tw', 'iuga', 'reddit', 'cc'
-    ];
-    if (listOfComeFrom.indexOf(comeFrom) !== -1) {
-        firebase.database().ref('/cameFrom').push({
-            comeFrom,
-            timestamp: firebase.database.ServerValue.TIMESTAMP,
-            id
-        })
-    }
+    // let listOfComeFrom = [
+    //     "jdb", "med", "lin", "inst", "fb", 'icareer', 'tw', 'iuga', 'reddit', 'cc'
+    // ];
+    // if (listOfComeFrom.indexOf(comeFrom) !== -1) {
+    firebase.database().ref('/cameFrom').push({
+        comeFrom,
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        id
+    })
+    // }
 
     if (document.referrer && document.referrer !== "") {
         firebase.database().ref('/cameFromReferrer').push({
