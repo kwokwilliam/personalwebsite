@@ -23,6 +23,7 @@ import safecycleR from './assets/imgs/projects/safecycleR.png';
 import scout from './assets/imgs/projects/scout.png';
 import teammanager from './assets/imgs/projects/teammanager.png';
 import reactresumepdf from './assets/imgs/projects/reactresumepdf.png';
+import koconutImg from './assets/imgs/projects/koconut.jpg';
 
 import Loadable from 'react-loadable';
 
@@ -64,7 +65,8 @@ class App extends Component {
             safecycleR,
             scout,
             teammanager,
-            reactresumepdf];
+            reactresumepdf,
+            koconutImg];
 
         this.pages = ["main", "about", "projects"];
     }

@@ -21,7 +21,6 @@ export default class Resume extends Component {
         this.state = {
         }
 
-
         if (!sessionStorage.getItem("resumeVisited")) {
             sessionStorage.setItem("resumeVisited", true);
             let id = cookies.get('id');
@@ -59,13 +58,13 @@ export default class Resume extends Component {
                 icon: faGlobe,
                 text: 'https://williamk.info'
             }
-        ],
+        ]
 
-            this.bullet = [
-                {
-                    icon: faCircle
-                }
-            ]
+        this.bullet = [
+            {
+                icon: faCircle
+            }
+        ]
 
         this.mainBody = [
             {
@@ -107,8 +106,7 @@ export default class Resume extends Component {
                         bullets: [
                             "Apply Agile development principles for assisting with research projects",
                             "Design, build, and user test computer science tutoring applications using JavaScript/ES6 and React",
-                            "Collect and analyze data and write for a paper submitted to SIGCSE 2019"
-
+                            "Collect and analyze data and write for a paper accepted to SIGCSE 2019"
                         ]
                     },
                     {
@@ -142,22 +140,32 @@ export default class Resume extends Component {
                 title: "RECENT PROJECTS",
                 icon: faFileCode,
                 content: [
-                    {
-                        title: "Programming Side Project - React Resume PDF",
-                        rightContent: "August 2018",
-                        bullets: [
-                            "Wrote a Medium article on how to put certain tools together to produce the a robust React based resume.",
-                            "Ensured the exported PDF could use React, be highlightable, include SVGs",
-                            "KendoUI, React"
-                        ]
-                    },
+                    // {
+                    //     title: "Programming Side Project - React Resume PDF",
+                    //     rightContent: "August 2018",
+                    //     bullets: [
+                    //         "Wrote a Medium article on how to put certain tools together to produce the a robust React based resume.",
+                    //         "Ensured the exported PDF could use React, be highlightable, include SVGs",
+                    //         "KendoUI, React"
+                    //     ]
+                    // },
                     {
                         title: "Koconut, Code and Cognition Lab",
-                        rightContent: "June 2018 - September 2018",
+                        rightContent: "June 2018 - Present",
                         bullets: [
                             "Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts.",
                             "I established the framework for writing unit tests in the application and helped removed code redundancy.",
                             "Enzyme, Express, Firebase, Flow, JavaScript, Jest, Lodash, MaterialUI, React, React Router, Sass"
+                        ]
+                    },
+                    {
+                        title: "Research Paper - Programming Strategies, Code and Cognition Lab",
+                        rightContent: "June 2018 - August 2018",
+                        bullets: [
+                            "The paper, titled 'Teaching Explicit Programming Strategies to Adolescents' was accepted to SIGSCE 2019.",
+                            "The paper investigates the teaching of explicit programming strategies in the classroom to adolescent students.",
+                            "I aided in the process of data collection, analyzation, and writing.",
+                            "Excel, JavaScript, LaTeX, Ordinal Linear Regression, R"
                         ]
                     },
                     // {
@@ -293,7 +301,7 @@ export default class Resume extends Component {
                                     {this.leftHeader.map((item, index) => {
                                         return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiL' + index}>
                                             <span style={styles().headerItemIcon}>
-                                                <img src={item.icon} style={styles().headerIconSize} />
+                                                <img src={item.icon} alt={""} style={styles().headerIconSize} />
                                             </span>
                                             {item.text}
                                         </Row>
@@ -304,7 +312,7 @@ export default class Resume extends Component {
                                     {this.rightHeader.map((item, index) => {
                                         return <Row middle="xs" style={{ ...styles().headerItems }} key={'hiR' + index}>
                                             <span style={styles().headerItemIcon}>
-                                                <img src={item.icon} style={styles().headerIconSize} />
+                                                <img src={item.icon} alt={""} style={styles().headerIconSize} />
                                             </span>
                                             {item.text}
                                         </Row>
@@ -317,19 +325,19 @@ export default class Resume extends Component {
                                 return <Row style={{ ...styles().body }} key={"mainBody" + index}>
                                     <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 3 }}>
                                         <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
-                                            <img src={bodyItem.icon} style={styles().bodyIconSize} />
+                                            <img src={bodyItem.icon} alt={""} style={styles().bodyIconSize} />
                                         </span>
                                         {bodyItem.title}
                                     </Row>
                                     {bodyItem.content.map((contentItem, j) => {
-                                        return <Row key={"bc" + index + '-' + j} style={{ ...styles().bodyContentHeaders, padding: 0, marginBottom: 5 }}>
+                                        return <Row key={"bc" + index + '-' + j} style={{ ...styles().bodyContentHeaders, padding: 0, marginBottom: 4 }}>
                                             <div style={{ ...styles().contentItemTitle, width: '70%', paddingLeft: 3, marginBottom: 2 }}>{contentItem.title}</div>
                                             <div style={{ ...styles().contentItemRightContent, width: '30%', }}>{contentItem.rightContent}</div>
                                             <ul style={{ paddingLeft: 0, margin: 0, fontSize: 8, listStyleType: 'none' }}>
                                                 {contentItem.bullets.map((bullet, k) => {
                                                     return <li key={'bc' + index + '-' + j + '-' + k} style={{ marginBottom: 0, paddingLeft: 7 }}>
                                                         <span style={{ marginLeft: -4, fontSize: 10 }}>
-                                                            <img src={this.bullet[0].icon} style={{ width: 3, height: 3, marginRight: 5 }} />{bullet}
+                                                            <img alt={""} src={this.bullet[0].icon} style={{ width: 3, height: 3, marginRight: 5 }} />{bullet}
                                                         </span>
                                                     </li>
                                                 })}
@@ -344,7 +352,7 @@ export default class Resume extends Component {
                                 return <Row style={{ ...styles().body }} key={"bottomBody" + index}>
                                     <Row middle="xs" style={{ ...styles().bodyHeaders, marginBottom: 3 }}>
                                         <span style={{ ...styles().bodyItemIcon, paddingBottom: 3 }}>
-                                            <img src={bodyItem.icon} style={styles().bodyIconSize} />
+                                            <img src={bodyItem.icon} alt={""} style={styles().bodyIconSize} />
                                         </span>
                                         {bodyItem.title}
                                     </Row>
@@ -451,7 +459,7 @@ const styles = (mobile) => {
             fontSize: 10.5,
             color: '#005696',
             marginLeft: 0,
-            marginBottom: 5        // between header items
+            marginBottom: 3        // between header items
         },
         headerItemIcon: {
             textDecoration: 'none',

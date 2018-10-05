@@ -12,6 +12,7 @@ import safecycleR from '../assets/imgs/projects/safecycleR.png';
 import scout from '../assets/imgs/projects/scout.png';
 import teammanager from '../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
+import koconutImg from '../assets/imgs/projects/koconut.jpg';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -54,6 +55,43 @@ export default class Projects extends Component {
                 hash: ""
             },
             */
+
+            {
+                title: "Koconut - A Personalized Learning Assistant ",
+                thumbnail: koconutImg,
+                description: [`Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts. 
+                    I established the framework for writing unit tests in the application, and helped remove code redundancy. I am also helping to
+                    plan the pilot study.`,
+                    `I worked on a team alongside Harshitha Akkaraju and Jane Quichocho, led by Benjamin Xie. We had daily standups, multiple 
+                    design meetings, and sprints to make progress with the application over the course of a summer. This project gave me valuable
+                    experience with working in a team and designing a full scale web application.`,
+                    `The app is currently a work in progress, and is susceptible to crashes.`],
+                link: "https://cyberlearning-1d4e0.firebaseapp.com",
+                githubLink: "",
+                tools: ["Enzyme", "Express", "Firebase", "Flow", "JavaScript", "Jest", "Lodash",
+                    "MaterialUI", "React", "React Router", "Sass"],
+                seeAlso: [],
+                time: "June 2018 - Present",
+                type: "Programming",
+                hash: "koconut"
+            },
+            {
+                title: "Teaching Explicit Programming Strategies to Adolescents",
+                thumbnail: "",
+                description: [`Teaching Explicit Programming Strategies to Adolescents investigates the teaching of explicit 
+                    strategies in the classroom to adolescent students. This paper was accepted to SIGSCE 2019. The primary investigators 
+                    of the paper were Dr. Thomas LaToza from George Mason University and Dr. Andy Ko from University of Washington.`,
+                    `I primarly helped collect data during class sessions, analyze that data using R, and report on the data. Throughout
+                    this project, I learned a great deal about the research process and about many methods of qualitative and quantitative
+                    data analysis used in research.`],
+                link: "",
+                githubLink: "",
+                tools: ["Excel", "JavaScript", "LaTeX", "R"],
+                seeAlso: [],
+                time: "June 2018 - August 2018",
+                type: "Research",
+                hash: "programmingstrategies"
+            },
             {
                 title: "React Resume PDF",
                 thumbnail: reactresumepdf,
