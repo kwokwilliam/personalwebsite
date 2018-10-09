@@ -56,11 +56,26 @@ export default class About extends Component {
 
         this.workExp = [
             {
+                place: "University of Washington iSchool - Seattle, Washington",
+                role: "Undergraduate Teaching Assistant",
+                timeAt: "June 2018 - Present",
+                blurb: `I teach students the foundational skills required to build client side applications (INFO 340). I host lab sections
+                of about 40 students and answering questions related to front end development. `,
+                links: [
+                    {
+                        title: "Class Github Page",
+                        link: "https://github.com/info340d-au18"
+                    }
+                ],
+                icon: faChalkboardTeacher
+            },
+            {
                 place: "Code and Cognition Lab - Seattle, Washington",
                 role: "Undergraduate Researcher",
                 timeAt: "June 2018 - Present",
                 blurb: `At the Code and Cognition Lab led by Dr. Andy Ko, I design and build research prototypes using ReactJS, 
-                    plan studies, gather data, and prepare presentations.`,
+                    plan studies, gather data, and prepare presentations. I also collected and analyzed data for writing a paper that was
+                    submitted and accepted to SIGSCE 2019.`,
                 links: [
                     {
                         title: "Lab website",
