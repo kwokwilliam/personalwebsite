@@ -79,7 +79,7 @@ export default class Projects extends Component {
                 title: "Teaching Explicit Programming Strategies to Adolescents",
                 thumbnail: "",
                 description: [`Teaching Explicit Programming Strategies to Adolescents investigates the teaching of explicit 
-                    strategies in the classroom to adolescent students. This paper was accepted to SIGSCE 2019. The primary investigators 
+                    strategies in the classroom to adolescent students. This paper was accepted to SIGCSE 2019. The primary investigators 
                     of the paper were Dr. Thomas LaToza from George Mason University and Dr. Andy Ko from University of Washington.`,
                     `I primarly helped collect data during class sessions, analyze that data using R, and report on the data. Throughout
                     this project, I learned a great deal about the research process and about many methods of qualitative and quantitative

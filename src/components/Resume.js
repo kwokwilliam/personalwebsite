@@ -162,7 +162,7 @@ export default class Resume extends Component {
                         title: "Research Paper - Programming Strategies, Code and Cognition Lab",
                         rightContent: "June 2018 - August 2018",
                         bullets: [
-                            "The paper, titled 'Teaching Explicit Programming Strategies to Adolescents' was accepted to SIGSCE 2019.",
+                            "The paper, titled 'Teaching Explicit Programming Strategies to Adolescents' was accepted to SIGCSE 2019.",
                             "The paper investigates the teaching of explicit programming strategies in the classroom to adolescent students.",
                             "I aided in the process of data collection, analyzation, and writing.",
                             "Excel, JavaScript, LaTeX, Ordinal Linear Regression, R"
