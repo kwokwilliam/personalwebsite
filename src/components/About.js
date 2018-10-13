@@ -75,7 +75,7 @@ export default class About extends Component {
                 timeAt: "June 2018 - Present",
                 blurb: `At the Code and Cognition Lab led by Dr. Andy Ko, I design and build research prototypes using ReactJS, 
                     plan studies, gather data, and prepare presentations. I also collected and analyzed data for writing a paper that was
-                    submitted and accepted to SIGSCE 2019.`,
+                    submitted and accepted to SIGCSE 2019.`,
                 links: [
                     {
                         title: "Lab website",
