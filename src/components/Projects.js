@@ -13,6 +13,7 @@ import scout from '../assets/imgs/projects/scout.png';
 import teammanager from '../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
 import koconutImg from '../assets/imgs/projects/koconut.jpg';
+import findCImg from '../assets/imgs/projects/findc.jpg';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -55,7 +56,24 @@ export default class Projects extends Component {
                 hash: ""
             },
             */
-
+            {
+                title: "FindC - Accessible Contraceptives",
+                thumbnail: findCImg,
+                description: [`FindC is a tool that allows users to locate free or cheap contraceptives, because existing solutions
+                    were not accessible. This project was created in 14 hours at the Dubhacks hackathon. I worked on all aspects of the project from the 
+                    initial concept design to wireframe designs to front end and backend development and presentation.`,
+                    `I worked alongside Ryan Yang. We spent a while going through all the features that we wanted while also
+                    taking into consideration any ethical concerns about the app, and how we would attempt to solve those. The app
+                    ended up being a crowd sourced application sort of like Waze, where users could say what areas have free or cheap contraceptives.`,
+                    `The application uses Google Cloud Platform Geocoding API.`],
+                link: "https://devpost.com/software/findc-free-contraception-finder",
+                githubLink: "https://github.com/DH2018-FindC/FindC",
+                tools: ["Firebase", "Google Cloud Platform", "JavaScript", "MaterialUI", "React", "React Router"],
+                seeAlso: [],
+                time: "October 2018",
+                type: "Programming",
+                hash: "findc"
+            },
             {
                 title: "Koconut - A Personalized Learning Assistant ",
                 thumbnail: koconutImg,
