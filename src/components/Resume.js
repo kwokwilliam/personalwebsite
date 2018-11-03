@@ -97,7 +97,7 @@ export default class Resume extends Component {
                             "Teach students the foundational skills for building client side applications (INFO 340)",
                             "Host lab sections of about 35 students and answering content related questions on a class Slack channel",
                             "Grade problem sets and project-based assignments",
-                            "Hold office hours for help understanding material"
+                            "Hold office hours for help understanding material from basic HTML and CSS to advanced React development"
                         ]
                     },
                     {
@@ -105,25 +105,25 @@ export default class Resume extends Component {
                         rightContent: "June 2018 - Present",
                         bullets: [
                             "Apply Agile development principles for assisting with research projects",
-                            "Design, build, and user test computer science tutoring applications using JavaScript/ES6 and React",
-                            "Collect and analyze data and write for a paper accepted to SIGCSE 2019"
+                            "Design, build, and user test computer science tutoring applications using JavaScript/ES6, React, Jest, and Enzyme",
+                            "Collect, analyze data, and write for a paper on teaching programming strategies to adolescents accepted to SIGCSE 2019"
                         ]
                     },
                     {
-                        title: "Washington iGEM, Hardware / Software Lead Engineer, Web Dev Lead",
+                        title: "Washington iGEM, Ex Web Dev Lead, Hardware / Software Member",
                         rightContent: "February 2017 - Present",
                         bullets: [
-                            "Design and oversee a yearly hardware and software project that is made alongside a synthetic biology aspect of the project",
-                            "Develop the team website and iGEM Team Wiki (required for competition judging) using React"
+                            "Previously helped design a modular, affordable, bio-reactor along with a novel open-source syringe pump design",
+                            "Develop the team website and iGEM Team Wiki (required for competition judging) using React for scalability"
                         ]
                     },
                     {
                         title: "Biomedical Image Computing Group, Undergraduate Researcher",
                         rightContent: "January 2018 - June 2018",
                         bullets: [
-                            "Provide statistical/data analysis of MRI scans using Python, R, and C++",
-                            "Process MRI scans using in house software libraries",
-                            "Create neural network models in TinyCNN, MXNet, and Tensorflow"
+                            "Provided statistical/data analysis of subject data using Python and R to help organize the results of finished studies",
+                            "Processed MRI scans using in house software libraries programmed in C++ for a research study",
+                            "Create neural network models in TinyCNN, MXNet, and Tensorflow Python and C++ for a paper replication study"
                         ]
                     },
                     // {
@@ -153,8 +153,8 @@ export default class Resume extends Component {
                         title: "Koconut, Code and Cognition Lab",
                         rightContent: "June 2018 - Present",
                         bullets: [
-                            "Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts.",
-                            "I established the framework for writing unit tests in the application and helped removed code redundancy.",
+                            "Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts",
+                            "Established the framework for writing unit tests in the application and helped removed code redundancy to reduce bugs",
                             "Enzyme, Express, Firebase, Flow, JavaScript, Jest, Lodash, MaterialUI, React, React Router, Sass"
                         ]
                     },
@@ -162,9 +162,9 @@ export default class Resume extends Component {
                         title: "Research Paper - Programming Strategies, Code and Cognition Lab",
                         rightContent: "June 2018 - August 2018",
                         bullets: [
-                            "The paper, titled 'Teaching Explicit Programming Strategies to Adolescents' was accepted to SIGCSE 2019.",
-                            "The paper investigates the teaching of explicit programming strategies in the classroom to adolescent students.",
-                            "I aided in the process of data collection, analyzation, and writing.",
+                            "The paper, titled 'Teaching Explicit Programming Strategies to Adolescents' was accepted to SIGCSE 2019",
+                            "The paper investigates the teaching of explicit programming strategies in the classroom to adolescent students",
+                            "Aided in the process of data collection, analyzation, and writing to determine if strategy scaffolding correlates to success ",
                             "Excel, JavaScript, LaTeX, Ordinal Linear Regression, R"
                         ]
                     },
@@ -180,9 +180,9 @@ export default class Resume extends Component {
                         title: "App Development Personal Project - FRC Scouting App 2018",
                         rightContent: "March 2018",
                         bullets: [
-                            "A web application that allows the Hawaii Robotics community to visualize their performance at the state championships.",
-                            "The application was built a day before the competition, and had data input in it by my old high school team.",
-                            "The data was released to the local community so teams could see their performance going into the world championship.",
+                            "A web application that allows the Hawaii Robotics community to visualize their performance at the state championships",
+                            "The application was built a day before the competition, and had data input in it by my old high school team",
+                            "The data was released to the local community so teams could see their performance going into the world championship",
                             "Bootstrap, D3js, Firebase, JavaScript, React, React Router"
                         ]
                     },
@@ -206,13 +206,13 @@ export default class Resume extends Component {
                     {
                         title: "Languages: ",
                         list: [
-                            "C++", "CSS", "HTML", "Java", "JavaScript (ES6)", "LaTeX", "MATLAB", "Python", "R"
+                            "JavaScript (ES6+)", "Java", "Python", "R", "LaTeX", "C++", "CSS", "HTML", "MATLAB"
                         ]
                     },
                     {
                         title: "Tools and Frameworks: ",
                         list: [
-                            "Enzyme", "Firebase", "Flow", "git", "Jest", "jQuery", "MaterialUI", "React", "React Native", "React Router", "R Shiny", "Vue"
+                            "React", "React Router", "jQuery", "React Native", "Vue", "git", "Firebase", "Enzyme", "Flow", "Jest", "MaterialUI", "R Shiny"
                         ]
                     },
                     {

@@ -6,7 +6,7 @@ import './Page.css';
 // import Resume from './Resume';
 import Loadable from 'react-loadable';
 
-const Loading = () => <div>Loading content...</div>;
+const Loading = () => <div></div>;
 const MainPage = Loadable({
     loader: () => import('./MainPage'),
     loading: Loading,
@@ -21,6 +21,10 @@ const About = Loadable({
 });
 const Resume = Loadable({
     loader: () => import('./Resume'),
+    loading: Loading,
+});
+const Blog = Loadable({
+    loader: () => import('./Blog'),
     loading: Loading,
 })
 
@@ -49,7 +53,9 @@ export default class Page extends Component {
             case "about":
                 return <About mobile={this.state.mobile} />;
             case "resume":
-                return <Resume mobile={this.state.mobile} />
+                return <Resume mobile={this.state.mobile} />;
+            case "blog":
+                return <Blog mobile={this.state.mobile} post={this.props.match.params.blogpost} />;
             default:
                 return <div>Error: Page doesn't exist</div>;
         }

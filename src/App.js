@@ -131,6 +131,7 @@ class App extends Component {
                                                 return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
                                             })}
                                             <Route path={"/resume"} render={() => <Page page={'resume'} mobile={this.state.mobile} />} />
+                                            <Route path={"/blog/:blogpost"} render={(renderProps) => <Page page={'blog'} mobile={this.state.mobile} {...renderProps} />} />
                                             <Route render={() => <div style={{ margin: 20 }}>Error: Page not found :(</div>} />
                                         </Switch>
                                     </div>
