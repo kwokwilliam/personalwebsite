@@ -38,11 +38,10 @@ export default class About extends Component {
             fetch(d)
                 .then(e => e.text())
                 .then(blogString => { this.setState({ blogString }) })
-                .catch(e => {
-                    console.log(e);
-                    this.renderError("Blog not found, please refresh or try again");
-                })
-        )
+        ).catch(e => {
+            console.log(e);
+            this.renderError("Blog not found, please refresh or try again");
+        })
     }
 
     renderError(error) {
