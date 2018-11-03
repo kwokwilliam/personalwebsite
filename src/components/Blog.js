@@ -27,6 +27,7 @@ export default class About extends Component {
 
     }
 
+
     componentWillMount() {
         // console.log(this.props.post);
 
@@ -37,7 +38,9 @@ export default class About extends Component {
         import(`../assets/blogposts/${this.props.post}.md`).then(d =>
             fetch(d)
                 .then(e => e.text())
-                .then(blogString => { this.setState({ blogString }) })
+                .then(blogString => {
+                    this.setState({ blogString });
+                })
         ).catch(e => {
             console.log(e);
             this.renderError("Blog not found, please refresh or try again");

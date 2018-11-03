@@ -2,3 +2,23 @@
     border-radius: 10px;
     padding-left: 10px !important;
 }
+
+.wkmd {
+    font-size: 150%;
+}
+
+.wkmd blockquote {
+    font-size: 75%;
+    font-weight: bold;
+}
+
+.wkmd h1,
+.wkmd h2,
+.wkmd h3 {
+    font-weight: bold;
+}
+
+.wkmd pre>code:first-of-type {
+    border-right: 1px solid white;
+    margin-right: 10px;
+}
