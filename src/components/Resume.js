@@ -110,7 +110,7 @@ export default class Resume extends Component {
                         ]
                     },
                     {
-                        title: "Washington iGEM, Ex Web Dev Lead, Hardware / Software Member",
+                        title: "Washington iGEM, Web Dev Lead, Ex Hardware / Software Member",
                         rightContent: "February 2017 - Present",
                         bullets: [
                             "Previously helped design a modular, affordable, bio-reactor along with a novel open-source syringe pump design",

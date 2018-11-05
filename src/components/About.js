@@ -90,7 +90,7 @@ export default class About extends Component {
             },
             {
                 place: "Washington iGEM - Seattle, Washington",
-                role: "Hardware/Software Lead Engineer and Web Development Lead",
+                role: "Web Development Lead, Ex Hardware/Software Lead Engineer",
                 timeAt: "February 2017 - Present",
                 blurb: `iGEM is the international Genetically Engineered Machine competition held in Boston annually. 
                 I design and oversee a yearly hardware and software project that is made in conjunction with a synthetic biology aspect of the project.
