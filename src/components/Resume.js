@@ -206,13 +206,13 @@ export default class Resume extends Component {
                     {
                         title: "Languages: ",
                         list: [
-                            "JavaScript (ES6+)", "Java", "Python", "R", "LaTeX", "C++", "CSS", "HTML", "MATLAB"
+                            "JavaScript (ES6+)", "Java", "Python", "SQL", "R", "LaTeX", "C++", "CSS", "HTML", "MATLAB"
                         ]
                     },
                     {
                         title: "Tools and Frameworks: ",
                         list: [
-                            "React", "React Router", "jQuery", "React Native", "Vue", "git", "Firebase", "Enzyme", "Flow", "Jest", "MaterialUI", "R Shiny"
+                            "React", "React Router", "jQuery", "React Native", "Vue", "git", "Firebase", "Enzyme", "Flow", "Jest", "R Shiny", "GraphQL"
                         ]
                     },
                     {
