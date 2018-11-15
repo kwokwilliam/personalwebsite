@@ -123,7 +123,7 @@ class App extends Component {
                                             <Route exact path="/" render={routerProps => (
                                                 <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
                                                     <Fade clear enter={false} spy when={this.state.gearIn}>
-                                                        <Gear fadeOutGear={this.fadeOutGear} />
+                                                        <Gear fadeOutGear={this.fadeOutGear} mobile={this.state.mobile} />
                                                     </Fade>
                                                 </div>
                                             )} />

@@ -108,7 +108,7 @@ export default class Gear extends Component {
                     </Anime>
                 </svg>
                 <Fade duration={500}>
-                    <div style={{textAlign: 'center', fontSize: 50, width: '80%', margin: 'auto', color: "#005696"}}>
+                    <div style={{textAlign: 'center', fontSize: this.props.mobile ? 25 : 50, width: '80%', margin: 'auto', color: "#005696"}}>
                         <div>
                             William Kwok
                         </div>
