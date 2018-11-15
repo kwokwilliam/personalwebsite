@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Anime from 'react-anime';
+import Fade from 'react-reveal/Fade';
 import './Gear.css';
 
 export default class Gear extends Component {
@@ -47,7 +48,7 @@ export default class Gear extends Component {
     render() {
         return (
             <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
-                <svg style={{ display: 'block'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
+                <svg style={{ display: 'block', margin: 'auto'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
                     {/* Must go into react-anime.js and comment out the componentWillReceiveProps
                         method because it is bugged */}
                     <Anime easing="easeOutCubic"
@@ -106,6 +107,17 @@ export default class Gear extends Component {
                             c0-1.151,0.394-2.077,1.183-2.775c0.788-0.697,2.093-1.046,3.912-1.046h5.368l-32.845-33.755L39.493,798.902z"/>
                     </Anime>
                 </svg>
+                <Fade duration={500}>
+                    <div style={{textAlign: 'center', fontSize: 50, width: '80%', margin: 'auto', color: "#005696"}}>
+                        <div>
+                            William Kwok
+                        </div>
+                        <div style={{height: 2, width: '80%', backgroundColor: '#005696', margin: 'auto'}}></div>
+                        <div>
+                            UW Informatics 2020
+                        </div>
+                    </div>
+                </Fade>
             </div>
         )
     }
