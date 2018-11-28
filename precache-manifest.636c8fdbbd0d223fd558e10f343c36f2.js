@@ -144,16 +144,16 @@ self.__precacheManifest = [
     "url": "/static/media/Quicksand-Medium.0c642332.ttf"
   },
   {
-    "revision": "f87b9b4f34bdbf75b5c0cf3a5a137508",
-    "url": "/static/media/Quicksand-Regular.f87b9b4f.ttf"
+    "revision": "c5f954788f341b22e1974433bb972ac1",
+    "url": "/static/media/Quicksand-Light.c5f95478.ttf"
   },
   {
     "revision": "0c04462696ac0fd3e85e75415b483fdb",
     "url": "/static/media/Quicksand-Bold.0c044626.ttf"
   },
   {
-    "revision": "c5f954788f341b22e1974433bb972ac1",
-    "url": "/static/media/Quicksand-Light.c5f95478.ttf"
+    "revision": "f87b9b4f34bdbf75b5c0cf3a5a137508",
+    "url": "/static/media/Quicksand-Regular.f87b9b4f.ttf"
   },
   {
     "revision": "fdd898f929908cb810558a82cc35ebf8",
