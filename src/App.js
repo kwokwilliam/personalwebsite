@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-import Gear from './components/Gear';
+import Gear from './components/Main/Gear/Gear';
 import Fade from 'react-reveal/Fade';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
@@ -10,7 +10,7 @@ import {
     Redirect
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Page from './components/Page';
+import Page from './components/Pages/Page';
 
 import mainImg from './assets/imgs/main/main.png';
 import walkerImg from './assets/imgs/projects/walker.png';

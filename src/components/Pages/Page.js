@@ -8,23 +8,23 @@ import Loadable from 'react-loadable';
 
 const Loading = () => <div></div>;
 const MainPage = Loadable({
-    loader: () => import('./MainPage'),
+    loader: () => import('./Main/MainPage'),
     loading: Loading,
 });
 const Projects = Loadable({
-    loader: () => import('./Projects'),
+    loader: () => import('./Projects/Projects'),
     loading: Loading,
 });
 const About = Loadable({
-    loader: () => import('./About'),
+    loader: () => import('./About/About'),
     loading: Loading,
 });
 const Resume = Loadable({
-    loader: () => import('./Resume'),
+    loader: () => import('./Resume/Resume'),
     loading: Loading,
 });
 const Blog = Loadable({
-    loader: () => import('./Blog'),
+    loader: () => import('./Blog/Blog'),
     loading: Loading,
 })
 

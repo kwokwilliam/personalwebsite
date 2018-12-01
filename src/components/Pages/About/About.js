@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { faChalkboardTeacher, faFlask, faWrench } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -249,7 +249,7 @@ export default class About extends Component {
                                         ...styles(this.props.mobile).courseworkList
                                     }}
                                     aria-expanded={this.state.expanded[0]}>
-                                    <a>Skills and Familiarities</a>
+                                    <div>Skills and Familiarities</div>
                                 </CardHeader>
                                 <Collapse isOpen={this.state.expanded[0]}>
                                     <CardBody>
@@ -279,7 +279,7 @@ export default class About extends Component {
                                         ...styles(this.props.mobile).courseworkList
                                     }}
                                     aria-expanded={this.state.expanded[1]}>
-                                    <a>Work and Experience</a>
+                                    <div>Work and Experience</div>
                                 </CardHeader>
                                 <Collapse isOpen={this.state.expanded[1]}>
                                     <CardBody>
@@ -342,7 +342,7 @@ export default class About extends Component {
                                         ...styles(this.props.mobile).courseworkList
                                     }}
                                     aria-expanded={this.state.expanded[2]}>
-                                    <a>Coursework @ University of Washington</a>
+                                    <div>Coursework @ University of Washington</div>
                                 </CardHeader>
                                 <Collapse isOpen={this.state.expanded[2]}>
                                     <CardBody>

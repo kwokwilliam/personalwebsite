@@ -9,42 +9,42 @@ import CodeBlock from './CodeBlock';
 import './Blog.css';
 
 export default class About extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             blogString: ""
         }
 
-        if (!sessionStorage.getItem("blogVisited")) {
-            sessionStorage.setItem("blogVisited", true);
-            let id = cookies.get('id');
-            firebase.database().ref('/blogPageView').push({
-                timestamp: firebase.database.ServerValue.TIMESTAMP,
-                id
-            });
-        }
+        // if (!sessionStorage.getItem("blogVisited")) {
+        // sessionStorage.setItem("blogVisited", true);
+        let id = cookies.get('id');
+        firebase.database().ref('/blogPageView').push({
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            id,
+            post: this.props.post
+        });
+        // }
 
     }
 
 
-    componentWillMount() {
+    async componentWillMount() {
         // console.log(this.props.post);
 
         // IGNORE THIS JANK 
         // I first dynamically import it in order to get the markdown file path,
         // then I fetch it based on that dynamic path. This is important for code
         // splitting.
-        import(`../assets/blogposts/${this.props.post}.md`).then(d =>
-            fetch(d)
-                .then(e => e.text())
-                .then(blogString => {
-                    this.setState({ blogString });
-                })
-        ).catch(e => {
+        try {
+            const file = await import(`../../../assets/blogposts/${this.props.post}.md`)
+            const fetchFile = await fetch(file.default);
+            const blogString = await fetchFile.text();
+            this.setState({ blogString });
+        } catch (e) {
             console.log(e);
             this.renderError("Blog not found, please refresh or try again");
-        })
+        }
     }
 
     renderError(error) {

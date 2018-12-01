@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import { Collapse, CardBody, Card, CardHeader, Input } from 'reactstrap';
 
-import walkerImg from '../assets/imgs/projects/walker.png';
-import dfSim from '../assets/imgs/projects/dfSim.png';
-import igem2017 from '../assets/imgs/projects/igem2017.jpg';
-import planet from '../assets/imgs/projects/planet.png';
-import pr from '../assets/imgs/projects/pr.png';
-import safecycleJS from '../assets/imgs/projects/safecycleJS.png';
-import safecycleR from '../assets/imgs/projects/safecycleR.png';
-import scout from '../assets/imgs/projects/scout.png';
-import teammanager from '../assets/imgs/projects/teammanager.png';
-import reactresumepdf from '../assets/imgs/projects/reactresumepdf.png';
-import koconutImg from '../assets/imgs/projects/koconut.jpg';
-import findCImg from '../assets/imgs/projects/findc.jpg';
+import walkerImg from '../../../assets/imgs/projects/walker.png';
+import dfSim from '../../../assets/imgs/projects/dfSim.png';
+import igem2017 from '../../../assets/imgs/projects/igem2017.jpg';
+import planet from '../../../assets/imgs/projects/planet.png';
+import pr from '../../../assets/imgs/projects/pr.png';
+import safecycleJS from '../../../assets/imgs/projects/safecycleJS.png';
+import safecycleR from '../../../assets/imgs/projects/safecycleR.png';
+import scout from '../../../assets/imgs/projects/scout.png';
+import teammanager from '../../../assets/imgs/projects/teammanager.png';
+import reactresumepdf from '../../../assets/imgs/projects/reactresumepdf.png';
+import koconutImg from '../../../assets/imgs/projects/koconut.jpg';
+import findCImg from '../../../assets/imgs/projects/findc.jpg';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
 import cookies from 'browser-cookies';
 
 import { Button } from 'reactstrap';
-import { Grid, Row, Col } from '../../node_modules/react-flexbox-grid';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 export default class Projects extends Component {
     constructor() {
         super();

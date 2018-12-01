@@ -384,9 +384,9 @@ export default class Resume extends Component {
                         <div>
                             <div style={{ margin: 'auto', textAlign: 'center', marginBottom: 10 }}>
                                 This page doesn't appear correctly on mobile, sorry!<br /><br />
-                                <a onClick={this.exportPDFWithMethod} style={{ cursor: 'pointer', margin: 'auto', textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                <div onClick={this.exportPDFWithMethod} style={{ cursor: 'pointer', margin: 'auto', textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
                                     <FontAwesomeIcon icon={faDownload} size={"2x"} /> Download PDF
-                                </a>
+                                </div>
                             </div>
                             <div>
                                 {resumeObj}

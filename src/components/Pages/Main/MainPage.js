@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import mainImg from '../assets/imgs/main/main.png'; // TODO: make file smaller, prefetch img
+import mainImg from '../../../assets/imgs/main/main.png'; // TODO: make file smaller, prefetch img
 import './MainPage.css';
 import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -40,7 +40,7 @@ export default class MainPage extends Component {
                 __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a B.S. degree in Informatics with a minor in Mathematics.`
             },
             {
-                __html: `Currently, I am a Teaching Assistant for Client Side Development. I also work under Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" href="http://faculty.washington.edu/ajko/students" 
+                __html: `Currently, I am a Teaching Assistant for Client Side Development. I also work under Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" rel="noopener noreferrer" href="http://faculty.washington.edu/ajko/students" 
                 alt="Code and Cognition Lab">Code and Cognition Lab</a>.`
             },
             {
@@ -81,10 +81,10 @@ export default class MainPage extends Component {
                                         return (
                                             <div key={"iconsRender" + i}>
                                                 <Row middle="xs" style={{ marginBottom: 10 }}>
-                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
                                                         <FontAwesomeIcon icon={d.icon} size={"3x"} />
                                                     </a>
-                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696' }}>
                                                         <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
                                                     </a>
                                                 </Row>
@@ -109,7 +109,7 @@ export default class MainPage extends Component {
                                         {this.iconsRender.map((d, i) => {
                                             return (
                                                 <Col xs={3} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
-                                                    <a href={d.link} target="_blank" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
                                                         <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
                                                     </a>
                                                 </Col>
