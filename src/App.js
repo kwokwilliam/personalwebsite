@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-import Gear from './components/Main/Gear/Gear';
+import Gear from './components/Pages/Main/Gear/Gear';
 import Fade from 'react-reveal/Fade';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
