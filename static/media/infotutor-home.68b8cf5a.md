@@ -2,11 +2,16 @@
 
 Welcome to my tutor page. Here you will find helpful links to information that should help you throughout your journey in Informatics. I wish I could find time to help every single student, but unfortunately that just isn't possible. I have created a repository of useful tidbits that you will want to take a look at if you ever want to remember how to do something. These tidbits will be updated over time as I see more of what people are struggling with. I have recorded videos for some of them. Scroll to the bottom for office hours.
 
+> Note: Data is being collected on visit counts. This is so I get a better understanding of what people need help with most. This data is completely anonymous and I will have virtually no way of knowing who is linked to what internal ID. [See how I set your randomized ID](https://github.com/kwokwilliam/personalwebsite/blob/master/src/index.js).
+
+> Click [here](https://docs.google.com/forms/d/e/1FAIpQLSf-SOhUADmlf8AUhBpkYWzPy8usyzQs6JNIbH3QAdrvnCclkA/viewform?usp=sf_link) for the anonymous feedback/suggestion form
+
 This page is still under construction.
 
 ## Git and Github
 * [Cloning a repo (repository)](/blog/cloningarepo)
 * [Committing and Pushing](/blog/committingandpushing)
+* Git ignore
 * Branching and Merging
 * Windows Users: Git Credential Manager
 * "Not a git repository"
