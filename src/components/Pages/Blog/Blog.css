@@ -3,6 +3,10 @@
     padding-left: 10px !important;
 }
 
+code {
+    color: rgb(0, 86, 150);
+}
+
 .wkmd {
     font-size: 150%;
 }
