@@ -8,7 +8,11 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 import './Blog.css';
 
-export default class About extends Component {
+/**
+ * The Blog class handles getting and generating the blog post based on the path
+ * @class
+ */
+export default class Blog extends Component {
     constructor(props) {
         super(props);
 

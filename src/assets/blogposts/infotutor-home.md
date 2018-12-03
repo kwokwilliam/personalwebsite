@@ -11,7 +11,7 @@ This page is still under construction.
 ## Git and Github
 * [Cloning a repo (repository)](/blog/cloningarepo)
 * [Committing and Pushing](/blog/committingandpushing)
-* Git ignore
+* [Git ignore](/blog/gitignore)
 * Branching and Merging
 * Windows Users: Git Credential Manager
 * "Not a git repository"
