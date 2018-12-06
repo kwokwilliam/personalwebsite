@@ -26,7 +26,15 @@ const Resume = Loadable({
 const Blog = Loadable({
     loader: () => import('./Blog/Blog'),
     loading: Loading,
-})
+});
+const TutorQStudent = Loadable({
+    loader: () => import('./TutorQ/Student/TutorQStudent'),
+    loading: Loading,
+});
+const TutorQAdmin = Loadable({
+    loader: () => import('./TutorQ/Admin/TutorQAdmin'),
+    loading: Loading,
+});
 
 export default class Page extends Component {
     constructor(props) {
@@ -56,6 +64,10 @@ export default class Page extends Component {
                 return <Resume mobile={this.state.mobile} />;
             case "blog":
                 return <Blog mobile={this.state.mobile} post={this.props.match.params.blogpost} />;
+            case "tutorq":
+                return <TutorQStudent mobile={this.state.mobile} />;
+            case "tutorqadmin":
+                return <TutorQAdmin mobile={this.state.mobile} />;
             default:
                 return <div>Error: Page doesn't exist</div>;
         }

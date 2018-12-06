@@ -11,6 +11,10 @@ code {
     font-size: 150%;
 }
 
+.wkmd-m {
+    font-size: 100% !important;
+}
+
 .wkmd blockquote {
     font-size: 75%;
     font-weight: bold;

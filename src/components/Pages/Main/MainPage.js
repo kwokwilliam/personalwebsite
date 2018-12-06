@@ -71,7 +71,7 @@ export default class MainPage extends Component {
                                 </div>
                                 {this.mainText.map((d, i) => {
                                     return <Row style={{ marginBottom: this.props.mobile ? 10 : 20 }} key={"text" + i}>
-                                        <div style={{ fontSize: window.innerHeight < 700 ? 12 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
+                                        <div style={{ fontSize: window.innerHeight < 700 ? 18 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
                                         </div>
                                     </Row>
                                 })}

@@ -9,7 +9,7 @@ import 'firebase/database';
 import crypto from 'crypto';
 import cookies from 'browser-cookies';
 
-console.log("v1.0.2");
+console.log("v1.0.3");
 
 var config = {
     apiKey: "AIzaSyBJCJ5AivGAldYdv9IYyhGeOEWskuaBE8k",

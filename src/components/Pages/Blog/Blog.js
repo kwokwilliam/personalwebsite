@@ -60,8 +60,8 @@ export default class Blog extends Component {
     render() {
         return <div style={{
             backgroundColor: 'white',
-            borderRadius: 20,
-            padding: 30
+            borderRadius: this.props.mobile ? 10 : 20,
+            padding: this.props.mobile ? 5 : 30
         }}><Grid fluid>
                 {this.state.error &&
                     <p>{this.state.error}</p>
@@ -71,7 +71,7 @@ export default class Blog extends Component {
                         renderers={{
                             code: CodeBlock,
                         }}
-                        className={'wkmd'} />
+                        className={`wkmd ${this.props.mobile ? 'wkmd-m' : ''}`} />
                     </Fade>
                 }
             </Grid >

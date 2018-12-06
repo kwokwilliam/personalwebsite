@@ -132,6 +132,8 @@ class App extends Component {
                                             })}
                                             <Route path={"/resume"} render={() => <Page page={'resume'} mobile={this.state.mobile} />} />
                                             <Route path={"/blog/:blogpost"} render={(renderProps) => <Page page={'blog'} mobile={this.state.mobile} {...renderProps} />} />
+                                            <Route path={"/tutorq"} render={(renderProps) => <Page page={'tutorq'} mobile={this.state.mobile} {...renderProps} />} />
+                                            <Route path={"/tutorqadmin"} render={(renderProps) => <Page page={'tutorqadmin'} mobile={this.state.mobile} {...renderProps} />} />
                                             <Route render={() => <div style={{ margin: 20 }}>Error: Page not found :(</div>} />
                                         </Switch>
                                     </div>
