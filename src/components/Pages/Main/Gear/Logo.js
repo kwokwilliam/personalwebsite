@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './Logo.css';
 
-export default class Logo extends Component {
-    render() {
+export default function Logo() {
         return <div><svg style={{ display: 'inline', position: 'absolute'}} className={`logospin`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={70} height={70} viewBox="-230 562 460 460">
             <circle className="logost1" cx="0.172" cy="792" r="164.928"/>
             <path className="logost1" d="
@@ -47,5 +46,5 @@ export default class Logo extends Component {
                 c-0.789,0.728-2.124,1.092-4.003,1.092H75.705c-1.819,0-3.124-0.364-3.912-1.092c-0.789-0.728-1.183-1.638-1.183-2.729
                 c0-1.151,0.394-2.077,1.183-2.775c0.788-0.697,2.093-1.046,3.912-1.046h5.368l-32.845-33.755L39.493,798.902z"/></svg>
     </div>
-    }
+    
 }

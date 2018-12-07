@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import cookies from 'browser-cookies';
+import TutorQButtons from './Components/TutorQButtons/TutorQButtons';
 import './TutorQStudent.css';
 
 export default class TutorQStudent extends Component {
@@ -27,7 +27,7 @@ export default class TutorQStudent extends Component {
 
     }
 
-    getPageNumber() {
+    getPageNumber = () => {
         return this.state.page;
     }
 
@@ -95,25 +95,12 @@ export default class TutorQStudent extends Component {
             <div>
 
             </div>
-            <div style={{ position: 'absolute', left: 0, bottom: 30, width: '100%', margin: 'auto', textAlign: 'center' }}>
-                <Grid fluid>
-                    <Row>
-                        <Col style={{ width: '50%' }}>
-                            <button style={{ ...buttonStyles }}
-                                disabled={this.getPageNumber() < 1}
-                                className={`${this.getPageNumber() < 1 ? 'btndisabled' : ''}`}
-                                onClick={this.prevStep}>{'< Back'}</button>
-                        </Col>
-                        <Col style={{ width: '50%' }}>
-                            <button style={{ ...buttonStyles }}
-                                disabled={this.getPageNumber() > this.totalPages - 2}
-                                className={`${this.getPageNumber() < this.totalPages - 2 ? 'btndisabled' : ''}`}
-                                onClick={this.nextStep}>{'Next >'}
-                            </button>
-                        </Col>
-                    </Row>
-                </Grid>
-            </div>
+
+            {/** Previous and next button */}
+            <TutorQButtons getPageNumber={this.getPageNumber}
+                prevStep={this.prevStep}
+                nextStep={this.nextStep}
+                totalPages={this.totalPages} />
         </>
     }
 }
