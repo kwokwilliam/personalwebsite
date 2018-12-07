@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import cookies from 'browser-cookies';
 import TutorQButtons from './Components/TutorQButtons/TutorQButtons';
+import TutorQDropdown from './Components/TutorQDropdown/TutorQDropdown';
+import Fade from 'react-reveal/Fade';
+import { Input } from 'reactstrap';
 import './TutorQStudent.css';
 
 export default class TutorQStudent extends Component {
@@ -13,10 +16,12 @@ export default class TutorQStudent extends Component {
             problemCategory: null,
             problemCategoryExpand: '',
             position: null,
-            error: ''
+            error: '',
+
         }
 
         this.totalPages = 4;
+        this.classes = [201, 330, 340];
 
         this.id = cookies.get('id');
         // firebase.database().ref('/blogPageView').push({
@@ -25,6 +30,19 @@ export default class TutorQStudent extends Component {
         //     post: this.props.post
         // });
 
+    }
+
+    change = (e) => {
+        let { name, value } = e.target;
+        if (name === "classNumber") {
+            this.setState({
+                [name]: value,
+                problemCategory: null,
+                problemCategoryExpand: ''
+            });
+        } else {
+            this.setState({ [name]: value });
+        }
     }
 
     getPageNumber = () => {
@@ -81,21 +99,27 @@ export default class TutorQStudent extends Component {
     }
 
     render() {
-        const buttonStyles = {
-            backgroundColor: 'rgb(0, 86, 150)',
-            color: 'white',
-            padding: 10,
-            borderRadius: 10,
-            cursor: 'pointer',
-            outline: 'none'
-        }
+        let { name } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
             <div style={{ textAlign: 'center' }}>Page {this.state.page + 1}/{this.totalPages}</div>
-            <div>
-
+            <div style={{ marginTop: '10vh', textAlign: 'center' }}>
+                {this.state.page === 0 && <Fade>
+                    <>
+                        <h3>Please enter your name</h3>
+                        <Input placeholder={'Name'}
+                            name={'name'}
+                            onChange={this.change}
+                            value={name} />
+                    </>
+                </Fade>}
+                {this.state.page === 1 && <Fade>
+                    <>
+                        <h3>Please select your class</h3>
+                        <TutorQDropdown />
+                    </>
+                </Fade>}
             </div>
-
             {/** Previous and next button */}
             <TutorQButtons getPageNumber={this.getPageNumber}
                 prevStep={this.prevStep}

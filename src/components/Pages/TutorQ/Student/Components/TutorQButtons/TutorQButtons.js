@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
+import { Button } from 'reactstrap';
 import './TutorQButtons.css';
 
 export default function TutorQButtons({ getPageNumber, prevStep, nextStep, totalPages }) {
@@ -8,17 +8,17 @@ export default function TutorQButtons({ getPageNumber, prevStep, nextStep, total
         <Grid fluid>
             <Row>
                 <Col style={{ width: '50%' }}>
-                    <button
+                    <Button
                         disabled={getPageNumber() < 1}
-                        className={`tutorbtn ${getPageNumber() < 1 ? 'btndisabled' : ''}`}
-                        onClick={prevStep}>{'< Back'}</button>
+                        style={{ backgroundColor: '#005696' }}
+                        onClick={prevStep}>{'< Back'}</Button>
                 </Col>
                 <Col style={{ width: '50%' }}>
-                    <button
+                    <Button
                         disabled={getPageNumber() > totalPages - 2}
-                        className={`tutorbtn ${getPageNumber() > totalPages - 2 ? 'btndisabled' : ''}`}
+                        style={{ backgroundColor: '#005696' }}
                         onClick={nextStep}>{'Next >'}
-                    </button>
+                    </Button>
                 </Col>
             </Row>
         </Grid>
