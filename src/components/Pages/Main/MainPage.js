@@ -55,7 +55,7 @@ export default class MainPage extends Component {
                 <Col xs={12} md={6}>
                     <Fade clear when={this.state.loaded}>
                         <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`}
-                            alt={"William Kwok"} />
+                            alt={"William Kwok sitting in front of a computer with two monitors full of code"} />
                     </Fade>
                 </Col>
                 <Col xs={12} md={6}>
@@ -64,15 +64,17 @@ export default class MainPage extends Component {
                             <div>
                                 <div>
                                     <Row>
-                                        <div style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
-                                            William Kwok
-                                        </div>
+                                        <header>
+                                            <h1 style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
+                                                William Kwok
+                                            </h1>
+                                        </header>
                                     </Row>
                                 </div>
                                 {this.mainText.map((d, i) => {
                                     return <Row style={{ marginBottom: this.props.mobile ? 10 : 20 }} key={"text" + i}>
-                                        <div style={{ fontSize: window.innerHeight < 700 ? 18 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
-                                        </div>
+                                        <p style={{ margin: 0, fontSize: window.innerHeight < 700 ? 18 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
+                                        </p>
                                     </Row>
                                 })}
 

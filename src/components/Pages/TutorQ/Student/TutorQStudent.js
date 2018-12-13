@@ -99,12 +99,12 @@ export default class TutorQStudent extends Component {
     }
 
     render() {
-        let { name } = this.state;
+        let { name, classNumber, page } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
-            <div style={{ textAlign: 'center' }}>Page {this.state.page + 1}/{this.totalPages}</div>
+            <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
             <div style={{ marginTop: '10vh', textAlign: 'center' }}>
-                {this.state.page === 0 && <Fade>
+                {page === 0 && <Fade>
                     <>
                         <h3>Please enter your name</h3>
                         <Input placeholder={'Name'}
@@ -113,10 +113,14 @@ export default class TutorQStudent extends Component {
                             value={name} />
                     </>
                 </Fade>}
-                {this.state.page === 1 && <Fade>
+                {page === 1 && <Fade>
                     <>
                         <h3>Please select your class</h3>
-                        <TutorQDropdown />
+                        <TutorQDropdown change={this.change}
+                            name={"classNumber"}
+                            data={this.classes}
+                            initText={"Choose a class"}
+                            classNumber={classNumber} />
                     </>
                 </Fade>}
             </div>

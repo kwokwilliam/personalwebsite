@@ -46,11 +46,11 @@ footer {
     }
 }
 
-.hide {
+.hideG {
     opacity: 0;
 }
 
-.show {
+.showG {
     -webkit-transition: opacity 15s ease-in-out;
     -moz-transition: opacity 15s ease-in-out;
     -ms-transition: opacity 15s ease-in-out;

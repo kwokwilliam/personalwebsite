@@ -48,7 +48,7 @@ export default class Gear extends Component {
     render() {
         return (
             <div style={{overflowX: 'hidden', overflowY: 'hidden'}}>
-                <svg style={{ display: 'block', margin: 'auto'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'show' : 'hide'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
+                <svg style={{ display: 'block', margin: 'auto'}} className={`${this.state.spinning ? 'spin' : ''} ${this.state.show ? 'showG' : 'hideG'}`} version="1.1" xmlns="http://www.w3.org/2000/svg" width={this.width} height={this.height} viewBox="-230 562 460 460">
                     {/* Must go into react-anime.js and comment out the componentWillReceiveProps
                         method because it is bugged */}
                     <Anime easing="easeOutCubic"
@@ -108,7 +108,7 @@ export default class Gear extends Component {
                     </Anime>
                 </svg>
                 <Fade duration={500}>
-                    <div style={{textAlign: 'center', fontSize: this.props.mobile ? 25 : 50, width: '80%', margin: 'auto', color: "#005696"}}>
+                    <header style={{textAlign: 'center', fontSize: this.props.mobile ? 25 : 50, width: '80%', margin: 'auto', color: "#005696"}}>
                         <div>
                             William Kwok
                         </div>
@@ -116,7 +116,7 @@ export default class Gear extends Component {
                         <div>
                             UW Informatics 2020
                         </div>
-                    </div>
+                    </header>
                 </Fade>
             </div>
         )

@@ -1,19 +1,24 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import './TutorQDropdown.css';
 
-export default function TutorQDropdown() { //{ name, data, change }
+export default function TutorQDropdown({ name, data, change, initText, classNumber }) { //
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    console.log(dropdownOpen);
-    return <Dropdown isOpen={dropdownOpen} toggle={() => { setDropdownOpen(!dropdownOpen) }}>
+    let asdf = () => {
+        console.log('asdf')
+    }
+    return <Dropdown name={name}
+        isOpen={dropdownOpen}
+        toggle={() => { setDropdownOpen(!dropdownOpen) }}>
         <DropdownToggle caret>
-            Dropdown
+            {classNumber ? classNumber : initText}
         </DropdownToggle>
-        <DropdownMenu>
-            <DropdownItem>Header</DropdownItem>
-            <DropdownItem disabled>Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
+        <DropdownMenu onChange={asdf}>
+            {data.map(d => <DropdownItem key={d}
+                onClick={() => change({ target: { name, value: d } })}
+                style={{ cursor: 'pointer' }}>
+                {d}
+            </DropdownItem>)}
         </DropdownMenu>
     </Dropdown>
 }

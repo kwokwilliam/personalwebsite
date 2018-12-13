@@ -23,7 +23,7 @@ export default class Navbar extends Component {
     }
 
     render() {
-        return <div style={{ display: 'flex' }}>
+        return <nav style={{ display: 'flex' }}>
             <div style={{ margin: 'auto', display: 'flex', padding: 10, paddingRight: 10, lineHeight: "70px" }}>
                 <div style={{ marginRight: 80 }}><Logo /></div>
                 {
@@ -34,6 +34,6 @@ export default class Navbar extends Component {
                     })
                 }
             </div>
-        </div>
+        </nav>
     }
 }
