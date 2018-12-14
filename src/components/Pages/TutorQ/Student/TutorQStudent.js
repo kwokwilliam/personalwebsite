@@ -3,6 +3,7 @@ import cookies from 'browser-cookies';
 import TutorQButtons from './Components/TutorQButtons/TutorQButtons';
 import TutorQDropdown from './Components/TutorQDropdown/TutorQDropdown';
 import Fade from 'react-reveal/Fade';
+import StudentLocation from '../Components/StudentLocation/StudentLocation';
 import { Input } from 'reactstrap';
 import './TutorQStudent.css';
 
@@ -15,7 +16,7 @@ export default class TutorQStudent extends Component {
             classNumber: null,
             problemCategory: null,
             problemDescription: '',
-            position: null,
+            location: null,
             error: '',
 
         }
@@ -91,12 +92,12 @@ export default class TutorQStudent extends Component {
             returnValue = false;
         }
 
-        if (this.state.problemCategory === "other" && this.state.problemCategoryExpand === '') {
+        if (this.state.problemDescription === '') {
             this.setError("Please provide a description of the problem");
             returnValue = false;
         }
 
-        if (this.state.position === null) {
+        if (this.state.location === null) {
             this.setError("Please provide your location in the TE lab");
             returnValue = false;
         }
@@ -104,7 +105,7 @@ export default class TutorQStudent extends Component {
     }
 
     render() {
-        let { name, classNumber, page, problemCategory, problemDescription } = this.state;
+        let { name, classNumber, page, problemCategory, problemDescription, location } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
             <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
@@ -146,6 +147,14 @@ export default class TutorQStudent extends Component {
                         </>
                         :
                         <h3>Please select a class on the previous page</h3>}
+                </Fade>}
+                {page === 3 && <Fade>
+                    <>
+                        <h3>Where in the TE Lab are you sitting?</h3>
+                        <div>
+                            <StudentLocation student setLocation={this.setLocation} location={location} />
+                        </div>
+                    </>
                 </Fade>}
             </div>
             {/** Previous and next button */}
