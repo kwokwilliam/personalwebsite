@@ -75,6 +75,13 @@ export default class TutorQStudent extends Component {
         this.setState({ error });
     }
 
+    /**
+     * @param {object} location has fields {xPercentage, yPercentage}
+     */
+    setLocation = (location) => {
+        this.setState({ location });
+    }
+
     checkValidityBeforeSendingToFirebase() {
         let returnValue = true;
         if (this.state.name === '') {
