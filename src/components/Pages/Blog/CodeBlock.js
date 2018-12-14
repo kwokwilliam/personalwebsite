@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 as style } from 'react-syntax-highlighter/styles/hljs'
 

@@ -14,7 +14,7 @@ export default class TutorQStudent extends Component {
             name: '',
             classNumber: null,
             problemCategory: null,
-            problemCategoryExpand: '',
+            problemDescription: '',
             position: null,
             error: '',
 
@@ -22,6 +22,11 @@ export default class TutorQStudent extends Component {
 
         this.totalPages = 4;
         this.classes = [201, 330, 340];
+        this.topics = {
+            201: ['Setup', 'Markdown', 'Git/web servers', 'R', 'dplyr', 'Web APIs', 'R Markdown', 'ggplot2', 'R Shiny', 'Other'],
+            330: ['ERDs and MetaData', 'Create table', 'Constraints', 'Inserting data', 'Views, Functions, Stored procedures', 'Permissions', 'Testing', 'Other'],
+            340: ['Setup', 'HTML', 'CSS Fundamentals', 'CSS Selectors', 'CSS Layouting', 'Responsive CSS', 'CSS Frameworks', 'Basic JavaScript', 'jQuery', 'DOM', 'AJAX/Fetch', 'React', 'Routing', 'Firebase', 'Testing', 'Other']
+        }
 
         this.id = cookies.get('id');
         // firebase.database().ref('/blogPageView').push({
@@ -34,7 +39,7 @@ export default class TutorQStudent extends Component {
 
     change = (e) => {
         let { name, value } = e.target;
-        if (name === "classNumber") {
+        if (name === "classNumber" && value !== this.state.classNumber) {
             this.setState({
                 [name]: value,
                 problemCategory: null,
@@ -99,7 +104,7 @@ export default class TutorQStudent extends Component {
     }
 
     render() {
-        let { name, classNumber, page } = this.state;
+        let { name, classNumber, page, problemCategory, problemDescription } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
             <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
@@ -120,8 +125,27 @@ export default class TutorQStudent extends Component {
                             name={"classNumber"}
                             data={this.classes}
                             initText={"Choose a class"}
-                            classNumber={classNumber} />
+                            value={classNumber} />
                     </>
+                </Fade>}
+                {page === 2 && <Fade>
+                    {classNumber
+                        ?
+                        <>
+                            <h3>Please select a topic</h3>
+                            <TutorQDropdown change={this.change}
+                                name={"problemCategory"}
+                                data={this.topics[classNumber]}
+                                initText={"Choose a topic"}
+                                value={problemCategory} />
+                            <h3 style={{ marginTop: 15 }}>Please describe your problem</h3>
+                            <Input placeholder={'Problem'}
+                                name={'problemDescription'}
+                                onChange={this.change}
+                                value={problemDescription} />
+                        </>
+                        :
+                        <h3>Please select a class on the previous page</h3>}
                 </Fade>}
             </div>
             {/** Previous and next button */}
@@ -132,3 +156,8 @@ export default class TutorQStudent extends Component {
         </>
     }
 }
+
+        // tutorq
+        //     inprogress
+        //     helped
+//     inqueue // remove from queue when in progress

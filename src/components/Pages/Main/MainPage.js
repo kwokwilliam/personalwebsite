@@ -50,104 +50,106 @@ export default class MainPage extends Component {
 
     }
     render() {
-        return <Grid fluid>
-            <Row>
-                <Col xs={12} md={6}>
-                    <Fade clear when={this.state.loaded}>
-                        <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`}
-                            alt={"William Kwok sitting in front of a computer with two monitors full of code"} />
-                    </Fade>
-                </Col>
-                <Col xs={12} md={6}>
-                    <div style={{ padding: 20, paddingTop: this.props.mobile ? 20 : 0, paddingBottom: this.props.mobile ? 10 : 0 }}>
-                        <Fade right cascade >
-                            <div>
-                                <div>
-                                    <Row>
-                                        <header>
-                                            <h1 style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
-                                                William Kwok
-                                            </h1>
-                                        </header>
-                                    </Row>
-                                </div>
-                                {this.mainText.map((d, i) => {
-                                    return <Row style={{ marginBottom: this.props.mobile ? 10 : 20 }} key={"text" + i}>
-                                        <p style={{ margin: 0, fontSize: window.innerHeight < 700 ? 18 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
-                                        </p>
-                                    </Row>
-                                })}
-
-                                {!this.props.mobile &&
-                                    this.iconsRender.map((d, i) => {
-                                        return (
-                                            <div key={"iconsRender" + i}>
-                                                <Row middle="xs" style={{ marginBottom: 10 }}>
-                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                        <FontAwesomeIcon icon={d.icon} size={"3x"} />
-                                                    </a>
-                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696' }}>
-                                                        <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
-                                                    </a>
-                                                </Row>
-                                            </div>
-                                        )
-                                    })
-                                }
-                                {!this.props.mobile &&
-                                    <div>
-                                        <Row middle="xs" style={{ marginBottom: 10 }}>
-                                            <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                <FontAwesomeIcon icon={faFileAlt} size={"3x"} />
-                                            </Link>
-                                            <Link to="/resume" style={{ textDecoration: 'none', color: '#005696' }}>
-                                                <span style={{ fontSize: 25, paddingLeft: 10 }}>{"resume (october '18)"}</span>
-                                            </Link>
-                                        </Row>
-
-                                    </div>
-                                }
-                                {!this.props.mobile &&
-                                    <div>
-                                        <Row middle="xs" style={{ marginBottom: 10 }}>
-                                            <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                <FontAwesomeIcon icon={faChalkboardTeacher} size={"3x"} />
-                                            </Link>
-                                            <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696' }}>
-                                                <span style={{ fontSize: 25, paddingLeft: 10 }}>{"INFO Tutoring Hub"}</span>
-                                            </Link>
-                                        </Row>
-                                    </div>
-                                }
-
-                                {this.props.mobile &&
-                                    <Row style={{ margin: 'auto', textAlign: 'center', justifyContent: 'center' }}>
-                                        {this.iconsRender.map((d, i) => {
-                                            return (
-                                                <Col xs={2} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
-                                                    <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                        <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
-                                                    </a>
-                                                </Col>
-                                            )
-                                        })}
-                                        <Col xs={2} style={{ marginBottom: 0 }}>
-                                            <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                <FontAwesomeIcon icon={faFileAlt} size={this.props.mobile ? "2x" : "3x"} />
-                                            </Link>
-                                        </Col>
-                                        <Col xs={2} style={{ marginBottom: 0 }}>
-                                            <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
-                                                <FontAwesomeIcon icon={faChalkboardTeacher} size={this.props.mobile ? "2x" : "3x"} />
-                                            </Link>
-                                        </Col>
-                                    </Row>
-                                }
-                            </div>
+        return <main>
+            <Grid fluid>
+                <Row>
+                    <Col xs={12} md={6}>
+                        <Fade clear when={this.state.loaded}>
+                            <img src={mainImg} onLoad={() => { this.setState({ loaded: true }); }} className={`mainimg-1 ${!this.props.mobile ? 'mainimg' : 'mainimg-mobile'}`}
+                                alt={"William Kwok sitting in front of a computer with two monitors full of code"} />
                         </Fade>
-                    </div>
-                </Col>
-            </Row>
-        </Grid >
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <div style={{ padding: 20, paddingTop: this.props.mobile ? 20 : 0, paddingBottom: this.props.mobile ? 10 : 0 }}>
+                            <Fade right cascade >
+                                <div>
+                                    <div>
+                                        <Row>
+                                            <header>
+                                                <h1 style={{ fontSize: this.props.mobile ? 20 : 40, fontWeight: 'bold' }}>
+                                                    William Kwok
+                                            </h1>
+                                            </header>
+                                        </Row>
+                                    </div>
+                                    {this.mainText.map((d, i) => {
+                                        return <Row style={{ marginBottom: this.props.mobile ? 10 : 20 }} key={"text" + i}>
+                                            <p style={{ margin: 0, fontSize: window.innerHeight < 700 ? 18 : (this.props.mobile ? 18 : 25) }} dangerouslySetInnerHTML={d}>
+                                            </p>
+                                        </Row>
+                                    })}
+
+                                    {!this.props.mobile &&
+                                        this.iconsRender.map((d, i) => {
+                                            return (
+                                                <div key={"iconsRender" + i}>
+                                                    <Row middle="xs" style={{ marginBottom: 10 }}>
+                                                        <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                            <FontAwesomeIcon icon={d.icon} size={"3x"} />
+                                                        </a>
+                                                        <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                            <span style={{ fontSize: 25, paddingLeft: 10 }}>{d.text}</span>
+                                                        </a>
+                                                    </Row>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                    {!this.props.mobile &&
+                                        <div>
+                                            <Row middle="xs" style={{ marginBottom: 10 }}>
+                                                <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <FontAwesomeIcon icon={faFileAlt} size={"3x"} />
+                                                </Link>
+                                                <Link to="/resume" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                    <span style={{ fontSize: 25, paddingLeft: 10 }}>{"resume (october '18)"}</span>
+                                                </Link>
+                                            </Row>
+
+                                        </div>
+                                    }
+                                    {!this.props.mobile &&
+                                        <div>
+                                            <Row middle="xs" style={{ marginBottom: 10 }}>
+                                                <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <FontAwesomeIcon icon={faChalkboardTeacher} size={"3x"} />
+                                                </Link>
+                                                <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696' }}>
+                                                    <span style={{ fontSize: 25, paddingLeft: 10 }}>{"INFO Tutoring Hub"}</span>
+                                                </Link>
+                                            </Row>
+                                        </div>
+                                    }
+
+                                    {this.props.mobile &&
+                                        <Row style={{ margin: 'auto', textAlign: 'center', justifyContent: 'center' }}>
+                                            {this.iconsRender.map((d, i) => {
+                                                return (
+                                                    <Col xs={2} style={{ marginBottom: 0 }} key={"iconsRender" + i}>
+                                                        <a href={d.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                            <FontAwesomeIcon icon={d.icon} size={this.props.mobile ? "2x" : "3x"} />
+                                                        </a>
+                                                    </Col>
+                                                )
+                                            })}
+                                            <Col xs={2} style={{ marginBottom: 0 }}>
+                                                <Link to="/resume" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <FontAwesomeIcon icon={faFileAlt} size={this.props.mobile ? "2x" : "3x"} />
+                                                </Link>
+                                            </Col>
+                                            <Col xs={2} style={{ marginBottom: 0 }}>
+                                                <Link to="/blog/infotutor-home" style={{ textDecoration: 'none', color: '#005696', minWidth: "60px", textAlign: 'center' }}>
+                                                    <FontAwesomeIcon icon={faChalkboardTeacher} size={this.props.mobile ? "2x" : "3x"} />
+                                                </Link>
+                                            </Col>
+                                        </Row>
+                                    }
+                                </div>
+                            </Fade>
+                        </div>
+                    </Col>
+                </Row>
+            </Grid>
+        </main>
     }
 }
