@@ -116,7 +116,8 @@ export default class TutorQStudent extends Component {
                         <Input placeholder={'Name'}
                             name={'name'}
                             onChange={this.change}
-                            value={name} />
+                            value={name}
+                            style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
                     </>
                 </Fade>}
                 {page === 1 && <Fade>
@@ -143,7 +144,8 @@ export default class TutorQStudent extends Component {
                             <Input placeholder={'Problem'}
                                 name={'problemDescription'}
                                 onChange={this.change}
-                                value={problemDescription} />
+                                value={problemDescription}
+                                style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
                         </>
                         :
                         <h3>Please select a class on the previous page</h3>}
@@ -152,7 +154,7 @@ export default class TutorQStudent extends Component {
                     <>
                         <h3>Where in the TE Lab are you sitting?</h3>
                         <div>
-                            <StudentLocation student setLocation={this.setLocation} location={location} />
+                            <StudentLocation student setLocation={this.setLocation} location={location} test="123" />
                         </div>
                     </>
                 </Fade>}
