@@ -8,6 +8,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import { Input, Button, Alert } from 'reactstrap';
 import './TutorQStudent.css';
+import { Link } from 'react-router-dom'
 
 export default class TutorQStudent extends Component {
     constructor(props) {
@@ -20,7 +21,10 @@ export default class TutorQStudent extends Component {
             problemDescription: '',
             location: null,
             error: '',
-            valid: false
+            valid: false,
+            queueLength: 0,
+            positionInQueue: -1,
+            inQueue: false
         }
 
         this.totalPages = 5;
@@ -37,7 +41,41 @@ export default class TutorQStudent extends Component {
         //     id,
         //     post: this.props.post
         // });
+    }
 
+    componentDidMount = () => {
+        this.queueRef = firebase.database().ref('/tutorq/inqueue')
+
+        this.queueRef.on('value', (snap) => {
+            let queue = snap.val();
+            let userInQueue = -1;
+            let queueObj = Object.keys(queue);
+            queueObj.map((d, i) => {
+                let personInQueue = queue[d];
+                console.log(personInQueue);
+                if (personInQueue.id) {
+                    userInQueue = i;
+                }
+            });
+            if (userInQueue > 0) {
+                this.setState({
+                    inQueue: true,
+                    queueLength: queueObj.length,
+                    positionInQueue: userInQueue + 1,
+                    sentToFirebase: false
+                })
+            } else {
+                this.setState({
+                    inQueue: false,
+                    queueLength: queueObj.length,
+                    positionInQueue: -1
+                })
+            }
+        });
+    }
+
+    componentWillUnmount = () => {
+        this.queueRef.off();
     }
 
     change = (e) => {
@@ -130,7 +168,7 @@ export default class TutorQStudent extends Component {
     sendDataToFirebase = () => {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
-            firebase.database().ref('/tutorq/inqueue').push({
+            this.queueRef.push({
                 name,
                 classNumber,
                 problemCategory,
@@ -140,16 +178,43 @@ export default class TutorQStudent extends Component {
                 id: this.id
             }).then(() => {
                 this.setState({ sentToFirebase: true });
-            }).error(e => {
+            }).catch(e => {
                 this.setError(e.message);
             });
         }
     }
 
     render() {
-        let { name, classNumber, page, problemCategory, problemDescription, location, error, valid } = this.state;
+        let { name,
+            classNumber,
+            page,
+            problemCategory,
+            problemDescription,
+            location,
+            error,
+            valid,
+            positionInQueue,
+            queueLength } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
+
+
+            {this.state.inQueue && <>
+                <div style={{ marginTop: '10vh', textAlign: 'center' }}>
+                    <h3 style={{ fontWeight: 'bold' }}>You are currently in queue at position: <span style={{ color: 'green', fontWeight: 'bold' }}>
+                        {positionInQueue}/{queueLength}
+                    </span>
+                    </h3>
+                    <div style={{ fontSize: '150%' }}>
+                        <p>Please be patient, a tutor will assist you shortly.</p>
+                        <p>In the meantime, please check out the <Link to="/blog/infotutor-home">Tutor Hub</Link>. Don't worry, your place in line will be saved!</p>
+                        <p>If you would like to remove yourself from the queue, please click the button below:
+                        </p>
+                        <Button style={{ backgroundColor: '#005696' }}>Remove from queue</Button>
+                    </div>
+                </div>
+            </>}
+
             {!this.state.inQueue && !this.state.sentToFirebase &&
                 <>
                     <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
