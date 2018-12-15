@@ -4,6 +4,8 @@ import TutorQButtons from './Components/TutorQButtons/TutorQButtons';
 import TutorQDropdown from './Components/TutorQDropdown/TutorQDropdown';
 import Fade from 'react-reveal/Fade';
 import StudentLocation from '../Components/StudentLocation/StudentLocation';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import { Input, Button, Alert } from 'reactstrap';
 import './TutorQStudent.css';
 
@@ -44,7 +46,7 @@ export default class TutorQStudent extends Component {
             this.setState({
                 [name]: value,
                 problemCategory: null,
-                problemCategoryExpand: ''
+                problemDescription: ''
             });
         } else {
             this.setState({ [name]: value });
@@ -120,85 +122,109 @@ export default class TutorQStudent extends Component {
             this.setValid(false);
             return false;
         }
+        this.setError('');
         this.setValid(true);
         return true;
+    }
+
+    sendDataToFirebase = () => {
+        if (this.checkValidityBeforeSendingToFirebase()) {
+            let { name, classNumber, problemCategory, problemDescription, location } = this.state;
+            firebase.database().ref('/tutorq/inqueue').push({
+                name,
+                classNumber,
+                problemCategory,
+                problemDescription,
+                location,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                id: this.id
+            }).then(() => {
+                this.setState({ sentToFirebase: true });
+            }).error(e => {
+                this.setError(e.message);
+            });
+        }
     }
 
     render() {
         let { name, classNumber, page, problemCategory, problemDescription, location, error, valid } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
-            <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
-            <div style={{ marginTop: '10vh', textAlign: 'center' }}>
-                {page === 0 && <Fade>
-                    <>
-                        <h3>Please enter your name</h3>
-                        <Input placeholder={'Name'}
-                            name={'name'}
-                            onChange={this.change}
-                            value={name}
-                            style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
-                    </>
-                </Fade>}
-                {page === 1 && <Fade>
-                    <>
-                        <h3>Please select your class</h3>
-                        <TutorQDropdown change={this.change}
-                            name={"classNumber"}
-                            data={this.classes}
-                            initText={"Choose a class"}
-                            value={classNumber} />
-                    </>
-                </Fade>}
-                {page === 2 && <Fade>
-                    {classNumber
-                        ?
-                        <>
-                            <h3>Please select a topic</h3>
-                            <TutorQDropdown change={this.change}
-                                name={"problemCategory"}
-                                data={this.topics[classNumber]}
-                                initText={"Choose a topic"}
-                                value={problemCategory} />
-                            <h3 style={{ marginTop: 15 }}>Please describe your problem</h3>
-                            <Input placeholder={'Problem'}
-                                name={'problemDescription'}
-                                onChange={this.change}
-                                value={problemDescription}
-                                style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
-                        </>
-                        :
-                        <h3>Please select a class on the previous page</h3>}
-                </Fade>}
-                {page === 3 && <Fade>
-                    <>
-                        <h3>Where in the TE Lab are you sitting?</h3>
-                        <div>
-                            <StudentLocation student setLocation={this.setLocation} location={location} test="123" />
-                        </div>
-                    </>
-                </Fade>}
-                {page === 4 && <Fade>
-                    <>
-                        <h3>Submit</h3>
+            {!this.state.inQueue && !this.state.sentToFirebase &&
+                <>
+                    <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
+                    <div style={{ marginTop: '10vh', textAlign: 'center' }}>
+                        {page === 0 && <Fade>
+                            <>
+                                <h3>Please enter your name</h3>
+                                <Input placeholder={'Name'}
+                                    name={'name'}
+                                    onChange={this.change}
+                                    value={name}
+                                    style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
+                            </>
+                        </Fade>}
+                        {page === 1 && <Fade>
+                            <>
+                                <h3>Please select your class</h3>
+                                <TutorQDropdown change={this.change}
+                                    name={"classNumber"}
+                                    data={this.classes}
+                                    initText={"Choose a class"}
+                                    value={classNumber} />
+                            </>
+                        </Fade>}
+                        {page === 2 && <Fade>
+                            {classNumber
+                                ?
+                                <>
+                                    <h3>Please select a topic</h3>
+                                    <TutorQDropdown change={this.change}
+                                        name={"problemCategory"}
+                                        data={this.topics[classNumber]}
+                                        initText={"Choose a topic"}
+                                        value={problemCategory} />
+                                    <h3 style={{ marginTop: 15 }}>Please describe your problem</h3>
+                                    <Input placeholder={'Problem'}
+                                        name={'problemDescription'}
+                                        onChange={this.change}
+                                        value={problemDescription}
+                                        style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
+                                </>
+                                :
+                                <h3>Please select a class on the previous page</h3>}
+                        </Fade>}
+                        {page === 3 && <Fade>
+                            <>
+                                <h3>Where in the TE Lab are you sitting?</h3>
+                                <div>
+                                    <StudentLocation student setLocation={this.setLocation} location={location} test="123" />
+                                </div>
+                            </>
+                        </Fade>}
+                        {page === 4 && <Fade>
+                            <>
+                                <h3>Submit</h3>
 
-                        {error !== '' && <Alert color={"danger"}>{error}</Alert>}
+                                {error !== '' && <Alert color={"danger"}>{error}</Alert>}
 
-                        <Button
-                            style={{ backgroundColor: '#005696' }}
-                            disabled={valid}
-                        >
-                            Join the queue!
+                                <Button
+                                    style={{ backgroundColor: '#005696' }}
+                                    disabled={!valid}
+                                    onClick={this.sendDataToFirebase}
+                                >
+                                    Join the queue!
                         </Button>
 
-                    </>
-                </Fade>}
-            </div>
-            {/** Previous and next button */}
-            <TutorQButtons getPageNumber={this.getPageNumber}
-                prevStep={this.prevStep}
-                nextStep={this.nextStep}
-                totalPages={this.totalPages} />
+                            </>
+                        </Fade>}
+                    </div>
+                    {/** Previous and next button */}
+                    <TutorQButtons getPageNumber={this.getPageNumber}
+                        prevStep={this.prevStep}
+                        nextStep={this.nextStep}
+                        totalPages={this.totalPages} />
+                </>}
         </>
     }
 }
