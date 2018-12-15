@@ -4,7 +4,7 @@ import TutorQButtons from './Components/TutorQButtons/TutorQButtons';
 import TutorQDropdown from './Components/TutorQDropdown/TutorQDropdown';
 import Fade from 'react-reveal/Fade';
 import StudentLocation from '../Components/StudentLocation/StudentLocation';
-import { Input } from 'reactstrap';
+import { Input, Button, Alert } from 'reactstrap';
 import './TutorQStudent.css';
 
 export default class TutorQStudent extends Component {
@@ -18,10 +18,10 @@ export default class TutorQStudent extends Component {
             problemDescription: '',
             location: null,
             error: '',
-
+            valid: false
         }
 
-        this.totalPages = 4;
+        this.totalPages = 5;
         this.classes = [201, 330, 340];
         this.topics = {
             201: ['Setup', 'Markdown', 'Git/web servers', 'R', 'dplyr', 'Web APIs', 'R Markdown', 'ggplot2', 'R Shiny', 'Other'],
@@ -61,6 +61,10 @@ export default class TutorQStudent extends Component {
             page = this.totalPages;
         }
         this.setState({ page });
+        console.log(page, this.totalPages);
+        if (page === this.totalPages - 1) {
+            this.checkValidityBeforeSendingToFirebase();
+        }
     }
 
     prevStep = () => {
@@ -82,37 +86,46 @@ export default class TutorQStudent extends Component {
         this.setState({ location });
     }
 
+    setValid = (valid) => {
+        this.setState({ valid });
+    }
+
     checkValidityBeforeSendingToFirebase() {
-        let returnValue = true;
         if (this.state.name === '') {
             this.setError("Please provide a valid name");
-            returnValue = false;
+            this.setValid(false);
+            return false;
         }
 
         if (this.state.classNumber === null) {
             this.setError("Invalid class number provided");
-            returnValue = false;
+            this.setValid(false);
+            return false;
         }
 
         if (this.state.problemCategory === null) {
             this.setError("Please choose a problem category");
-            returnValue = false;
+            this.setValid(false);
+            return false;
         }
 
         if (this.state.problemDescription === '') {
             this.setError("Please provide a description of the problem");
-            returnValue = false;
+            this.setValid(false);
+            return false;
         }
 
         if (this.state.location === null) {
             this.setError("Please provide your location in the TE lab");
-            returnValue = false;
+            this.setValid(false);
+            return false;
         }
-        return returnValue;
+        this.setValid(true);
+        return true;
     }
 
     render() {
-        let { name, classNumber, page, problemCategory, problemDescription, location } = this.state;
+        let { name, classNumber, page, problemCategory, problemDescription, location, error, valid } = this.state;
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
             <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
@@ -163,6 +176,21 @@ export default class TutorQStudent extends Component {
                         <div>
                             <StudentLocation student setLocation={this.setLocation} location={location} test="123" />
                         </div>
+                    </>
+                </Fade>}
+                {page === 4 && <Fade>
+                    <>
+                        <h3>Submit</h3>
+
+                        {error !== '' && <Alert color={"danger"}>{error}</Alert>}
+
+                        <Button
+                            style={{ backgroundColor: '#005696' }}
+                            disabled={valid}
+                        >
+                            Join the queue!
+                        </Button>
+
                     </>
                 </Fade>}
             </div>
