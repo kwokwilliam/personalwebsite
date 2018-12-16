@@ -180,16 +180,19 @@ export default class TutorQStudent extends Component {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
             this.queueRef.push({
-                name,
                 classNumber,
                 problemCategory,
                 problemDescription,
                 location,
                 timestamp: firebase.database.ServerValue.TIMESTAMP,
                 id: this.id
-            }).catch(e => {
-                this.setError(e.message);
+            }, (e) => {
+                if (e) {
+                    this.setError(e.message);
+                }
             });
+
+            firebase.database().ref(`/tutorq/idToQueueInfo/${this.id}`).set(name);
         }
 
         // TODO: set a loading spinner!

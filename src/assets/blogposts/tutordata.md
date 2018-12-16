@@ -1,6 +1,6 @@
 # How is your tutor data being used?
 
-First and foremost, we need to get your name so that we can identify and help you out when we are walking around the TE lab. Your name is deleted from our database after you are helped. The reason your name may remain in the box afterwards is because we have set the application to store your name in your browser's cookies. We cannot see your name anywhere on our database except when you are inside the queue.
+First and foremost, we need to get your name so that we can identify and help you out when we are walking around the TE lab. **Your name is deleted from our database after you are helped.** The reason your name may remain in the box afterwards is because we have set the application to store your name in your browser's cookies. We cannot see your name anywhere on our database except when you are inside the queue.
 
 We collect your class, topic, and extra description, along with your location in the TE lab, so we can see what your problem is before we get to you in lab. We also store this information in our database so we can later visualize what may be the cause of a lot of questions, what common questions are, what should be taught better, etc. We can also see interesting information such as "where do students sit most in the TE lab when they have questions?". This data will help the tutors, courses, and information school grow and improve.
 
