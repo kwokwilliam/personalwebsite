@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade';
 import StudentLocation from '../Components/StudentLocation/StudentLocation';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import 'firebase/functions';
 import { Input, Button, Alert } from 'reactstrap';
 import './TutorQStudent.css';
 import { Link } from 'react-router-dom'
@@ -24,7 +25,9 @@ export default class TutorQStudent extends Component {
             valid: false,
             queueLength: 0,
             positionInQueue: -1,
-            inQueue: false
+            inQueue: false,
+            userInQueueKey: '',
+            sentToFirebase: false
         }
 
         this.totalPages = 5;
@@ -43,28 +46,40 @@ export default class TutorQStudent extends Component {
         // });
     }
 
+    removeMeFromQueue = () => {
+        const removeUserFromQueue = firebase.functions().httpsCallable('removeUserFromQueue');
+        removeUserFromQueue({ id: this.id, key: this.state.userInQueueKey }).then((r) => {
+            // console.log(r.data);
+        });
+    }
+
     componentDidMount = () => {
         this.queueRef = firebase.database().ref('/tutorq/inqueue')
 
         this.queueRef.on('value', (snap) => {
-            let queue = snap.val();
+            let queue = snap.val() || {};
             let userInQueue = -1;
             let queueObj = Object.keys(queue);
+            let userInQueueKey = '';
             queueObj.map((d, i) => {
                 let personInQueue = queue[d];
-                console.log(personInQueue);
-                if (personInQueue.id) {
+                if (personInQueue.id === this.id) {
                     userInQueue = i;
+                    userInQueueKey = d;
                 }
             });
-            if (userInQueue > 0) {
+            console.log('goes here', userInQueue);
+            if (userInQueue > -1) {
+                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                 this.setState({
                     inQueue: true,
                     queueLength: queueObj.length,
                     positionInQueue: userInQueue + 1,
-                    sentToFirebase: false
-                })
+                    sentToFirebase: false,
+                    userInQueueKey
+                });
             } else {
+                console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
                 this.setState({
                     inQueue: false,
                     queueLength: queueObj.length,
@@ -101,7 +116,6 @@ export default class TutorQStudent extends Component {
             page = this.totalPages;
         }
         this.setState({ page });
-        console.log(page, this.totalPages);
         if (page === this.totalPages - 1) {
             this.checkValidityBeforeSendingToFirebase();
         }
@@ -176,12 +190,12 @@ export default class TutorQStudent extends Component {
                 location,
                 timestamp: firebase.database.ServerValue.TIMESTAMP,
                 id: this.id
-            }).then(() => {
-                this.setState({ sentToFirebase: true });
             }).catch(e => {
                 this.setError(e.message);
             });
         }
+
+        // TODO: set a loading spinner!
     }
 
     render() {
@@ -195,6 +209,8 @@ export default class TutorQStudent extends Component {
             valid,
             positionInQueue,
             queueLength } = this.state;
+        // console.log(this.state, this.id);
+        console.log(this.state.inQueue, this.state.sentToFirebase, positionInQueue, queueLength);
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
 
@@ -210,17 +226,22 @@ export default class TutorQStudent extends Component {
                         <p>In the meantime, please check out the <Link to="/blog/infotutor-home">Tutor Hub</Link>. Don't worry, your place in line will be saved!</p>
                         <p>If you would like to remove yourself from the queue, please click the button below:
                         </p>
-                        <Button style={{ backgroundColor: '#005696' }}>Remove from queue</Button>
+                        <Button style={{ backgroundColor: '#005696' }}
+                            onClick={this.removeMeFromQueue}
+                        >Remove from queue</Button>
                     </div>
                 </div>
             </>}
 
-            {!this.state.inQueue && !this.state.sentToFirebase &&
+            {!this.state.inQueue &&
                 <>
                     <div style={{ textAlign: 'center' }}>Page {page + 1}/{this.totalPages}</div>
                     <div style={{ marginTop: '10vh', textAlign: 'center' }}>
                         {page === 0 && <Fade>
                             <>
+                                <h3>Welcome to TutorQ</h3>
+                                <p>This is an application used for the INFO tutor. Please have cookies enabled or the application will not function properly.
+                                    Your data will be collected, see how it is being used <Link to="/blog/tutordata">here</Link>.</p>
                                 <h3>Please enter your name</h3>
                                 <Input placeholder={'Name'}
                                     name={'name'}
@@ -279,7 +300,9 @@ export default class TutorQStudent extends Component {
                                     onClick={this.sendDataToFirebase}
                                 >
                                     Join the queue!
-                        </Button>
+                                </Button>
+
+                                <p>By clicking this button, you acknowledge that your data is collected. See how your data is being used <Link to="/blog/tutordata">here</Link></p>
 
                             </>
                         </Fade>}
