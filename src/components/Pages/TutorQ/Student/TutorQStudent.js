@@ -68,9 +68,7 @@ export default class TutorQStudent extends Component {
                     userInQueueKey = d;
                 }
             });
-            console.log('goes here', userInQueue);
             if (userInQueue > -1) {
-                console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                 this.setState({
                     inQueue: true,
                     queueLength: queueObj.length,
@@ -79,7 +77,6 @@ export default class TutorQStudent extends Component {
                     userInQueueKey
                 });
             } else {
-                console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
                 this.setState({
                     inQueue: false,
                     queueLength: queueObj.length,
@@ -209,8 +206,6 @@ export default class TutorQStudent extends Component {
             valid,
             positionInQueue,
             queueLength } = this.state;
-        // console.log(this.state, this.id);
-        console.log(this.state.inQueue, this.state.sentToFirebase, positionInQueue, queueLength);
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
 
@@ -302,7 +297,7 @@ export default class TutorQStudent extends Component {
                                     Join the queue!
                                 </Button>
 
-                                <p>By clicking this button, you acknowledge that your data is collected. See how your data is being used <Link to="/blog/tutordata">here</Link></p>
+                                <p style={{ marginTop: 15 }}>By clicking this button, you acknowledge that your data is collected. See how your data is being used <Link to="/blog/tutordata">here</Link></p>
 
                             </>
                         </Fade>}
