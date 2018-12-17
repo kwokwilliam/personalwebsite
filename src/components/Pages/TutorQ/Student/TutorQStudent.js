@@ -16,7 +16,7 @@ export default class TutorQStudent extends Component {
         super(props);
         this.state = {
             page: 0,
-            name: '',
+            name: cookies.get('tutorqname') || '',
             classNumber: null,
             problemCategory: null,
             problemDescription: '',
@@ -183,6 +183,7 @@ export default class TutorQStudent extends Component {
     sendDataToFirebase = () => {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
+            cookies.set('tutorqname', name);
             let queueKey = this.queueRef.push({
                 classNumber,
                 problemCategory,
@@ -243,9 +244,9 @@ export default class TutorQStudent extends Component {
                     <div style={{ marginTop: '10vh', textAlign: 'center' }}>
                         {page === 0 && <Fade>
                             <>
-                                <h3>Welcome to TutorQ</h3>
+                                <h3>Welcome to TutorQ!</h3>
                                 <p>This is an application used for the INFO tutor. Please have cookies enabled or the application will not function properly.
-                                    Your data will be collected, see how it is being used <Link to="/blog/tutordata">here</Link>.</p>
+                                    Your data will be collected. See how it is being used <Link to="/blog/tutordata">here</Link>.</p>
                                 <h3>Please enter your name</h3>
                                 <Input placeholder={'Name'}
                                     name={'name'}

@@ -25,7 +25,7 @@ export default class Navbar extends Component {
     render() {
         return <nav style={{ display: 'flex' }}>
             <div style={{ margin: 'auto', display: 'flex', padding: 10, paddingRight: 10, lineHeight: "70px" }}>
-                <div style={{ marginRight: 80 }}><Logo /></div>
+                <div style={{ marginRight: 80 }}><Link to={'/main'}><Logo /></Link></div>
                 {
                     this.props.pages.map(d => {
                         return <div key={d} style={{ marginLeft: 10, marginRight: 10 }}>
