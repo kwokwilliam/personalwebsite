@@ -245,7 +245,7 @@ export default class TutorQStudent extends Component {
                                     name={'name'}
                                     onChange={this.change}
                                     value={name}
-                                    style={{ maxWidth: 500, margin: 'auto', marginTop: 30 }} />
+                                    style={{ maxWidth: 500, margin: 'auto', marginTop: 10 }} />
                             </>
                         </Fade>}
                         {page === 1 && <Fade>

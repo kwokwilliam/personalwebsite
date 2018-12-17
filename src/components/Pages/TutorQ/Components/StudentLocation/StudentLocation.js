@@ -29,7 +29,7 @@ export default function StudentLocation({ location, setLocation, student }) {
     })
 
     return <div style={{ height: '60%' }}>
-        <img ref={imgRef} src={TELabMap} style={{ maxHeight: '50vh', maxWidth: '90vw' }} onClick={(e) => {
+        <img alt={"TE Lab Map. Please see one of the tutors if you need any accessibility accommodations and tutoring."} ref={imgRef} src={TELabMap} style={{ maxHeight: '50vh', maxWidth: '90vw' }} onClick={(e) => {
             if (student) {
                 const { offsetLeft, offsetTop, width, height } = e.target
                 const locationObj = {
