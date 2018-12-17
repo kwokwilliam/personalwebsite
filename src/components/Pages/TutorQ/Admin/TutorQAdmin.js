@@ -4,7 +4,18 @@ import { Button } from 'reactstrap';
 import { Route } from 'react-router-dom';
 import Spinner from 'react-loader-spinner';
 import 'firebase/auth';
-import TutorQAdminMain from './Components/TutorQAdminMain';
+import Loadable from 'react-loadable';
+
+const Loading = () => <div><Spinner
+    type="Oval"
+    color="#005696"
+    height="100"
+    width="100"
+/></div>;
+const TutorQAdminMain = Loadable({
+    loader: () => import('./Components/TutorQAdminMain'),
+    loading: Loading,
+})
 
 let provider = new firebase.auth.GoogleAuthProvider();
 
@@ -74,3 +85,5 @@ export default class TutorQAdmin extends Component {
 }
 
 //       ".write": "auth != null && root.child('Users').child(auth.uid).child('permission').val() === 'author'"
+
+// tutorq/adminList/uid

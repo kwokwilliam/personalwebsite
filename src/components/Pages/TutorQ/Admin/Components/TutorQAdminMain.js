@@ -16,9 +16,12 @@ export default function TutorQAdminMain({ adminButtons }) {
             })}
 
         </div>
-        <div><Button onClick={() => {
-            firebase.auth().signOut();
-        }}>Sign out</Button>
+        <div>
+            <Button onClick={() => {
+                firebase.auth().signOut();
+            }}>
+                Sign out
+            </Button>
         </div>
     </>
 }
