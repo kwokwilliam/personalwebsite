@@ -47,39 +47,41 @@ export default class TutorQStudent extends Component {
     }
 
     removeMeFromQueue = () => {
+        this.setState({ removeButtonLoading: true });
         const removeUserFromQueue = firebase.functions().httpsCallable('removeUserFromQueue');
-        removeUserFromQueue({ id: this.id, key: this.state.userInQueueKey }).then((r) => {
-            // console.log(r.data);
+        removeUserFromQueue({ id: this.id }).then((r) => {
+            this.setState({ removeButtonLoading: false, page: 0 });
+            if (!r.data.success) {
+                this.setState({ error: r.data.error });
+            }
         });
     }
 
     componentDidMount = () => {
+        this.idToQueueInfoRef = firebase.database().ref(`/tutorq/idToQueueInfo/${this.id}`);
+        this.idToQueueInfoRef.on('value', (snap) => {
+            let val = snap.val() || {};
+            let { queueKey } = val;
+            this.setState({ userInQueueKey: queueKey });
+        })
+
         this.queueRef = firebase.database().ref('/tutorq/inqueue')
 
         this.queueRef.on('value', (snap) => {
             let queue = snap.val() || {};
-            let userInQueue = -1;
-            let queueObj = Object.keys(queue);
-            let userInQueueKey = '';
-            queueObj.map((d, i) => {
-                let personInQueue = queue[d];
-                if (personInQueue.id === this.id) {
-                    userInQueue = i;
-                    userInQueueKey = d;
-                }
-            });
+            let queueArr = Object.keys(queue);
+            let userInQueue = queueArr.indexOf(this.state.userInQueueKey);
             if (userInQueue > -1) {
                 this.setState({
                     inQueue: true,
-                    queueLength: queueObj.length,
+                    queueLength: queueArr.length,
                     positionInQueue: userInQueue + 1,
                     sentToFirebase: false,
-                    userInQueueKey
                 });
             } else {
                 this.setState({
                     inQueue: false,
-                    queueLength: queueObj.length,
+                    queueLength: queueArr.length,
                     positionInQueue: -1
                 })
             }
@@ -88,6 +90,7 @@ export default class TutorQStudent extends Component {
 
     componentWillUnmount = () => {
         this.queueRef.off();
+        this.idToQueueInfoRef.off();
     }
 
     change = (e) => {
@@ -173,26 +176,28 @@ export default class TutorQStudent extends Component {
         }
         this.setError('');
         this.setValid(true);
+        // this.setState({ page: 0 });
         return true;
     }
 
     sendDataToFirebase = () => {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
-            this.queueRef.push({
+            let queueKey = this.queueRef.push({
                 classNumber,
                 problemCategory,
                 problemDescription,
                 location,
                 timestamp: firebase.database.ServerValue.TIMESTAMP,
-                id: this.id
             }, (e) => {
                 if (e) {
                     this.setError(e.message);
                 }
-            });
+            }).key;
 
-            firebase.database().ref(`/tutorq/idToQueueInfo/${this.id}`).set(name);
+            if (queueKey) {
+                firebase.database().ref(`/tutorq/idToQueueInfo/${this.id}`).set({ name, queueKey });
+            }
         }
 
         // TODO: set a loading spinner!
@@ -226,6 +231,7 @@ export default class TutorQStudent extends Component {
                         </p>
                         <Button style={{ backgroundColor: '#005696' }}
                             onClick={this.removeMeFromQueue}
+                            disabled={this.state.removeButtonLoading}
                         >Remove from queue</Button>
                     </div>
                 </div>
