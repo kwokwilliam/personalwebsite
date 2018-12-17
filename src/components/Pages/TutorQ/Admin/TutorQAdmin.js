@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
-import { Input, Button, Alert } from 'reactstrap';
-import Loader from 'react-loader-spinner'
+import firebase from 'firebase/app';
+import { Button } from 'reactstrap';
+import { Route } from 'react-router-dom';
+import Spinner from 'react-loader-spinner';
 import 'firebase/auth';
-
+import TutorQAdminMain from './Components/TutorQAdminMain';
 
 let provider = new firebase.auth.GoogleAuthProvider();
 
@@ -14,6 +15,25 @@ export default class TutorQAdmin extends Component {
             user: null,
             loading: true
         }
+
+        this.adminButtons = [
+            {
+                linkTo: "/tutorqadmin/adminqueue",
+                linkText: "Main Admin Tool"
+            },
+            {
+                linkTo: "/tutorqadmin/whosinqueue",
+                linkText: "See Queue List"
+            },
+            {
+                linkTo: "/tutorqadmin/seatingdistribution",
+                linkText: "Seating Distribution"
+            },
+            {
+                linkTo: "/tutorqadmin/statistics",
+                linkText: "Tutor Statistics"
+            }
+        ]
     }
 
     componentWillMount() {
@@ -27,25 +47,28 @@ export default class TutorQAdmin extends Component {
     }
 
     render() {
-        console.log(this.state.user);
+        const { loading, user } = this.state;
         return <div style={{ textAlign: 'center' }}>
-            <h1>
+            <h1 style={{ marginBottom: '5vh' }}>
                 TutorQ Admin Panel
             </h1>
 
-            {this.state.loading && <div><Loader
+            {loading && <div><Spinner
                 type="Oval"
                 color="#005696"
                 height="100"
                 width="100"
-            />   </div>}
-            <Button onClick={() => {
-                firebase.auth().signInWithRedirect(provider);
-            }}>Sign in with Google</Button>
-            <Button onClick={() => {
-                firebase.auth().signOut();
-            }}>Sign out</Button>
-            {this.state.user && <>Currently signed in</>}
+            /></div>}
+
+            {!loading && !user && <div>
+                <Button onClick={() => {
+                    firebase.auth().signInWithRedirect(provider);
+                }} style={{ backgroundColor: "#005696" }}>Sign in with Google</Button>
+            </div>}
+
+            {user && <>
+                <Route exact path={"/tutorqadmin"} render={() => <TutorQAdminMain adminButtons={this.adminButtons} />} />
+            </>}
         </div>
     }
 }
