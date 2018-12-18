@@ -12,8 +12,14 @@ const Loading = () => <div><Spinner
     height="100"
     width="100"
 /></div>;
+
 const TutorQAdminMain = Loadable({
-    loader: () => import('./Components/TutorQAdminMain'),
+    loader: () => import('./Components/Main/TutorQAdminMain'),
+    loading: Loading,
+})
+
+const TutorQAdminWhoIsInQueue = Loadable({
+    loader: () => import('./Components/WhoInQueue/TutorQAdminWhoIsInQueue'),
     loading: Loading,
 })
 
@@ -79,6 +85,7 @@ export default class TutorQAdmin extends Component {
 
             {user && <>
                 <Route exact path={"/tutorqadmin"} render={() => <TutorQAdminMain adminButtons={this.adminButtons} />} />
+                <Route path={"/tutorqadmin/whosinqueue"} render={() => <TutorQAdminWhoIsInQueue />} />
             </>}
         </div>
     }

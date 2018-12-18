@@ -52,6 +52,7 @@ export default class TutorQStudent extends Component {
         removeUserFromQueue({ id: this.id }).then((r) => {
             this.setState({ removeButtonLoading: false, page: 0 });
             if (!r.data.success) {
+                console.log(r.data);
                 this.setState({ error: r.data.error });
             }
         });
