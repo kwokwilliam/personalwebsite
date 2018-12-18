@@ -94,3 +94,6 @@ export default class TutorQAdmin extends Component {
 //       ".write": "auth != null && root.child('Users').child(auth.uid).child('permission').val() === 'author'"
 
 // tutorq/adminList/uid
+
+// TODO: CHECK IF USER IS ADMIN
+// TODO: CONCURRENCY AND SLOW INTERNET
