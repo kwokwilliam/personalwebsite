@@ -216,6 +216,8 @@ export default class TutorQStudent extends Component {
             valid,
             positionInQueue,
             queueLength } = this.state;
+        let locations = [];
+        locations.push(location);
         return <>
             <h1 style={{ margin: 'auto', textAlign: 'center' }}>TutorQ</h1>
 
@@ -290,7 +292,7 @@ export default class TutorQStudent extends Component {
                             <>
                                 <h3>Where in the TE Lab are you sitting?</h3>
                                 <div>
-                                    <StudentLocation student setLocation={this.setLocation} location={location} test="123" />
+                                    <StudentLocation student setLocation={this.setLocation} locations={locations} test="123" />
                                 </div>
                             </>
                         </Fade>}

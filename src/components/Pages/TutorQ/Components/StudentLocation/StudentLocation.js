@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import TELabMap from './Assets/TELabMap.png'
 
-export default function StudentLocation({ location, setLocation, student }) {
+export default function StudentLocation({ locations, setLocation, student }) {
     const [imgData, setImgData] = useState({ x: 0, y: 0, width: 0, height: 0 });
     const imgRef = useRef(null);
 
@@ -27,7 +27,6 @@ export default function StudentLocation({ location, setLocation, student }) {
             window.removeEventListener('resize', resize);
         }
     })
-
     return <div style={{ height: '60%' }}>
         <img alt={"TE Lab Map. Please see one of the tutors if you need any accessibility accommodations and tutoring."} ref={imgRef} src={TELabMap} style={{ maxHeight: '50vh', maxWidth: '90vw' }} onClick={(e) => {
             if (student) {
@@ -40,12 +39,12 @@ export default function StudentLocation({ location, setLocation, student }) {
                 setLocation(locationObj);
             }
         }} />
-        <div style={{
+        {locations && locations.map((d, i) => <div key={'loc-' + i} style={{
             position: 'absolute',
-            left: imgData.x + (location ? location.xPercentage * imgData.width : 0),
-            top: imgData.y + (location ? location.yPercentage * imgData.height : 0),
+            left: imgData.x + (d ? d.xPercentage * imgData.width : 0),
+            top: imgData.y + (d ? d.yPercentage * imgData.height : 0),
             transform: 'translate(-50%, -50%)',
-            display: location ? '' : 'none'
-        }}><FontAwesomeIcon icon={faCircle} size={'2x'} style={{ color: 'red' }} /></div>
+            display: d ? '' : 'none'
+        }}><FontAwesomeIcon icon={faCircle} size={'2x'} style={{ color: 'red' }} /></div>)}
     </div>
 }
