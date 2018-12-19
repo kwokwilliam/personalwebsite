@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import { Route } from 'react-router-dom';
 import Spinner from 'react-loader-spinner';
 import 'firebase/auth';
+import 'firebase/functions';
 import Loadable from 'react-loadable';
 
 const Loading = () => <div><Spinner
@@ -56,6 +57,11 @@ export default class TutorQAdmin extends Component {
     componentWillMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
+                // this part ahead works
+                // const isUserAdmin = firebase.functions().httpsCallable('isUserAdmin');
+                // isUserAdmin().then(r => {
+                //     console.log(r);
+                // })
                 this.setState({ user, loading: false });
             } else {
                 this.setState({ user: null, loading: false });
