@@ -25,13 +25,15 @@ const TutorQAdminWhoIsInQueue = Loadable({
 })
 
 let provider = new firebase.auth.GoogleAuthProvider();
+const isUserAdmin = firebase.functions().httpsCallable('isUserAdmin');
 
 export default class TutorQAdmin extends Component {
     constructor(props) {
         super(props);
         this.state = {
             user: null,
-            loading: true
+            loading: true,
+            admin: false
         }
 
         this.adminButtons = [
@@ -57,12 +59,13 @@ export default class TutorQAdmin extends Component {
     componentWillMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                // this part ahead works
-                // const isUserAdmin = firebase.functions().httpsCallable('isUserAdmin');
-                // isUserAdmin().then(r => {
-                //     console.log(r);
-                // })
-                this.setState({ user, loading: false });
+                isUserAdmin().then(r => {
+                    if (r.data) {
+                        this.setState({ admin: true, user, loading: false });
+                    } else {
+                        this.setState({ admin: false, user, loading: false });
+                    }
+                })
             } else {
                 this.setState({ user: null, loading: false });
             }
@@ -70,7 +73,7 @@ export default class TutorQAdmin extends Component {
     }
 
     render() {
-        const { loading, user } = this.state;
+        const { loading, user, admin } = this.state;
         return <div style={{ textAlign: 'center' }}>
             <h1 style={{ marginBottom: '5vh' }}>
                 TutorQ Admin Panel
@@ -89,9 +92,18 @@ export default class TutorQAdmin extends Component {
                 }} style={{ backgroundColor: "#005696" }}>Sign in with Google</Button>
             </div>}
 
-            {user && <>
+            {user && admin && <>
                 <Route exact path={"/tutorqadmin"} render={() => <TutorQAdminMain adminButtons={this.adminButtons} />} />
                 <Route path={"/tutorqadmin/whosinqueue"} render={() => <TutorQAdminWhoIsInQueue />} />
+            </>}
+
+            {user && !admin && <>
+                <h1>You are not permitted to view this page.</h1>
+                <Button onClick={() => {
+                    firebase.auth().signOut();
+                }}>
+                    Sign out
+                </Button>
             </>}
         </div>
     }
