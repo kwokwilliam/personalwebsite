@@ -3,6 +3,8 @@ import firebase from 'firebase/app';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import 'firebase/auth';
+import 'firebase/functions';
+
 
 export default function TutorQAdminMain({ adminButtons }) {
     return <>
