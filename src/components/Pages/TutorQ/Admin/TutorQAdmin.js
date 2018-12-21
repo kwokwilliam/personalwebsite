@@ -17,17 +17,22 @@ const Loading = () => <div><Spinner
 const TutorQAdminMain = Loadable({
     loader: () => import('./Components/Main/TutorQAdminMain'),
     loading: Loading,
-})
+});
 
 const TutorQAdminWhoIsInQueue = Loadable({
     loader: () => import('./Components/WhoInQueue/TutorQAdminWhoIsInQueue'),
     loading: Loading,
-})
+});
 
 const TutorQAdminAdminQueue = Loadable({
     loader: () => import('./Components/AdminQueue/TutorQAdminAdminQueue'),
     loading: Loading,
-})
+});
+
+const TutorQAdminSeatingDistribution = Loadable({
+    loader: () => import('./Components/SeatingDistribution/TutorQAdminSeatingDistribution'),
+    loading: Loading,
+});
 
 let provider = new firebase.auth.GoogleAuthProvider();
 const isUserAdmin = firebase.functions().httpsCallable('isUserAdmin');
@@ -96,6 +101,7 @@ export default class TutorQAdmin extends Component {
                 <Route exact path={"/tutorqadmin"} render={() => <TutorQAdminMain adminButtons={this.adminButtons} />} />
                 <Route path={"/tutorqadmin/adminqueue"} render={() => <TutorQAdminAdminQueue uid={user.uid} />} />
                 <Route path={"/tutorqadmin/whosinqueue"} render={() => <TutorQAdminWhoIsInQueue />} />
+                <Route path={"/tutorqadmin/seatingdistribution"} render={() => <TutorQAdminSeatingDistribution />} />
             </>}
 
             {user && !admin && <>
