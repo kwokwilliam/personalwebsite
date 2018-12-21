@@ -28,7 +28,6 @@ export default class TutorQAdminSeatingDistribution extends Component {
     render() {
         const { queueList } = this.state;
         let locations = Object.keys(queueList).map(d => {
-            console.log(queueList[d]);
             return queueList[d].location;
         })
         return <>

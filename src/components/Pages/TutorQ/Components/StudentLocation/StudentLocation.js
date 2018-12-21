@@ -20,6 +20,7 @@ export default function StudentLocation({ locations, setLocation, student }) {
         }
         if ((imgRef.current && imgData.x === 0 && imgData.y === 0) || (imgData.width === 0 || imgData.height === 0)) {
             let { offsetLeft, offsetTop, width, height } = imgRef.current;
+            console.log(imgRef.current.parentNode)
             setImgData({ x: offsetLeft, y: offsetTop, width, height });
         }
         window.addEventListener('resize', resize);
@@ -27,7 +28,10 @@ export default function StudentLocation({ locations, setLocation, student }) {
             window.removeEventListener('resize', resize);
         }
     })
-    return <div style={{ height: '60%' }}>
+
+    console.log(imgData, locations[0]);
+    // console.log(imgData.x + (locations[0] ? locations[0].xPercentage * imgData.width : 0), imgData.y + (locations[0] ? locations[0].yPercentage * imgData.height : 0))
+    return <div style={{ position: 'relative', height: '60%' }}>
         <img alt={"TE Lab Map. Please see one of the tutors if you need any accessibility accommodations and tutoring."} ref={imgRef} src={TELabMap} style={{ maxHeight: '50vh', maxWidth: '90vw' }} onClick={(e) => {
             if (student && setLocation) {
                 const { offsetLeft, offsetTop, width, height } = e.target
@@ -41,10 +45,10 @@ export default function StudentLocation({ locations, setLocation, student }) {
         }} />
         {locations && locations.map((d, i) => <div key={'loc-' + i} style={{
             position: 'absolute',
-            left: imgData.x + (d ? d.xPercentage * imgData.width : 0),
-            top: imgData.y + (d ? d.yPercentage * imgData.height : 0),
+            left: /*imgData.x + (d ? d.xPercentage * imgData.width : 0)*/ 0,
+            top: /*imgData.y + (d ? d.yPercentage * imgData.height : 0)*/ 0,
             transform: 'translate(-50%, -50%)',
             display: d ? '' : 'none'
-        }}><FontAwesomeIcon icon={faCircle} size={'2x'} style={{ color: 'red' }} /></div>)}
+        }}><FontAwesomeIcon style={{ margin: 0, padding: 0 }} icon={faCircle} size={'2x'} style={{ color: 'red' }} /></div>)}
     </div>
 }
