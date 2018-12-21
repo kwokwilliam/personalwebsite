@@ -289,14 +289,13 @@ export default class TutorQStudent extends Component {
                                 :
                                 <h3>Please select a class on the previous page</h3>}
                         </Fade>}
-                        {page === 3 && <Fade>
+                        {page === 3 &&
                             <>
                                 <h3>Where in the TE Lab are you sitting?</h3>
                                 <div>
                                     <StudentLocation student setLocation={this.setLocation} locations={locations} test="123" />
                                 </div>
-                            </>
-                        </Fade>}
+                            </>}
                         {page === 4 && <Fade>
                             <>
                                 <h3>Submit</h3>
