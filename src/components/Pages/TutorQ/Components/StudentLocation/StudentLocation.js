@@ -18,7 +18,7 @@ export default function StudentLocation({ locations, setLocation, student }) {
                 setImgData({ x: offsetLeft, y: offsetTop, width, height });
             }
         }
-        if (imgRef.current && imgData.x === 0 && imgData.y === 0 && imgData.width === 0 && imgData.height === 0) {
+        if ((imgRef.current && imgData.x === 0 && imgData.y === 0) || (imgData.width === 0 || imgData.height === 0)) {
             let { offsetLeft, offsetTop, width, height } = imgRef.current;
             setImgData({ x: offsetLeft, y: offsetTop, width, height });
         }
