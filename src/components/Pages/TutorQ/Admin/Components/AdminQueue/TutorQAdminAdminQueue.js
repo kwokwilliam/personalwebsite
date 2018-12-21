@@ -4,7 +4,7 @@ import 'firebase/database';
 import 'firebase/functions';
 import {
     Card, CardText, CardBody, CardTitle, CardSubtitle, Button,
-    Modal, ModalHeader, ModalBody, ModalFooter
+    Modal, ModalHeader, ModalFooter
 } from 'reactstrap';
 import Spinner from 'react-loader-spinner';
 import BackToHubButton from '../BackToHubButton';
@@ -108,6 +108,7 @@ export default class TutorQAdminAdminQueue extends Component {
                         <ModalFooter>
                             <Button style={{ backgroundColor: "#005696" }} onClick={() => {
                                 this.toggleFinishModal();
+                                this.setState({ loading });
                                 finishTutorStudent();
                             }}>Confirm</Button>{' '}
                             <Button color="secondary" onClick={this.toggleFinishModal}>Cancel</Button>
@@ -119,6 +120,7 @@ export default class TutorQAdminAdminQueue extends Component {
                         <ModalFooter>
                             <Button style={{ backgroundColor: "#005696" }} onClick={() => {
                                 this.toggleFinishAndNewStudentModal();
+                                this.setState({ loading });
                                 finishTutorStudent().then(r => {
                                     if (r.data.success) {
                                         giveTutorStudent();
@@ -137,9 +139,8 @@ export default class TutorQAdminAdminQueue extends Component {
                         <Button disabled={lengthOfQueue <= 0}
                             style={{ backgroundColor: '#005696' }}
                             onClick={() => {
-                                giveTutorStudent().then(r => {
-                                    console.log(r);
-                                });
+                                this.setState({ loading: true });
+                                giveTutorStudent()
                             }}>Get student</Button>
                     </div>
 
