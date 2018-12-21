@@ -11,6 +11,8 @@ import { Input, Button, Alert } from 'reactstrap';
 import './TutorQStudent.css';
 import { Link } from 'react-router-dom'
 
+const removeUserFromQueue = firebase.functions().httpsCallable('removeUserFromQueue');
+
 export default class TutorQStudent extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +50,6 @@ export default class TutorQStudent extends Component {
 
     removeMeFromQueue = () => {
         this.setState({ removeButtonLoading: true });
-        const removeUserFromQueue = firebase.functions().httpsCallable('removeUserFromQueue');
         removeUserFromQueue({ id: this.id }).then((r) => {
             this.setState({ removeButtonLoading: false, page: 0 });
             if (!r.data.success) {

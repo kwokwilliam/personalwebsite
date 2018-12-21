@@ -24,6 +24,11 @@ const TutorQAdminWhoIsInQueue = Loadable({
     loading: Loading,
 })
 
+const TutorQAdminAdminQueue = Loadable({
+    loader: () => import('./Components/AdminQueue/TutorQAdminAdminQueue'),
+    loading: Loading,
+})
+
 let provider = new firebase.auth.GoogleAuthProvider();
 const isUserAdmin = firebase.functions().httpsCallable('isUserAdmin');
 
@@ -79,12 +84,7 @@ export default class TutorQAdmin extends Component {
                 TutorQ Admin Panel
             </h1>
 
-            {loading && <div><Spinner
-                type="Oval"
-                color="#005696"
-                height="100"
-                width="100"
-            /></div>}
+            {loading && <Loading />}
 
             {!loading && !user && <div>
                 <Button onClick={() => {
@@ -94,6 +94,7 @@ export default class TutorQAdmin extends Component {
 
             {user && admin && <>
                 <Route exact path={"/tutorqadmin"} render={() => <TutorQAdminMain adminButtons={this.adminButtons} />} />
+                <Route path={"/tutorqadmin/adminqueue"} render={() => <TutorQAdminAdminQueue uid={user.uid} />} />
                 <Route path={"/tutorqadmin/whosinqueue"} render={() => <TutorQAdminWhoIsInQueue />} />
             </>}
 
@@ -109,9 +110,4 @@ export default class TutorQAdmin extends Component {
     }
 }
 
-//       ".write": "auth != null && root.child('Users').child(auth.uid).child('permission').val() === 'author'"
-
-// tutorq/adminList/uid
-
-// TODO: CHECK IF USER IS ADMIN
 // TODO: CONCURRENCY AND SLOW INTERNET
