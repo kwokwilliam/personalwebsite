@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import StudentLocation from '../../../Components/StudentLocation/StudentLocation';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import BackToHubButton from '../BackToHubButton';
 
 export default class TutorQAdminSeatingDistribution extends Component {
     constructor() {
@@ -11,7 +12,6 @@ export default class TutorQAdminSeatingDistribution extends Component {
             queueList: {}
         }
     }
-
 
     componentDidMount() {
         this.queueRef = firebase.database().ref(`/tutorq/inqueue`);
@@ -31,6 +31,7 @@ export default class TutorQAdminSeatingDistribution extends Component {
             return queueList[d].location;
         })
         return <>
+            <BackToHubButton />
             <StudentLocation locations={locations} student={false} />
         </>
     }
