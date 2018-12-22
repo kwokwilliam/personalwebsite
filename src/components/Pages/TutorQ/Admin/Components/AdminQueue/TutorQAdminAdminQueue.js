@@ -108,7 +108,7 @@ export default class TutorQAdminAdminQueue extends Component {
                         <ModalFooter>
                             <Button style={{ backgroundColor: "#005696" }} onClick={() => {
                                 this.toggleFinishModal();
-                                this.setState({ loading });
+                                this.setState({ loading: true });
                                 finishTutorStudent();
                             }}>Confirm</Button>{' '}
                             <Button color="secondary" onClick={this.toggleFinishModal}>Cancel</Button>
@@ -120,7 +120,7 @@ export default class TutorQAdminAdminQueue extends Component {
                         <ModalFooter>
                             <Button style={{ backgroundColor: "#005696" }} onClick={() => {
                                 this.toggleFinishAndNewStudentModal();
-                                this.setState({ loading });
+                                this.setState({ loading: true });
                                 finishTutorStudent().then(r => {
                                     if (r.data.success) {
                                         giveTutorStudent();
@@ -140,7 +140,7 @@ export default class TutorQAdminAdminQueue extends Component {
                             style={{ backgroundColor: '#005696' }}
                             onClick={() => {
                                 this.setState({ loading: true });
-                                giveTutorStudent()
+                                giveTutorStudent();
                             }}>Get student</Button>
                     </div>
 

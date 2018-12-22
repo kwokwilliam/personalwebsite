@@ -59,10 +59,10 @@ export default class TutorQAdmin extends Component {
                 linkTo: "/tutorqadmin/seatingdistribution",
                 linkText: "Seating Distribution"
             },
-            {
-                linkTo: "/tutorqadmin/statistics",
-                linkText: "Tutor Statistics"
-            }
+            // {
+            //     linkTo: "/tutorqadmin/statistics",
+            //     linkText: "Tutor Statistics"
+            // }
         ]
     }
 

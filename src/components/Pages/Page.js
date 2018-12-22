@@ -55,18 +55,25 @@ export default class Page extends Component {
     renderPage() {
         switch (this.props.page) {
             case "main":
+                document.title = "William Kwok";
                 return <MainPage mobile={this.state.mobile} />;
             case "projects":
+                document.title = "William Kwok's Projects";
                 return <Projects mobile={this.state.mobile} />;
             case "about":
+                document.title = "About William Kwok";
                 return <About mobile={this.state.mobile} />;
             case "resume":
+                document.title = "William Kwok's Resume";
                 return <Resume mobile={this.state.mobile} />;
             case "blog":
+                document.title = "William Kwok's Blog";
                 return <Blog mobile={this.state.mobile} post={this.props.match.params.blogpost} />;
             case "tutorq":
+                document.title = "TutorQ";
                 return <TutorQStudent mobile={this.state.mobile} />;
             case "tutorqadmin":
+                document.title = "TutorQ Admin Panel";
                 return <TutorQAdmin mobile={this.state.mobile} />;
             default:
                 return <div>Error: Page doesn't exist</div>;

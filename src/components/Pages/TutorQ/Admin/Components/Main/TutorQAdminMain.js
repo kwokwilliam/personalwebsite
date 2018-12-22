@@ -9,9 +9,7 @@ export default function TutorQAdminMain({ adminButtons }) {
         <div style={{ fontSize: '150%' }}>
             {adminButtons.map(d => {
                 return <div key={d.linkTo} style={{ marginBottom: 5 }}>
-                    <Button style={{ backgroundColor: "#005696" }}>
-                        <Link style={{ textDecoration: 'none', color: 'white' }} to={d.linkTo}>{d.linkText}</Link>
-                    </Button>
+                    <Link className="btn" style={{ textDecoration: 'none', color: 'white', backgroundColor: '#005696' }} to={d.linkTo}>{d.linkText}</Link>
                 </div>
             })}
         </div>
