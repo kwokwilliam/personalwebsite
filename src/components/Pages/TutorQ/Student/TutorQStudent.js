@@ -71,7 +71,9 @@ export default class TutorQStudent extends Component {
 
         this.queueRef.on('value', (snap) => {
             let queue = snap.val() || {};
-            let queueArr = Object.keys(queue);
+            let queueArr = Object.keys(queue).sort((a, b) => {
+                return queue[a].timestamp - queue[b].timestamp;
+            });
             let userInQueue = queueArr.indexOf(this.state.userInQueueKey);
             if (userInQueue > -1) {
                 this.setState({

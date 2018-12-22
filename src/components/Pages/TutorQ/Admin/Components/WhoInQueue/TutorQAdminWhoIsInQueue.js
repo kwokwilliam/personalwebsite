@@ -52,7 +52,9 @@ export default class TutorQAdminWhoIsInQueue extends Component {
             }
         });
 
-        let queueAsArr = Object.keys(modifiedQueue).map(d => {
+        let queueAsArr = Object.keys(modifiedQueue).sort((a, b) => {
+            return modifiedQueue[a].timestamp - modifiedQueue[b].timestamp;
+        }).map(d => {
             let person = modifiedQueue[d];
             return <PersonInQueue key={d} person={person} />
         })
