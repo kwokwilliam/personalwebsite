@@ -1,38 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import StudentLocation from '../../../Components/StudentLocation/StudentLocation';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import BackToHubButton from '../BackToHubButton';
 
-export default class TutorQAdminSeatingDistribution extends Component {
-    constructor() {
-        super();
+export default function TutorQAdminSeatingDistribution() {
+    const [queueList, setQueueList] = useState({});
 
-        this.state = {
-            queueList: {}
-        }
-    }
-
-    componentDidMount() {
-        this.queueRef = firebase.database().ref(`/tutorq/inqueue`);
-        this.queueRef.on('value', (snap) => {
+    useEffect(() => {
+        const queueRef = firebase.database().ref(`/tutorq/inqueue`);
+        queueRef.on('value', (snap) => {
+            console.log('b');
             let queueVal = snap.val() || {};
-            this.setState({ queueList: queueVal });
+            setQueueList(queueVal);
         });
-    }
 
-    componentWillUnmount() {
-        this.queueRef.off();
-    }
+        return () => {
+            queueRef.off();
+        }
+    }, []);
 
-    render() {
-        const { queueList } = this.state;
-        let locations = Object.keys(queueList).map(d => {
-            return queueList[d].location;
-        })
-        return <>
-            <BackToHubButton />
-            <StudentLocation locations={locations} student={false} />
-        </>
-    }
+    const locations = Object.keys(queueList).map(d => {
+        return queueList[d].location;
+    })
+    return <>
+        <BackToHubButton />
+        <StudentLocation locations={locations} student={false} />
+    </>
 }
