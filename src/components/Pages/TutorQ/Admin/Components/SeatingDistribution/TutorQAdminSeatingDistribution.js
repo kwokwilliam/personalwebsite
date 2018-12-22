@@ -10,7 +10,6 @@ export default function TutorQAdminSeatingDistribution() {
     useEffect(() => {
         const queueRef = firebase.database().ref(`/tutorq/inqueue`);
         queueRef.on('value', (snap) => {
-            console.log('b');
             let queueVal = snap.val() || {};
             setQueueList(queueVal);
         });
