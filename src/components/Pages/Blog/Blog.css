@@ -32,7 +32,8 @@ code {
 }
 
 .wkmd img {
-    width: 100%;
+    max-width: 100%;
+    margin: auto;
     border: 3px solid #005696;
     border-radius: 10px;
 }

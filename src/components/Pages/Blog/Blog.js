@@ -71,6 +71,7 @@ export default class Blog extends Component {
                         renderers={{
                             code: CodeBlock,
                         }}
+                        escapeHtml={false}
                         className={`wkmd ${this.props.mobile ? 'wkmd-m' : ''}`} />
                     </Fade>
                 }
