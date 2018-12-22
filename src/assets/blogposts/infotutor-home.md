@@ -1,6 +1,6 @@
 # Informatics Tutor Hub
 
-Welcome to my tutor page. Here you will find helpful links to information that should help you throughout your journey in Informatics. I wish I could find time to help every single student, but unfortunately that just isn't possible. I have created a repository of useful tidbits that you will want to take a look at if you ever want to remember how to do something. These tidbits will be updated over time as I see more of what people are struggling with. I have recorded videos for some of them. Scroll to the bottom for office hours.
+Welcome to the Informatics tutor page. Here you will find helpful links to information that should help you throughout your journey in Informatics. I wish I could find time to help every single student, but unfortunately that just isn't possible. I have created a repository of useful tidbits that you will want to take a look at if you ever want to remember how to do something. These tidbits will be updated over time as I see more of what people are struggling with. I have recorded videos for some of them. Scroll to the bottom for office hours.
 
 > Note: Data is being collected on visit counts. This is so I get a better understanding of what people need help with most. This data is completely anonymous and I will have virtually no way of knowing who is linked to what internal ID. [See how I set your randomized ID](https://github.com/kwokwilliam/personalwebsite/blob/master/src/index.js). The [Tutor Queue](/tutorq) page is _temporarily_ not anonymous while you are in queue, and will make this current data that is being collected identifiable. Non-anonymized data will never be shared, only raw numbers. 
 
@@ -12,7 +12,7 @@ This page is still under construction.
 * [Cloning a repo (repository)](/blog/cloningarepo)
 * [Committing and Pushing](/blog/committingandpushing)
 * [Git ignore](/blog/gitignore)
-* Branching and Merging
+* [Branching and Merging](/blog/branchingandmerging)
 * Windows Users: Git Credential Manager
 * "Not a git repository"
 * Git upstream
@@ -35,7 +35,7 @@ This page is still under construction.
 
 ## Beyond INFO 340
 
-## About me and office hours
+## About your tutors and office hours
 
 Hi! My name is William Kwok. I will be your Informatics Tutor for Winter 2019. Click on the links at the top to learn more about me and what I do. Feel free to reach out to me on Facebook (you can find me through the IUGA Facebook Group), LinkedIn, or through your class Slack if I am on it! 
 
