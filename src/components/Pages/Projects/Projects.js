@@ -65,9 +65,9 @@ export default class Projects extends Component {
             {
                 title: "TutorQ",
                 thumbnail: tutorqImg,
-                description: [`I wanted to make a Queueing App focused towards tutoring individuals and collecting usage data to determine what topics were a common pain point. I would be able to see these topics and rush to make a written explanation that others can immediately find without having to enter the queue. I have a position in my school's Informatics department as an Undergraduate Tutor the upcoming quarter after the creation of this app. This tool would help me keep track of who has questions, and who to answer first. Even if I don't end up using it extensively, it is a good proof of concept.`,
-                    `I wanted to ensure mobile friendliness, low latency functionality, FERPA compliancy, security and anonymity, concurrency, scalability, and queueing functionality.`,
-                    `I also took the opportunity to experiment with React's upcoming hooks feature as well as running Firebase Serverless Functions. See the blog post below for more details.`],
+                description: [`I made a Queueing App focused towards tutoring individuals and collecting usage data to determine what topics were a common pain point. I would be able to see these topics and rush to make a written explanation that others can immediately find without having to enter the queue. I have a position in my school's Informatics department as an Undergraduate Tutor the upcoming quarter after the creation of this app. This tool would help me keep track of who has questions, and who to answer first. Even if I don't end up using it extensively, it is a good proof of concept.`,
+                    `I ensured mobile friendliness, low latency functionality, FERPA compliancy, security and anonymity, concurrency, scalability, and queueing functionality.`,
+                    `I also experimented with React's upcoming hooks feature as well as ran Firebase Serverless Functions. See the blog post below for more details.`],
                 links: [
                     {
                         name: "Project",
