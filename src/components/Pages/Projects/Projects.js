@@ -66,8 +66,16 @@ export default class Projects extends Component {
                     taking into consideration any ethical concerns about the app, and how we would attempt to solve those. The app
                     ended up being a crowd sourced application sort of like Waze, where users could say what areas have free or cheap contraceptives.`,
                     `The application uses Google Cloud Platform Geocoding API.`],
-                link: "https://devpost.com/software/findc-free-contraception-finder",
-                githubLink: "https://github.com/DH2018-FindC/FindC",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://devpost.com/software/findc-free-contraception-finder"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/DH2018-FindC/FindC"
+                    }
+                ],
                 tools: ["Firebase", "Google Cloud Platform", "JavaScript", "MaterialUI", "React", "React Router"],
                 seeAlso: [],
                 time: "October 2018",
@@ -84,8 +92,12 @@ export default class Projects extends Component {
                     design meetings, and sprints to make progress with the application over the course of a summer. This project gave me valuable
                     experience with working in a team and designing a full scale web application.`,
                     `The app is currently a work in progress, and is susceptible to crashes.`],
-                link: "https://cyberlearning-1d4e0.firebaseapp.com",
-                githubLink: "",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://cyberlearning-1d4e0.firebaseapp.com"
+                    }
+                ],
                 tools: ["Enzyme", "Express", "Firebase", "Flow", "JavaScript", "Jest", "Lodash",
                     "MaterialUI", "React", "React Router", "Sass"],
                 seeAlso: [],
@@ -102,8 +114,12 @@ export default class Projects extends Component {
                     `I primarly helped collect data during class sessions, analyze that data using R, and report on the data. Throughout
                     this project, I learned a great deal about the research process and about many methods of qualitative and quantitative
                     data analysis used in research.`],
-                link: "",
-                githubLink: "",
+                links: [
+                    {
+                        name: "Paper",
+                        link: "http://faculty.washington.edu/ajko/papers/Ko2019TeachingExplicitStrategies.pdf"
+                    }
+                ],
                 tools: ["Excel", "JavaScript", "LaTeX", "R"],
                 seeAlso: [],
                 time: "June 2018 - August 2018",
@@ -116,8 +132,16 @@ export default class Projects extends Component {
                 description: [`I set out to solve the problem of creating a resume in React. There were some
                     self-set specifications that were difficult to meet, but I figured out a way to do it. I 
                     also wrote about it in a medium article, to teach others how to do it!`,],
-                link: "https://medium.com/@wkwok16/lets-make-a-resume-in-react-2c9c5540f51a",
-                githubLink: "https://github.com/kwokwilliam/react-resume-pdf",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://medium.com/@wkwok16/lets-make-a-resume-in-react-2c9c5540f51a"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/react-resume-pdf"
+                    }
+                ],
                 tools: ["React"],
                 seeAlso: [],
                 time: "August 2018",
@@ -138,8 +162,16 @@ export default class Projects extends Component {
                     `After the competition, the data was released to the Hawaii Robotics community so teams 
                 could better understand their performance going into the world championship.
                 The application was programmed using NodeJS, JavaScript, and the React Framework.`],
-                link: "https://students.washington.edu/wkwok16/frc2090scouting2018public/#/",
-                githubLink: "https://github.com/kwokwilliam/frc2090scouting2018public",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://students.washington.edu/wkwok16/frc2090scouting2018public/#/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/frc2090scouting2018public"
+                    }
+                ],
                 tools: ["React Router", "Lodash", "Firebase", "Bootstrap", "MaterialUI", "ReactJS", "NodeJS", "JavaScript"],
                 seeAlso: [],
                 time: "March 2018",
@@ -155,8 +187,16 @@ export default class Projects extends Component {
                 to Google Calendar. See the github page for an in depth detail.`,
                     `This project was built for INFO 343 as a final group project partnered with 
                 Laura Freeman, Farrah Lee, and Sangchul Hwang.`],
-                link: "https://students.washington.edu/wkwok16/info343-final-project/#/",
-                githubLink: "https://github.com/ferily7/info343-final-project",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://students.washington.edu/wkwok16/info343-final-project/#/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/ferily7/info343-final-project"
+                    }
+                ],
                 tools: ['Firebase', "JavaScript", "React Router", "MaterialUI"],
                 seeAlso: [],
                 time: "February 2018 - March 2018",
@@ -170,8 +210,16 @@ export default class Projects extends Component {
                 admins of an established organization to create a page, invite users and admins to the page,
                 make announcements, and make events to attend. It uses Firebase as a secure authentication 
                 and database service, React, and React Router.`,
-                link: "https://students.washington.edu/wkwok16/p4-kwokwilliam/#/",
-                githubLink: "https://github.com/kwokwilliam/INFO343-Project4",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://students.washington.edu/wkwok16/p4-kwokwilliam/#/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/INFO343-Project4"
+                    }
+                ],
                 tools: ['Firebase', 'JavaScript', 'ReactJS', "NodeJS", 'React Router', "Bootstrap"],
                 seeAlso: [],
                 time: "February 2018",
@@ -185,8 +233,16 @@ export default class Projects extends Component {
                 completely using the React JavaScript framework. This iteration now allows real time 
                 querying from a dataset provided by the Seattle Department of Transportation, asynchronous 
                 processing of data, and displays to the user more data about each bike rack.`,
-                link: "https://students.washington.edu/wkwok16/p3-mockingod1841/",
-                githubLink: "https://github.com/kwokwilliam/INFO343-Project3",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://students.washington.edu/wkwok16/p3-mockingod1841/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/INFO343-Project3"
+                    }
+                ],
                 tools: ["JavaScript", "ReactJS", "OpenDataPortal", "NodeJS"],
                 seeAlso: [{
                     name: "Seattle SafeCycle",
@@ -201,8 +257,16 @@ export default class Projects extends Component {
                 thumbnail: dfSim,
                 description: `This simulator allows users to model fluid flow through different containers. 
                 It is built using JavaScript Canvas elements.`,
-                link: "https://students.washington.edu/wkwok16/p2-mockingod1841/",
-                githubLink: "https://github.com/kwokwilliam/INFO343-Project2",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://students.washington.edu/wkwok16/p2-mockingod1841/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/INFO343-Project2"
+                    }
+                ],
                 tools: ["JavaScript", "HTML5 Canvas", "NodeJS"],
                 seeAlso: [],
                 time: "January 2018 - February 2018",
@@ -217,8 +281,16 @@ export default class Projects extends Component {
                 Seattle area, in order to determine which bike racks are the safest to park at. I focused on 
                 programming all the functionality and algorithms, as well as writing the post report and
                 resenting it.`,
-                link: "https://wkwok16.shinyapps.io/bb4-finalproj/",
-                githubLink: "https://github.com/info201b-au17/bb4-finalproj",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://wkwok16.shinyapps.io/bb4-finalproj/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/info201b-au17/bb4-finalproj"
+                    }
+                ],
                 tools: ["R", "RShiny", "OpenDataPortal"],
                 seeAlso: [{
                     name: "Seattle SafeCycleJS",
@@ -240,8 +312,16 @@ export default class Projects extends Component {
                 to industrial solutions. It was accurate to the ±0.01 mL for any given dispense action using 
                 a standard 3 mL syringe.`,
                     `Along with that, I designed and programmed the 2017 Team Washington website from the ground up.`],
-                link: "http://2017.igem.org/Team:Washington",
-                githubLink: "https://github.com/uwigem/uwigem2017",
+                links: [
+                    {
+                        name: "Project",
+                        link: "http://2017.igem.org/Team:Washington"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/uwigem/uwigem2017"
+                    }
+                ],
                 tools: ["Java", "HTML", "CSS", "JavaScript", "Fusion 360", "Bootstrap"],
                 seeAlso: [],
                 time: "January 2017 - November 2017",
@@ -255,8 +335,16 @@ export default class Projects extends Component {
                 website and filters it for a user's specified phobia. It utilizes Microsoft Azure Computer 
                 Vision API v1.0 using tags to determine if it must be filtered or not. I worked on the 
                 JavaScript functionality for ensuring the correct images get blocked out.`,
-                link: "https://www.phobiacensor.tech/",
-                githubLink: "https://github.com/Ryabn/DubhacksProject",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://www.phobiacensor.tech/"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/Ryabn/DubhacksProject"
+                    }
+                ],
                 tools: ["Azure Vision", "JavaScript", "jQuery"],
                 seeAlso: [],
                 time: "October 2017",
@@ -271,8 +359,12 @@ export default class Projects extends Component {
                 proof of concept integration with encrypted medical records using APIs such as eCare. 
                 We also played with the idea of integration with external devices such as Xbox Kinect or 
                 Smartwatches.`,
-                link: "https://projects.invisionapp.com/share/UPBXZ9MC7",
-                githubLink: "",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://projects.invisionapp.com/share/UPBXZ9MC7"
+                    }
+                ],
                 tools: ["InVision"],
                 seeAlso: [],
                 time: "April 2017 - May 2017",
@@ -286,8 +378,12 @@ export default class Projects extends Component {
                 the project I decided on was to manufacture a walker. The walker was designed in OnShape, 
                 machined from raw aluminum, and welded together. Assistive Technology Resource Center of 
                 Hawaii received the walker when it was completed.`,
-                link: "https://www.youtube.com/watch?v=DI9dS9Vm-T8",
-                githubLink: "",
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://www.youtube.com/watch?v=DI9dS9Vm-T8"
+                    }
+                ],
                 tools: ["OnShape", "Machine Shop"],
                 seeAlso: [],
                 time: "October 2015 - December 2015",
@@ -446,39 +542,27 @@ export default class Projects extends Component {
                                                             <p>{project.description}</p>
                                                         }
                                                         <Row style={{ marginLeft: 15 }}>
-                                                            <a href={project.link}
-                                                                style={{
-                                                                    textDecoration: 'none',
-                                                                    color: '#005696',
-                                                                    textAlign: 'center'
-                                                                }}>
-                                                                <div style={{
-                                                                    border: '1px solid gray',
-                                                                    padding: 4,
-                                                                    paddingBottom: 10,
-                                                                    borderRadius: '10px',
-                                                                    height: '80%',
-                                                                }}>
-                                                                    Project
-                            </div>
-                                                            </a>
-                                                            {project.githubLink && <a href={project.githubLink}
-                                                                style={{
-                                                                    textDecoration: 'none',
-                                                                    color: '#005696',
-                                                                    textAlign: 'center',
-                                                                    marginLeft: 10
-                                                                }}>
-                                                                <div style={{
-                                                                    border: '1px solid gray',
-                                                                    padding: 4,
-                                                                    paddingBottom: 10,
-                                                                    borderRadius: '10px',
-                                                                    height: '80%',
-                                                                }}>
-                                                                    Github
-                            </div>
-                                                            </a>}
+                                                            {project.links.map(proj => {
+                                                                return <a href={proj.link}
+                                                                    style={{
+                                                                        textDecoration: 'none',
+                                                                        color: '#005696',
+                                                                        textAlign: 'center',
+                                                                        marginRight: 10
+                                                                    }}>
+                                                                    <div style={{
+                                                                        border: '1px solid gray',
+                                                                        padding: 4,
+                                                                        paddingBottom: 10,
+                                                                        borderRadius: '10px',
+                                                                        height: '80%',
+                                                                    }}>
+                                                                        {proj.name}
+                                                                    </div>
+                                                                </a>
+                                                            })}
+
+
                                                         </Row>
                                                         Tools used:
                             <Row style={{ marginTop: 10, marginLeft: 15 }}>
