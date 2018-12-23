@@ -14,6 +14,7 @@ import teammanager from '../../../assets/imgs/projects/teammanager.png';
 import reactresumepdf from '../../../assets/imgs/projects/reactresumepdf.png';
 import koconutImg from '../../../assets/imgs/projects/koconut.jpg';
 import findCImg from '../../../assets/imgs/projects/findc.jpg';
+import tutorqImg from '../../../assets/imgs/projects/tutorq.png';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -46,8 +47,13 @@ export default class Projects extends Component {
             {
                 title: "",
                 thumbnail: "",
-                description: ``,
-                link: "",
+                description: [``],
+                links: [
+                    {
+                        name: "Project",
+                        link: ""
+                    }
+                ],
                 githubLink: "",
                 tools: [],
                 seeAlso: [],
@@ -56,6 +62,36 @@ export default class Projects extends Component {
                 hash: ""
             },
             */
+            {
+                title: "TutorQ",
+                thumbnail: tutorqImg,
+                description: [`I wanted to make a Queueing App focused towards tutoring individuals and collecting usage data to determine what topics were a common pain point. I would be able to see these topics and rush to make a written explanation that others can immediately find without having to enter the queue. I have a position in my school's Informatics department as an Undergraduate Tutor the upcoming quarter after the creation of this app. This tool would help me keep track of who has questions, and who to answer first. Even if I don't end up using it extensively, it is a good proof of concept.`,
+                    `I wanted to ensure mobile friendliness, low latency functionality, FERPA compliancy, security and anonymity, concurrency, scalability, and queueing functionality.`,
+                    `I also took the opportunity to experiment with React's upcoming hooks feature as well as running Firebase Serverless Functions. See the blog post below for more details.`],
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://williamk.info/tutorq"
+                    },
+                    {
+                        name: "Github - Cloud Functions",
+                        link: "https://github.com/kwokwilliam/personalsite-firebasefunctions"
+                    },
+                    {
+                        name: "Github - Front End",
+                        link: "https://github.com/kwokwilliam/personalwebsite/tree/master/src/components/Pages/TutorQ"
+                    },
+                    {
+                        name: "Blog post",
+                        link: "/blog/makingtutorq"
+                    }
+                ],
+                tools: ['Firebase', 'Firebase Cloud Functions', 'React', 'React Hooks'],
+                seeAlso: [],
+                time: "December 2018",
+                type: "Programming",
+                hash: "tutorq"
+            },
             {
                 title: "FindC - Accessible Contraceptives",
                 thumbnail: findCImg,

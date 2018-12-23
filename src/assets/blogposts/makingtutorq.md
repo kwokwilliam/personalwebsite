@@ -1,4 +1,4 @@
-# Making a Queueing App with React Hooks and Firebase Cloud Functions/Realtime Database
+# Making a Queueing App with React Hooks and Firebase Cloud Functions / Realtime Database
 
 ## About and Why
 I wanted to make a Queueing App focused towards tutoring individuals and collecting usage data to determine what topics were a common pain point. I would be able to see these topics and rush to make a written explanation that others can immediately find without having to enter the queue. I have a position in my school's Informatics department as an Undergraduate Tutor this upcoming quarter. This tool would help me keep track of who has questions, and who to answer first. Even if I don't end up using it extensively, it is a good proof of concept.

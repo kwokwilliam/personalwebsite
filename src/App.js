@@ -24,6 +24,7 @@ import scout from './assets/imgs/projects/scout.png';
 import teammanager from './assets/imgs/projects/teammanager.png';
 import reactresumepdf from './assets/imgs/projects/reactresumepdf.png';
 import koconutImg from './assets/imgs/projects/koconut.jpg';
+import tutorqImg from './assets/imgs/projects/tutorq.png';
 
 import Loadable from 'react-loadable';
 
@@ -66,7 +67,8 @@ class App extends Component {
             scout,
             teammanager,
             reactresumepdf,
-            koconutImg];
+            koconutImg,
+            tutorqImg];
 
         this.pages = ["main", "about", "projects"];
     }

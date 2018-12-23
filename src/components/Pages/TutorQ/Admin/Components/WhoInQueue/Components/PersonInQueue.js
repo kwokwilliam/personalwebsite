@@ -8,7 +8,7 @@ import {
 
 const removeUserFromQueue = firebase.functions().httpsCallable('removeUserFromQueue');
 
-
+// TODO: Use an effect to stop setLoading from happening when component unmounts
 export default function PersonInQueue({ person }) {
     const [loading, setLoading] = useState(false);
 
