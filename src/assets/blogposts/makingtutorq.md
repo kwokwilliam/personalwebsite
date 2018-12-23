@@ -37,6 +37,8 @@ In order for users to see their position in the queue, the client application wo
 
 I personally could not think of anything better but to read from the database, but there is probably a solution that I may not have looked into all the way. 
 
+I ensure that the ids to names on firebase are kept in a separate branch that is never accessible to the students. Only the admin can see this information. 
+
 And on the admin side, I would need to be able to see who is in the queue, double check the current logged in user is an admin, remove users from the queue, and get a new student to tutor. I could have done admin checks and logistics for these all on the client side, but it would be a separation of concerns to put it on the server side. I figured that I would run into two admins working at the same time as well. In the end, I only had to write a few lines of code in my front end and not mix in the database logic with the front end.
 
 ## Front End + Basic React Hooks
@@ -174,8 +176,35 @@ import 'firebase/functions';
 
 const func = firebase.functions().httpsCallable('func');
 func({ abc: 123, def: 234 }).then(response => {
-    console.log(response)
+    console.log(response);
 });
 ```
 
 The object gets passed to the function and can be accessed like `data.abc` or `data.def`. The `context` variable allows the function to check things like the user id of the logged in user using `context.auth.uid`. 
+
+`async await` waits for the awaited promise to resolve before going to the next line of code. You can see in one of my functions, `removeUserFromQueue`, I await a push of data into a certain branch and a removal, then I return the success. I currently have not programmed in rollbacking a transaction like you can do in SQL. However, this application is currently not mission critical to that degree. At most, if anything fails along the line, it will only be the post-tutor analysis branch that is negatively affected.
+
+```js
+await admin.database().ref(`tutorq/notInQueueAnymore`).push({
+    classNumber,
+    location,
+    problemCategory,
+    problemDescription,
+    timestampJoinedQueue,
+    timestampLeftQueue: admin.database.ServerValue.TIMESTAMP,
+    whoHelped,
+    reason: removeReason,
+    id
+});
+await dbQueueRef.remove();
+await idInfoRef.remove();
+return { success: true };
+```
+
+## Final product: TutorQ
+I wrote mostly a summary of the most technically challenging parts of the program, and my rational behind some of the code structure. If anything is unclear, feel free to ask! I want to know what I should write more on, and what might not have been clear. Hopefully if you have read this, you learned how to use the basics of React hooks or firebase cloud functions.
+
+Thank you for reading!
+
+## Aside
+One other thing that was very annoying was on the location selector, Firefox automatically added `position: relative` to the parent element but Chrome did not. It took me about three hours to figure out this problem. 
