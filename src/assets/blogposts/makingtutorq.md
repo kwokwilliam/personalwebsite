@@ -178,6 +178,4 @@ func({ abc: 123, def: 234 }).then(response => {
 });
 ```
 
-The object gets passed to the function and can be accessed like `data.abc` or `data.def`. The `context` variable allows the function to check things like the user id of the logged in user using `context.auth.uid`.
-
-Because the function waits for a response, you can run asynchronous code and return a promise or a straight up variable. 
+The object gets passed to the function and can be accessed like `data.abc` or `data.def`. The `context` variable allows the function to check things like the user id of the logged in user using `context.auth.uid`. 
