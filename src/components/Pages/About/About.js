@@ -58,7 +58,7 @@ export default class About extends Component {
             {
                 place: "University of Washington iSchool - Seattle, Washington",
                 role: "Undergraduate Tutor",
-                timeAt: "January 2018 - Present",
+                timeAt: "January 2019 - Present",
                 blurb: `I am a resource for students enrolled in technical informatics classes. I help and tutor students on all technical content in required courses, such as INFO 201 Technical Foundations of Informatics, INFO 340 Client Side Development, and INFO 330 Databases and Data Modeling. I provide assistance with R, R Shiny, R Markdown, git, HTML, CSS, JavaScript, jQuery, React, Firebase, React Router, misc JavaScript libraries, and SQL. In addition, I am working on a tutor hub and tutor queue. The tutor hub will be a page hosted on my website with written tutorials on how to do various topics covered within the courses, as well as video tutorials for some of the topics. I will be collecting data on the traffic on these pages to determine what topics people struggle with the most. The tutor queue is a queuing system for first come first serve questions by students when me or other tutor(s) are in the lab space. This will also collect usage data for hard topics.`,
                 links: [
                     {
