@@ -44,7 +44,12 @@ export default class Blog extends Component {
             const file = await import(`../../../assets/blogposts/${this.props.post}.md`)
             const fetchFile = await fetch(file.default);
             const blogString = await fetchFile.text();
-            this.setState({ blogString });
+            let finalBlogString = blogString;
+            if (blogString.split('\n')[0].trim() === "---") {
+                const [emptyString, metaData, ...actualString] = blogString.split('---');
+                finalBlogString = actualString.join('---');
+            }
+            this.setState({ blogString: finalBlogString });
         } catch (e) {
             console.log(e);
             this.renderError("Blog not found, please refresh or try again");

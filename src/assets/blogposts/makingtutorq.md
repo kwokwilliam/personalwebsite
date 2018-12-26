@@ -1,3 +1,10 @@
+---
+showmetadata: true
+name: Making TutorQ
+description: In this writeup, I go over why I made TutorQ and how I made it.
+lastEdited: December 23, 2018 01:46 PST
+---
+
 # Making a Queueing App with React Hooks and Firebase Cloud Functions / Realtime Database
 
 ## About and Why
