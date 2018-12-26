@@ -13,8 +13,9 @@ This page is still under construction.
 * [Committing and Pushing](/blog/committingandpushing)
 * [Git ignore](/blog/gitignore)
 * [Branching and Merging](/blog/branchingandmerging)
-* Windows Users: Git Credential Manager
-* "Not a git repository"
+* [Fixing merge conflicts](/blog/mergeconflicts)
+* [Windows Users: Git Credential Manager](/blog/gitcredentialmanager)
+* ["Not a git repository"](/blog/notagitrepo)
 * Git upstream
 * Tagging commits
 * Github issues
