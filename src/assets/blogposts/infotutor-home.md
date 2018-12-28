@@ -24,8 +24,8 @@ This page is still under construction.
 * [Windows Users: Git Credential Manager](/blog/gitcredentialmanager)
 * ["Not a git repository"](/blog/notagitrepo)
 * [Git upstream](/blog/gitupstream)
-* Tagging commits
-* Github issues
+* [Tagging commits](/blog/taggingcommits)
+* [Github issues](/blog/githubissues)
 * Github pull requests
 
 ## Bash/Terminal/SSH
