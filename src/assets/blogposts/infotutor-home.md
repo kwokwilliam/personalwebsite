@@ -26,10 +26,10 @@ This page is still under construction.
 * [Git upstream](/blog/gitupstream)
 * [Tagging commits](/blog/taggingcommits)
 * [Github issues](/blog/githubissues)
-* Github pull requests
+* [Github pull requests](/blog/githubpullrequests)
 
 ## Bash/Terminal/SSH
-* [Student server](/blog/studentserver)
+* [Hosting a site on your student server](/blog/studentserver)
 
 ## INFO 201
 
@@ -39,9 +39,14 @@ This page is still under construction.
 
 ### HTML
 * HTML Jest Test Errors
-    * `spec-char-escape`
+    * [`spec-char-escape`](/blog/speccharesc)
+* [Linking external styles/code correctly](/blog/linkingcorrectly)
+
+### JavaScript
+* [Installing NPM Dependencies when first cloning a repo](/blog/npmdep)
 
 ## Beyond INFO 340
+* [Channels I follow](/blog/beyond340-channels)
 
 ## About your tutors and office hours
 
