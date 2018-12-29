@@ -1,10 +1,3 @@
----
-showmetadata: false
-name: Informatics Tutor Hub Page
-description: Helpful links for undergraduate students in Informatics at the University of Washington Seattle.
-lastEdited: December 26, 2018 14:00 PST
----
-
 # Informatics Tutor Hub
 
 Welcome to the Informatics tutor page. Here you will find helpful links to information that should help you throughout your journey in Informatics. I wish I could find time to help every single student, but unfortunately that just isn't possible. I have created a repository of useful tidbits that you will want to take a look at if you ever want to remember how to do something. These tidbits will be updated over time as I see more of what people are struggling with. I have recorded videos for some of them. Scroll to the bottom for office hours.
