@@ -36,21 +36,32 @@ This page is still under construction.
 ## INFO 330
 
 ## INFO 340
+* [Recommended Browser](/blog/recommendedbrowser)
+* [VSCode keyboard shortcuts](/blog/vscodeshortcuts)
 
 ### HTML
-* HTML Jest Test Errors
+* [HTML Jest Test Errors](/blog/htmljesttesterrors)
     * [`spec-char-escape`](/blog/speccharesc)
 * [Linking external styles/code correctly](/blog/linkingcorrectly)
 
+### CSS
+* [Understanding Bootstrap Grid System](/blog/bootstrapgridsystem)
+* [Modifying FontAwesome icon examples](https://fontawesome.com/v4.7.0/examples/)
+* [`nth-type-of` vs `nth-child`](/blog/nthOf)
+
 ### JavaScript
 * [Installing NPM Dependencies when first cloning a repo](/blog/npmdep)
+* [Use `console.log`!](/blog/useconsolelog)
+* [Using Papa Parse with loading csv files with file path](/blog/papaparse)
+* [Returning fetch](/blog/returnfetch)
+* [Building and deploying React to gh-pages](/blog/reacttoghpages)
 
 ## Beyond INFO 340
 * [Channels I follow](/blog/beyond340-channels)
 
 ## About your tutors and office hours
 
-Hi! My name is William Kwok. I will be your Informatics Tutor for Winter 2019. Click on the links at the top to learn more about me and what I do. Feel free to reach out to me on Facebook (you can find me through the IUGA Facebook Group), LinkedIn, or through your class Slack if I am on it! 
+Hi! My name is William Kwok. I will be one of your Informatics Tutors for Winter 2019. Click on the links at the top to learn more about me and what I do. Feel free to reach out to me on Facebook (you can find me through the IUGA Facebook Group), LinkedIn, or through your class Slack if I am on it! 
 
 Here are my location hours:
 
