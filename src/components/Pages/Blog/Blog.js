@@ -46,6 +46,7 @@ export default class Blog extends Component {
             const blogString = await fetchFile.text();
             let finalBlogString = blogString;
             if (blogString.split('\n')[0].trim() === "---") {
+                console.log(blogString);
                 const [emptyString, metaData, ...actualString] = blogString.split('---');
                 finalBlogString = actualString.join('---');
             }

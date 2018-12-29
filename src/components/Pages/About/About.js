@@ -249,6 +249,14 @@ export default class About extends Component {
                     "(TA) INFO 340 - Client Side Development",
                     "INFO 360 - Design Methods"
                 ]
+            },
+            {
+                quarter: "Winter 2019",
+                classes: [
+                    "INFO 370 - Core Methods in Data Science",
+                    "INFO 380 - Information Systems Analysis and Design",
+                    "INFO 441 - Server Side Development"
+                ]
             }
         ];
 
