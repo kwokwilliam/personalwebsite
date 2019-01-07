@@ -52,8 +52,8 @@ self.__precacheManifest = [
     "url": "/static/js/8.7dcc4488.chunk.js"
   },
   {
-    "revision": "f4f4332cf671e7ff2ee6",
-    "url": "/static/js/9.f4f4332c.chunk.js"
+    "revision": "a7cda9f7faffb19cffb5",
+    "url": "/static/js/9.a7cda9f7.chunk.js"
   },
   {
     "revision": "091ab1b333773545aa2ad8459fa7d477",
@@ -136,8 +136,8 @@ self.__precacheManifest = [
     "url": "/static/js/26.f58e7307.chunk.js"
   },
   {
-    "revision": "def2e784d9cd4f41012e",
-    "url": "/static/js/27.def2e784.chunk.js"
+    "revision": "d2bc075b44414ae758a6",
+    "url": "/static/js/27.d2bc075b.chunk.js"
   },
   {
     "revision": "dd63e39786fc7b6ecdff",
@@ -256,8 +256,8 @@ self.__precacheManifest = [
     "url": "/static/js/53.a0b9b08c.chunk.js"
   },
   {
-    "revision": "27c734b81c3f50556421",
-    "url": "/static/js/runtime~main.27c734b8.js"
+    "revision": "09785be04a067c783acc",
+    "url": "/static/js/runtime~main.09785be0.js"
   },
   {
     "revision": "6a0b7eef359040a54bb4f30cccbad862",
@@ -316,12 +316,12 @@ self.__precacheManifest = [
     "url": "/static/media/Quicksand-Bold.0c044626.ttf"
   },
   {
-    "revision": "c5f954788f341b22e1974433bb972ac1",
-    "url": "/static/media/Quicksand-Light.c5f95478.ttf"
-  },
-  {
     "revision": "f87b9b4f34bdbf75b5c0cf3a5a137508",
     "url": "/static/media/Quicksand-Regular.f87b9b4f.ttf"
+  },
+  {
+    "revision": "c5f954788f341b22e1974433bb972ac1",
+    "url": "/static/media/Quicksand-Light.c5f95478.ttf"
   },
   {
     "revision": "97177b91b4018a9882af56eb46dcffe0",
@@ -384,8 +384,8 @@ self.__precacheManifest = [
     "url": "/static/media/info330-2.4877435b.md"
   },
   {
-    "revision": "c1594d78fc4bcc68e8b84638a965e0d2",
-    "url": "/static/media/infotutor-home.c1594d78.md"
+    "revision": "bd417b265cdba639e7455e322e047818",
+    "url": "/static/media/infotutor-home.bd417b26.md"
   },
   {
     "revision": "5f5e355220f0be4065942b26f6bb7bb1",
@@ -456,7 +456,7 @@ self.__precacheManifest = [
     "url": "/static/css/11.e7db0e30.chunk.css"
   },
   {
-    "revision": "f8d9ba7130679da5fee81f910d3660f8",
+    "revision": "aa1295167327e7632be671cf53262e42",
     "url": "/index.html"
   }
 ];

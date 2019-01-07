@@ -6,7 +6,7 @@ Welcome to the Informatics tutor page. Here you will find helpful links to infor
 
 > Click [here](https://docs.google.com/forms/d/e/1FAIpQLSf-SOhUADmlf8AUhBpkYWzPy8usyzQs6JNIbH3QAdrvnCclkA/viewform?usp=sf_link) for the anonymous feedback/suggestion form
 
-This page is still under construction.
+This page will be iterated as the quarter goes on. You may have to hard reload to get new pages listed!
 
 ## Git and Github
 * [Cloning a repo (repository)](/blog/cloningarepo)
@@ -44,7 +44,8 @@ This page is still under construction.
 
 ### JavaScript
 * [Installing NPM Dependencies when first cloning a repo](/blog/npmdep)
-* [Use `console.log`!](/blog/useconsolelog)
+* [Useing `console.log`](/blog/useconsolelog)
+* [Using `debugger` and breakpoints](https://www.youtube.com/watch?v=aFbqlsPyQH8)
 * [Using Papa Parse with loading csv files with file path](/blog/papaparse)
 * [Returning fetch](/blog/returnfetch)
 * [Building and deploying React to gh-pages](/blog/reacttoghpages)
