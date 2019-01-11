@@ -19,7 +19,7 @@ export default class TutorQStudent extends Component {
         this.state = {
             page: 0,
             name: cookies.get('tutorqname') || '',
-            classNumber: null,
+            classNumber: cookies.get('tutorqclassnumber') || null,
             problemCategory: null,
             problemDescription: '',
             location: null,
@@ -188,6 +188,7 @@ export default class TutorQStudent extends Component {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
             cookies.set('tutorqname', name);
+            cookies.set('tutorqclassnumber', classNumber);
             let queueKey = this.queueRef.push({
                 classNumber,
                 problemCategory,
