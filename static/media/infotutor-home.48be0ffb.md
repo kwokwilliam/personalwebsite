@@ -41,6 +41,7 @@ This page will be iterated as the quarter goes on. You may have to hard reload t
 * [Understanding Bootstrap Grid System](/blog/bootstrapgridsystem)
 * [Modifying FontAwesome icon examples](https://fontawesome.com/v4.7.0/examples/)
 * [`nth-type-of` vs `nth-child`](/blog/nthOf)
+* [Ways to make your CSS Faster](https://www.youtube.com/watch?v=OLKqmKeOhYg)
 
 ### JavaScript
 * [Installing NPM Dependencies when first cloning a repo](/blog/npmdep)
