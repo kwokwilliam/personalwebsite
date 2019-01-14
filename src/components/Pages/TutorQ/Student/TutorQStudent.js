@@ -19,7 +19,7 @@ export default class TutorQStudent extends Component {
         this.state = {
             page: 0,
             name: cookies.get('tutorqname') || '',
-            classNumber: cookies.get('tutorqclassnumber') || null,
+            classNumber: cookies.get('tutorqclassnumber') ? Number(cookies.get('tutorqclassnumber')) : null,
             problemCategory: null,
             problemDescription: '',
             location: null,
@@ -187,8 +187,9 @@ export default class TutorQStudent extends Component {
     sendDataToFirebase = () => {
         if (this.checkValidityBeforeSendingToFirebase()) {
             let { name, classNumber, problemCategory, problemDescription, location } = this.state;
+            // console.log(classNumber);
             cookies.set('tutorqname', name);
-            cookies.set('tutorqclassnumber', classNumber);
+            cookies.set('tutorqclassnumber', classNumber.toString());
             let queueKey = this.queueRef.push({
                 classNumber,
                 problemCategory,
@@ -240,7 +241,7 @@ export default class TutorQStudent extends Component {
                         <Button style={{ backgroundColor: '#005696' }}
                             onClick={this.removeMeFromQueue}
                             disabled={this.state.removeButtonLoading}
-                        >Remove from queue</Button>
+                        >Remove me from queue</Button>
                     </div>
                 </div>
             </>}
