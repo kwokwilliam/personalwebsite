@@ -4,7 +4,14 @@ import { Button } from 'reactstrap';
 import './TutorQButtons.css';
 
 export default function TutorQButtons({ getPageNumber, prevStep, nextStep, totalPages }) {
-    return <div style={{ position: 'absolute', left: 0, bottom: 30, width: '100%', margin: 'auto', textAlign: 'center', zIndex: -5 }}>
+    return <div style={{
+        // position: 'absolute', left: 0, bottom: 30, 
+        width: '100%',
+        margin: 'auto',
+        marginTop: 40,
+        textAlign: 'center',
+        zIndex: -5
+    }}>
         <Grid fluid>
             <Row>
                 <Col style={{ width: '50%' }}>
