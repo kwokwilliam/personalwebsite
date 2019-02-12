@@ -76,9 +76,9 @@ export default class Resume extends Component {
                         rightContent: "June 2020",
                         bullets: [
                             "GPA: 3.66/4.0 (Dean's List)",
-                            "Bachelor of Science in Informatics with a focus in Data Science, Human-Computer Interaction, and Information Architecture",
-                            "Minor in Mathematics",
-                            "Current coursework: Databases and Data Modeling, Research Methods in Data Science, Design Methods",
+                            "Bachelor of Science in Informatics working towards a custom Software Development track",
+                            // "Minor in Mathematics",
+                            "Current coursework: Core Methods in Data Science, Informations Systems Analysis and Design, Server Side Development",
                             // `Past coursework: Computer Programming II, Matrix Algebra, Beginning Scientific Computing, Foundations of Data Science, 
                             //  Introductory Web Programming, Differential Equations, Client Side Development, Visual Information Design, Statistical Methods
                             //  in Engineering and Science, Data Structures and Algorithms`
@@ -91,8 +91,18 @@ export default class Resume extends Component {
                 icon: faBriefcase,
                 content: [
                     {
+                        title: "University of Washington iSchool, Undergraduate Tutor",
+                        rightContent: "Jan 2019 - Present",
+                        bullets: [
+                            "Help and tutor students on all technical content in required various Information School courses",
+                            "Technical Foundations of Informatics, Client Side Development, Databases and Data Modeling, and Server Side Development",
+                            "Created a tutor hub with written and video tutorials on various topics or covered in the course",
+                            "Created an interactive tutoring queue to organize questions when busy, and collect data on common problems"
+                        ]
+                    },
+                    {
                         title: "University of Washington iSchool, Teaching Assistant",
-                        rightContent: "September 2018 - Present",
+                        rightContent: "Sep 2018 - Dec 2018",
                         bullets: [
                             "Teach students the foundational skills for building client side applications (INFO 340)",
                             "Host lab sections of about 35 students and answering content related questions on a class Slack channel",
@@ -102,7 +112,7 @@ export default class Resume extends Component {
                     },
                     {
                         title: "Code and Cognition Lab, Undergraduate Researcher",
-                        rightContent: "June 2018 - Present",
+                        rightContent: "Jun 2018 - Present",
                         bullets: [
                             "Apply Agile development principles for assisting with research projects",
                             "Design, build, and user test computer science tutoring applications using JavaScript/ES6, React, Jest, and Enzyme",
@@ -110,22 +120,23 @@ export default class Resume extends Component {
                         ]
                     },
                     {
-                        title: "Washington iGEM, Web Dev Lead, Ex Hardware / Software Member",
-                        rightContent: "February 2017 - Present",
+                        title: "Washington iGEM, Web Development Lead",
+                        rightContent: "Feb 2017 - Present",
                         bullets: [
                             "Previously helped design a modular, affordable, bio-reactor along with a novel open-source syringe pump design",
-                            "Develop the team website and iGEM Team Wiki (required for competition judging) using React for scalability"
+                            // "Develop the team website and iGEM Team Wiki  using React for scalability",
+                            "Lead a diverse team of six to design and build the team website and iGEM Team Wiki (required for competition judging)"
                         ]
                     },
-                    {
-                        title: "Biomedical Image Computing Group, Undergraduate Researcher",
-                        rightContent: "January 2018 - June 2018",
-                        bullets: [
-                            "Provided statistical/data analysis of subject data using Python and R to help organize the results of finished studies",
-                            "Processed MRI scans using in house software libraries programmed in C++ for a research study",
-                            "Create neural network models in TinyCNN, MXNet, and Tensorflow Python and C++ for a paper replication study"
-                        ]
-                    },
+                    // {
+                    //     title: "Biomedical Image Computing Group, Undergraduate Researcher",
+                    //     rightContent: "January 2018 - June 2018",
+                    //     bullets: [
+                    //         "Provided statistical/data analysis of subject data using Python and R to help organize the results of finished studies",
+                    //         "Processed MRI scans using in house software libraries programmed in C++ for a research study",
+                    //         "Create neural network models in TinyCNN, MXNet, and Tensorflow Python and C++ for a paper replication study"
+                    //     ]
+                    // },
                     // {
                     //     title: "Punahou School, Teacher Aide",
                     //     rightContent: "June 2015 - July 2015",
@@ -150,10 +161,10 @@ export default class Resume extends Component {
                     //     ]
                     // },
                     {
-                        title: "Koconut, Code and Cognition Lab",
+                        title: "CodeItz, Code and Cognition Lab",
                         rightContent: "June 2018 - Present",
                         bullets: [
-                            "Koconut is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts",
+                            "CodeItz is a web tutor that uses a Bayesian Knowledge Tracing algorithm to help users learn programming concepts",
                             "Established the framework for writing unit tests in the application and helped removed code redundancy to reduce bugs",
                             "Enzyme, Express, Firebase, Flow, JavaScript, Jest, Lodash, MaterialUI, React, React Router, Sass"
                         ]
@@ -206,19 +217,19 @@ export default class Resume extends Component {
                     {
                         title: "Languages: ",
                         list: [
-                            "JavaScript (ES6+)", "Java", "Python", "SQL", "R", "LaTeX", "C++", "CSS", "HTML", "MATLAB"
+                            "Golang", "JavaScript (ES6+)", "Java", "Python", "SQL", "R", "LaTeX", "C++", "CSS", "HTML", "MATLAB"
                         ]
                     },
                     {
                         title: "Tools and Frameworks: ",
                         list: [
-                            "React", "React Router", "jQuery", "React Native", "Vue", "git", "Firebase", "Enzyme", "Flow", "Jest", "R Shiny", "GraphQL"
+                            "AWS", "Docker", "git", "Firebase", "GraphQL", "jQuery", "NextJS", "React", "Redis", "VueJS"
                         ]
                     },
                     {
                         title: "Processes: ",
                         list: [
-                            "Agile Development, Data Analysis, Managing, Research, Teaching, Web Development"
+                            "Agile Development, Data Analysis, Managing, Research, Teaching, Typescript, Web Development"
                         ]
                     }
                 ]

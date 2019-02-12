@@ -34,7 +34,7 @@ export default class About extends Component {
                     "Jest", "Flow", "Java",
                     "Python", "R", "MATLAB",
                     "C++", "LaTeX", "Firebase", "JQuery", "React Router", 'Bootstrap',
-                    "MaterialUI", "Git"
+                    "MaterialUI", "Git", "Docker", "AWS", "Redis", "NextJS", "Golang"
                 ]
             },
             {
@@ -49,7 +49,7 @@ export default class About extends Component {
                 section: "Experience",
                 list: [
                     "Web Development", "Data Analysis", "Research",
-                    "Teaching", "Managing"
+                    "Teaching", "Testing", "Managing"
                 ]
             }
         ];
