@@ -144,8 +144,8 @@ self.__precacheManifest = [
     "url": "/static/js/28.dd63e397.chunk.js"
   },
   {
-    "revision": "374247fd0e763d258053",
-    "url": "/static/js/29.374247fd.chunk.js"
+    "revision": "5d4b9ac20252db6f9ece",
+    "url": "/static/js/29.5d4b9ac2.chunk.js"
   },
   {
     "revision": "beed2a19591bb75ae465",
@@ -256,8 +256,8 @@ self.__precacheManifest = [
     "url": "/static/js/53.a0b9b08c.chunk.js"
   },
   {
-    "revision": "00c039ca8c93405ad8b7",
-    "url": "/static/js/runtime~main.00c039ca.js"
+    "revision": "e08a9006aa1513ac3c54",
+    "url": "/static/js/runtime~main.e08a9006.js"
   },
   {
     "revision": "6a0b7eef359040a54bb4f30cccbad862",
@@ -308,6 +308,10 @@ self.__precacheManifest = [
     "url": "/static/media/tutorq.1d970972.png"
   },
   {
+    "revision": "0c04462696ac0fd3e85e75415b483fdb",
+    "url": "/static/media/Quicksand-Bold.0c044626.ttf"
+  },
+  {
     "revision": "0c64233241ead44bffbec54eb9d1d164",
     "url": "/static/media/Quicksand-Medium.0c642332.ttf"
   },
@@ -318,10 +322,6 @@ self.__precacheManifest = [
   {
     "revision": "c5f954788f341b22e1974433bb972ac1",
     "url": "/static/media/Quicksand-Light.c5f95478.ttf"
-  },
-  {
-    "revision": "0c04462696ac0fd3e85e75415b483fdb",
-    "url": "/static/media/Quicksand-Bold.0c044626.ttf"
   },
   {
     "revision": "a1bfce1d4c9bb1d6a30d302b8e81aaa3",
@@ -392,8 +392,8 @@ self.__precacheManifest = [
     "url": "/static/media/linkingcorrectly.5f5e3552.md"
   },
   {
-    "revision": "f634113994d69c6b4aa79145ff94d715",
-    "url": "/static/media/makingtutorq.f6341139.md"
+    "revision": "9a34f80bd178d4f1a51a62a036abface",
+    "url": "/static/media/makingtutorq.9a34f80b.md"
   },
   {
     "revision": "583986c09e462cf070e5329c6301755b",
@@ -456,7 +456,7 @@ self.__precacheManifest = [
     "url": "/static/media/vscodeshortcuts.f9d46733.md"
   },
   {
-    "revision": "84e1364ce1905c3c941bd2c021c0eb8f",
+    "revision": "5429580e8b50aa737182e356e55c5251",
     "url": "/index.html"
   }
 ];
