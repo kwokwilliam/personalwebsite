@@ -59,12 +59,49 @@ export default class TutorQStudent extends Component {
         });
     }
 
+    // {
+    //      id: 123,
+    //      body: "abc123"
+    // }
+
+    renderAnnouncements = (announcementsObj) => {
+        // if (cookies.get(""))
+        let announcementsSeen = cookies.get("tutorqannouncementsseen") ?
+            JSON.parse(cookies.get("tutorqannouncementsseen")) : []
+        let announcements = { ...announcementsObj };
+        announcementsSeen.forEach(d => {
+            delete announcements[d];
+        })
+        console.log(announcementsSeen);
+        let currDateTime = Date.now();
+        Object.keys(announcements).forEach(d => {
+            if ((currDateTime - announcements[d].timestamp) < (24 * 60 * 60 * 1000)) {
+                alert(announcements[d].body);
+            }
+            announcementsSeen.push(d);
+        });
+        cookies.set("tutorqannouncementsseen", JSON.stringify(announcementsSeen));
+
+    }
+
     componentDidMount = () => {
         this.idToQueueInfoRef = firebase.database().ref(`/tutorq/idToQueueInfo/${this.id}`);
         this.idToQueueInfoRef.on('value', (snap) => {
             let val = snap.val() || {};
             let { queueKey } = val;
             this.setState({ userInQueueKey: queueKey });
+        })
+
+        this.announcementRef = firebase.database().ref(`/tutorq/announcements`);
+        this.announcementRef.on('value', (snap) => {
+
+            let announcements = snap.val() || {};
+            let announcementsObj = {};
+            Object.keys(announcements).forEach(d => {
+                //  { [announcements[d].id]: announcements[d] } 
+                announcementsObj[announcements[d].id] = announcements[d]
+            });
+            this.renderAnnouncements(announcementsObj)
         })
 
         this.queueRef = firebase.database().ref('/tutorq/inqueue')
@@ -95,6 +132,7 @@ export default class TutorQStudent extends Component {
     componentWillUnmount = () => {
         this.queueRef.off();
         this.idToQueueInfoRef.off();
+        this.announcementRef.off();
     }
 
     change = (e) => {

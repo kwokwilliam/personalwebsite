@@ -1,10 +1,3 @@
----
-showmetadata: true
-name: Making TutorQ
-description: In this writeup, I go over why I made TutorQ and how I made it.
-lastEdited: December 23, 2018 01:46 PST
----
-
 # Making a Queueing App with React Hooks and Firebase Cloud Functions / Realtime Database
 
 ## About and Why
@@ -16,14 +9,14 @@ Note I am still learning best practices. I understand that any code snippets bel
 There are many requirements for this application:
 
 1. Mobile friendly
-1. Able to work with low to decent connection
+2. Able to work with low to decent connection
    * The computer lab I will be working in doesn't have the greatest mobile connection. 
-2. FERPA compliant
+3. FERPA compliant
    * I don't ever collect grades. I anonymized my data as much as possible regardless.
-3. Secure and anonymous after the student has been helped
-4. Could be used by multiple tutors concurrently
-5. Scalable to many individuals per day
-6. Stays true to First In First Out via timestamps
+4. Secure and anonymous after the student has been helped
+5. Could be used by multiple tutors concurrently
+6. Scalable to many individuals per day
+7. Stays true to First In First Out via timestamps
 
 Following these requirements, I also wanted to experiment with using [React](https://reactjs.org/)'s upcoming [hooks](https://reactjs.org/docs/hooks-intro.html) feature. I also wanted to experiment with [Firebase Cloud Functions](https://firebase.google.com/docs/functions/) (in the context of async await syntax) because I knew I would need this back end to manage security and make things a lot easier on the front end side.
 
