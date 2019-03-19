@@ -72,7 +72,6 @@ export default class TutorQStudent extends Component {
         announcementsSeen.forEach(d => {
             delete announcements[d];
         })
-        console.log(announcementsSeen);
         let currDateTime = Date.now();
         Object.keys(announcements).forEach(d => {
             if ((currDateTime - announcements[d].timestamp) < (24 * 60 * 60 * 1000)) {
