@@ -15,6 +15,7 @@ import reactresumepdf from '../../../assets/imgs/projects/reactresumepdf.png';
 import koconutImg from '../../../assets/imgs/projects/koconut.jpg';
 import findCImg from '../../../assets/imgs/projects/findc.jpg';
 import tutorqImg from '../../../assets/imgs/projects/tutorq.png';
+import questionqImg from '../../../assets/imgs/projects/questionqimg.png'
 
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -62,6 +63,31 @@ export default class Projects extends Component {
                 hash: ""
             },
             */
+            {
+                title: "QuestionQueue",
+                thumbnail: questionqImg,
+                description: [`Along with Rico Wang and Andrea Jorge, I rewrote the back end system for TutorQ (see previous projects). Throughout the course of this project, we gained experience designing and implementing a service deployed on an AWS EC2 Instance and certified it with LetsEncrypt. This service was comprised of many dockerized components. We had a gateway layer that handled authentication and websocket connections to the user that sent the queue to the user after consuming messages from the RabbitMQ instance.`,
+                    `We presented the application with a live demo at the end of the course.`,
+                    `We plan to work on this beyond the course to create a functional application.`],
+                links: [
+                    {
+                        name: "Project",
+                        link: "https://kwokwilliam.github.io/questionqueue"
+                    },
+                    {
+                        name: "Github",
+                        link: "https://github.com/kwokwilliam/questionqueue"
+                    }
+                ],
+                tools: ["AWS", "Golang", "Python", "Flask", "React", "Redis", "Docker", "MongoDB", "RabbitMQ", "Websockets"],
+                seeAlso: [{
+                    name: "TutorQ",
+                    hash: "tutorq"
+                }],
+                time: "March 2019",
+                type: "Programming",
+                hash: "questionq"
+            },
             {
                 title: "TutorQ",
                 thumbnail: tutorqImg,
@@ -580,6 +606,7 @@ export default class Projects extends Component {
                                                         <Row style={{ marginLeft: 15 }}>
                                                             {project.links.map(proj => {
                                                                 return <a href={proj.link}
+                                                                    key={proj.link}
                                                                     style={{
                                                                         textDecoration: 'none',
                                                                         color: '#005696',

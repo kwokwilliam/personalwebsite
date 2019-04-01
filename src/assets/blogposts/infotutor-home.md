@@ -25,8 +25,10 @@ This page will be iterated as the quarter goes on. You may have to hard reload t
 * [Hosting a site on your student server](/blog/studentserver)
 
 ## INFO 201
+* Will fill this in later
 
 ## INFO 330
+* Will fill this in later
 
 ## INFO 340
 * [Recommended Browser](/blog/recommendedbrowser)
@@ -58,15 +60,15 @@ This page will be iterated as the quarter goes on. You may have to hard reload t
 
 ### Ju An Oh
 
-Hello, my name is Ju An Oh. I am one of your Tutors for Winter 2019. My online office hours are flexible. Feel free to reach out to me through Slack, FB message, or email (Mine is juan3674@uw.edu).
+Hello, my name is Ju An Oh. I am one of your Tutors for Spring 2019. My online office hours are flexible. Feel free to reach out to me through Slack, FB message, or email (Mine is juan3674@uw.edu).
 
-Here are my location hours:
+Here are my location hours (TO BE DETERMINED):
 
 Location: TE Lab
 * Monday: -
-* Tuesday: 11:30 AM - 3:30 PM
+* Tuesday: -
 * Wednesday: -
-* Thursday: 11:30 AM - 3:30 PM
+* Thursday: -
 * Friday: -
 * Saturday: -
 * Sunday: -
@@ -77,30 +79,5 @@ Location: Online
 * Wednesday: -
 * Thursday: -
 * Friday: -
-* Saturday: 8 PM - 9 PM
-* Sunday: 8 PM - 9 PM
-
-### William Kwok
-
-Hi! My name is William Kwok. I will be one of your Informatics Tutors for Winter 2019. Click on the links at the top to learn more about me and what I do. Feel free to reach out to me on Email (wkwok16@uw.edu), Facebook (you can find me through the IUGA Facebook Group), LinkedIn, or through your class Slack if I am on it! My online hours are flexible-- 5 PM to 7 PM is when I will be definitely available (unless otherwise stated). I will specialize more in tutoring for INFO 340, Client Side Development.
-
-Here are my location hours:
-
-Location: TE Lab
-* Monday: 10 AM - 1 PM
-* Tuesday: -
-* Wednesday: 10 AM - 1 PM
-* Thursday: -
-* Friday: 10 AM - 3 PM
 * Saturday: -
 * Sunday: -
-
-Location: Online
-* Monday: -
-* Tuesday: -
-* Wednesday: -
-* Thursday: -
-* Friday: -
-* Saturday: 5 PM - 7 PM
-* Sunday: -
-
