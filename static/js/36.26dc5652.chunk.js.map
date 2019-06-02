@@ -1,1 +1,0 @@
-{"version":3,"sources":["assets/blogposts/recommendedbrowser.md"],"names":["module","exports","__webpack_require__","p"],"mappings":"8EAAAA,EAAAC,QAAiBC,EAAAC,EAAuB","file":"static/js/36.26dc5652.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/recommendedbrowser.b948faf9.md\";"],"sourceRoot":""}
