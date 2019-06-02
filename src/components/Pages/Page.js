@@ -55,10 +55,10 @@ export default class Page extends Component {
     renderPage() {
         switch (this.props.page) {
             case "main":
-                document.title = "William Kwok";
+                // document.title = "William Kwok";
                 return <MainPage mobile={this.state.mobile} />;
             case "projects":
-                document.title = "William Kwok's Projects";
+                // document.title = "William Kwok's Projects";
                 return <Projects mobile={this.state.mobile} />;
             case "about":
                 document.title = "About William Kwok";

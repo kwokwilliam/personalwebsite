@@ -9,6 +9,7 @@ import { faFileAlt, faEnvelope, faChalkboardTeacher } from '@fortawesome/free-so
 import {
     Link,
 } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default class MainPage extends Component {
     constructor(props) {
@@ -51,6 +52,10 @@ export default class MainPage extends Component {
     }
     render() {
         return <main>
+            <Helmet>
+                <title>William Kwok</title>
+                <meta name="description" content="William Kwok is a full stack developer and Informatics major at the University of Washington. He tutors/TAs undergraduates, participates in research with the UW iSchool, and programs websites for Washington iGEM." />
+            </Helmet>
             <Grid fluid>
                 <Row>
                     <Col xs={12} md={6}>

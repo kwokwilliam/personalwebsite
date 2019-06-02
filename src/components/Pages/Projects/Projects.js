@@ -23,6 +23,8 @@ import cookies from 'browser-cookies';
 
 import { Button } from 'reactstrap';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Helmet } from 'react-helmet';
+
 export default class Projects extends Component {
     constructor() {
         super();
@@ -540,121 +542,84 @@ export default class Projects extends Component {
                 set: poType.type
             }
         ]
-        return <Grid fluid>
-            <Row>
-                <div style={{ width: '100%' }}>
-                    <Fade right cascade>
-                        <div>
-                            <Row style={{ marginBottom: 20, marginLeft: 10 }}>
-                                <span style={{ textAlign: 'center', fontSize: 25, marginBottom: 10 }}>Sort by: </span>
-                                {sortby.map((d, i) => {
-                                    return <Button key={'sort' + i}
-                                        onClick={() => this.setState({ po: d.set })}
-                                        style={{ marginLeft: 10, backgroundColor: '#005696', marginBottom: 10 }}>
-                                        {d.name}
-                                    </Button>
-                                })}
-                                <span style={{ marginLeft: 10, width: '100%' }}>
-                                    <Fade when={this.state.po === poType.tool || this.state.po === poType.type} collapse style={{ width: '100%' }}>
-                                        <Input type="text" name="filter by" placeholder={this.state.po === poType.type ? "Programming, Design, Hardware" : "JavaScript, R, Java"}
-                                            onChange={this.setFS} style={{ width: '70%' }} />
-                                    </Fade>
-                                </span>
-                            </Row>
-                            {projects.map((project, index) => {
-                                return <Card style={{ marginBottom: '1rem' }}
-                                    key={"project" + index}>
-                                    <CardHeader onClick={() => {
-                                        this.toggle(index);
-                                    }}
-                                        style={{
-                                            ...styles(this.props.mobile).headingText,
-                                            ...styles(this.props.mobile).courseworkList,
-                                            border: this.state.highlighted === project.hash ? "2px solid green" :
-                                                '1px solid gray'
+        return <>
+            <Helmet>
+                <title>William Kwok - Projects</title>
+                <meta name="description" content="William Kwok's Projects" />
+            </Helmet>
+            <Grid fluid>
+                <Row>
+                    <div style={{ width: '100%' }}>
+                        <Fade right cascade>
+                            <div>
+                                <Row style={{ marginBottom: 20, marginLeft: 10 }}>
+                                    <span style={{ textAlign: 'center', fontSize: 25, marginBottom: 10 }}>Sort by: </span>
+                                    {sortby.map((d, i) => {
+                                        return <Button key={'sort' + i}
+                                            onClick={() => this.setState({ po: d.set })}
+                                            style={{ marginLeft: 10, backgroundColor: '#005696', marginBottom: 10 }}>
+                                            {d.name}
+                                        </Button>
+                                    })}
+                                    <span style={{ marginLeft: 10, width: '100%' }}>
+                                        <Fade when={this.state.po === poType.tool || this.state.po === poType.type} collapse style={{ width: '100%' }}>
+                                            <Input type="text" name="filter by" placeholder={this.state.po === poType.type ? "Programming, Design, Hardware" : "JavaScript, R, Java"}
+                                                onChange={this.setFS} style={{ width: '70%' }} />
+                                        </Fade>
+                                    </span>
+                                </Row>
+                                {projects.map((project, index) => {
+                                    return <Card style={{ marginBottom: '1rem' }}
+                                        key={"project" + index}>
+                                        <CardHeader onClick={() => {
+                                            this.toggle(index);
                                         }}
-                                        aria-expanded={this.state.expanded[index]}>
-                                        {project.title}
-                                        <div style={{
-                                            fontSize: 15, fontWeight: 'bold',
-                                            color: 'black'
-                                        }}>{project.time}</div>
-                                    </CardHeader>
-                                    <Collapse isOpen={this.state.expanded[index]}>
-                                        <CardBody>
-                                            <Fade clear when={this.state.expanded[index]}>
-                                                <Row>
-                                                    {project.thumbnail !== "" && <Col xs={12} md={6}>
-                                                        <div style={{ textAlign: 'center' }}><img src={project.thumbnail} style={{
-                                                            maxHeight: 400,
-                                                            maxWidth: '100%',
-                                                            margin: 'auto',
-                                                            marginBottom: 10,
-                                                            border: '2px solid #005696',
-                                                            borderRadius: '20px',
-                                                            boxShadow: '5px 5px 5px #dddddd',
-                                                        }}
-                                                            alt={project.title} /></div>
-                                                    </Col>}
-                                                    <Col xs={12} md={6}>
-                                                        {typeof (project.description) === "object" ?
-                                                            project.description.map((descPar, j) => {
-                                                                return <p key={"dpar" + index + "--" + j}>{descPar}</p>
-                                                            }) :
-                                                            <p>{project.description}</p>
-                                                        }
-                                                        <Row style={{ marginLeft: 15 }}>
-                                                            {project.links.map(proj => {
-                                                                return <a href={proj.link}
-                                                                    key={proj.link}
-                                                                    style={{
-                                                                        textDecoration: 'none',
-                                                                        color: '#005696',
-                                                                        textAlign: 'center',
-                                                                        marginRight: 10
-                                                                    }}>
-                                                                    <div style={{
-                                                                        border: '1px solid gray',
-                                                                        padding: 4,
-                                                                        paddingBottom: 10,
-                                                                        borderRadius: '10px',
-                                                                        height: '80%',
-                                                                    }}>
-                                                                        {proj.name}
-                                                                    </div>
-                                                                </a>
-                                                            })}
-
-
-                                                        </Row>
-                                                        Tools used:
-                            <Row style={{ marginTop: 10, marginLeft: 15 }}>
-                                                            {project.tools.sort().map((tool, toolIndex) => {
-                                                                return <div style={{
-                                                                    border: '1px solid gray',
-                                                                    padding: 4,
-                                                                    borderRadius: '10px',
-                                                                    height: '80%',
-                                                                    textAlign: 'center',
-                                                                    marginBottom: 10,
-                                                                    marginRight: 10
-                                                                }} key={'tools-' + index + '-' + toolIndex}>
-                                                                    {tool}
-                                                                </div>
-                                                            })}
-                                                        </Row>
-                                                        {project.seeAlso.length > 0 &&
+                                            style={{
+                                                ...styles(this.props.mobile).headingText,
+                                                ...styles(this.props.mobile).courseworkList,
+                                                border: this.state.highlighted === project.hash ? "2px solid green" :
+                                                    '1px solid gray'
+                                            }}
+                                            aria-expanded={this.state.expanded[index]}>
+                                            {project.title}
+                                            <div style={{
+                                                fontSize: 15, fontWeight: 'bold',
+                                                color: 'black'
+                                            }}>{project.time}</div>
+                                        </CardHeader>
+                                        <Collapse isOpen={this.state.expanded[index]}>
+                                            <CardBody>
+                                                <Fade clear when={this.state.expanded[index]}>
+                                                    <Row>
+                                                        {project.thumbnail !== "" && <Col xs={12} md={6}>
+                                                            <div style={{ textAlign: 'center' }}><img src={project.thumbnail} style={{
+                                                                maxHeight: 400,
+                                                                maxWidth: '100%',
+                                                                margin: 'auto',
+                                                                marginBottom: 10,
+                                                                border: '2px solid #005696',
+                                                                borderRadius: '20px',
+                                                                boxShadow: '5px 5px 5px #dddddd',
+                                                            }}
+                                                                alt={project.title} /></div>
+                                                        </Col>}
+                                                        <Col xs={12} md={6}>
+                                                            {typeof (project.description) === "object" ?
+                                                                project.description.map((descPar, j) => {
+                                                                    return <p key={"dpar" + index + "--" + j}>{descPar}</p>
+                                                                }) :
+                                                                <p>{project.description}</p>
+                                                            }
                                                             <Row style={{ marginLeft: 15 }}>
-                                                                See also: {project.seeAlso.map((extend, extendIndex) => {
-                                                                    return <a href={'#' + extend.hash}
+                                                                {project.links.map(proj => {
+                                                                    return <a href={proj.link}
+                                                                        key={proj.link}
                                                                         style={{
                                                                             textDecoration: 'none',
                                                                             color: '#005696',
                                                                             textAlign: 'center',
-                                                                            marginLeft: 10
-                                                                        }}
-                                                                        onClick={() => this.setHighlighted(extend.hash)}
-                                                                        key={'extend' + index + '-' + extendIndex}>
+                                                                            marginRight: 10
+                                                                        }}>
                                                                         <div style={{
                                                                             border: '1px solid gray',
                                                                             padding: 4,
@@ -662,26 +627,69 @@ export default class Projects extends Component {
                                                                             borderRadius: '10px',
                                                                             height: '80%',
                                                                         }}>
-                                                                            {extend.name}
+                                                                            {proj.name}
                                                                         </div>
                                                                     </a>
                                                                 })}
+
+
                                                             </Row>
-                                                        }
-                                                    </Col>
-                                                </Row>
+                                                            Tools used:
+                            <Row style={{ marginTop: 10, marginLeft: 15 }}>
+                                                                {project.tools.sort().map((tool, toolIndex) => {
+                                                                    return <div style={{
+                                                                        border: '1px solid gray',
+                                                                        padding: 4,
+                                                                        borderRadius: '10px',
+                                                                        height: '80%',
+                                                                        textAlign: 'center',
+                                                                        marginBottom: 10,
+                                                                        marginRight: 10
+                                                                    }} key={'tools-' + index + '-' + toolIndex}>
+                                                                        {tool}
+                                                                    </div>
+                                                                })}
+                                                            </Row>
+                                                            {project.seeAlso.length > 0 &&
+                                                                <Row style={{ marginLeft: 15 }}>
+                                                                    See also: {project.seeAlso.map((extend, extendIndex) => {
+                                                                        return <a href={'#' + extend.hash}
+                                                                            style={{
+                                                                                textDecoration: 'none',
+                                                                                color: '#005696',
+                                                                                textAlign: 'center',
+                                                                                marginLeft: 10
+                                                                            }}
+                                                                            onClick={() => this.setHighlighted(extend.hash)}
+                                                                            key={'extend' + index + '-' + extendIndex}>
+                                                                            <div style={{
+                                                                                border: '1px solid gray',
+                                                                                padding: 4,
+                                                                                paddingBottom: 10,
+                                                                                borderRadius: '10px',
+                                                                                height: '80%',
+                                                                            }}>
+                                                                                {extend.name}
+                                                                            </div>
+                                                                        </a>
+                                                                    })}
+                                                                </Row>
+                                                            }
+                                                        </Col>
+                                                    </Row>
 
 
-                                            </Fade>
-                                        </CardBody>
-                                    </Collapse>
-                                </Card>
-                            })}
-                        </div>
-                    </Fade>
-                </div>
-            </Row>
-        </Grid>
+                                                </Fade>
+                                            </CardBody>
+                                        </Collapse>
+                                    </Card>
+                                })}
+                            </div>
+                        </Fade>
+                    </div>
+                </Row>
+            </Grid>
+        </>
     }
 }
 

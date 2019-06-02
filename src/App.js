@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
-import Gear from './components/Pages/Main/Gear/Gear';
-import Fade from 'react-reveal/Fade';
+// import Gear from './components/Pages/Main/Gear/Gear';
+// import Fade from 'react-reveal/Fade';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import {
     BrowserRouter as Router,
@@ -44,7 +44,7 @@ class App extends Component {
             gearIn: true,
             finishedGear: false
         }
-        this.fadeOutGear = this.fadeOutGear.bind(this);
+        // this.fadeOutGear = this.fadeOutGear.bind(this);
 
         this.mobileSize = 768;
 
@@ -90,12 +90,12 @@ class App extends Component {
         this.prefetchImages();
     }
 
-    fadeOutGear() {
-        this.setState({ gearIn: false });
-        setInterval(() => {
-            this.setState({ finishedGear: true });
-        }, 700);
-    }
+    // fadeOutGear() {
+    // this.setState({ gearIn: false });
+    // setInterval(() => {
+    //     this.setState({ finishedGear: true });
+    // }, 700);
+    // }
 
     render() {
         return (
@@ -118,17 +118,19 @@ class App extends Component {
                                 >
                                     <div className={"fix-container"}>
                                         <Switch location={location}>
-                                            <Route exact path="/" render={() => null} />
+                                            {/* <Route exact path="/" render={() => null} /> */}
                                             <Route render={() => <Navbar pages={this.pages} mobile={this.state.mobile} />} />
                                         </Switch>
                                         <Switch location={location}>
-                                            <Route exact path="/" render={routerProps => (
-                                                <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
-                                                    <Fade clear enter={false} spy when={this.state.gearIn}>
-                                                        <Gear fadeOutGear={this.fadeOutGear} mobile={this.state.mobile} />
-                                                    </Fade>
-                                                </div>
-                                            )} />
+                                            <Route exact path="/" render={() => <Page page={"main"} mobile={this.state.mobile} />}
+                                            // render={routerProps => (
+                                            //     <div style={{ position: 'fixed', top: '40%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+                                            //         <Fade clear enter={false} spy when={this.state.gearIn}>
+                                            //             <Gear fadeOutGear={this.fadeOutGear} mobile={this.state.mobile} />
+                                            //         </Fade>
+                                            //     </div>
+                                            // )}
+                                            />
                                             {this.pages.map(d => {
                                                 return <Route key={d} path={`/${d}`} render={() => <Page page={d} mobile={this.state.mobile} />} />
                                             })}
