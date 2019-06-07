@@ -38,11 +38,12 @@ export default class MainPage extends Component {
 
         this.mainText = [
             {
-                __html: `Hi, I'm a third year student at the University of Washington Seattle obtaining a B.S. in Informatics with a focus in Software Development.`
+                __html: `Hi, I'm a full stack developer and third year student at the University of Washington Seattle obtaining a B.S. in Informatics with a focus in Software Development.`
             },
             {
-                __html: `Currently, I am an Undergraduate Tutor for the UW Informatics Department. I also work under Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" rel="noopener noreferrer" href="http://faculty.washington.edu/ajko/students" 
-                alt="Code and Cognition Lab">Code and Cognition Lab</a>. This Summer 2019, I will be working with Qualtrics as a Software Engineering Intern.`
+                // __html: `Currently, I am an Undergraduate Tutor for the UW Informatics Department. I also work under Dr. Andy Ko in the <a style="text-decoration: none; color: #005696" target="_blank" rel="noopener noreferrer" href="http://faculty.washington.edu/ajko/students" 
+                // alt="Code and Cognition Lab">Code and Cognition Lab</a>. This Summer 2019, I will be working with Qualtrics as a Software Engineering Intern.`
+                __html: `Currently, I am a Software Engineering Intern at Qualtrics. I also program websites for <a style="text-decoration: none; color: #005696" target="_blank" rel="noopener noreferrer" href="http://uwigem.com"> Washington iGEM. Previously, I tutored/TA'd undergraduates, participated in research with the <a style="text-decoration: none; color: #005696" target="_blank" rel="noopener noreferrer" href="http://faculty.washington.edu/ajko/students">Code and Cognition Lab</a>.`
             },
             {
                 __html: `I enjoy playing video games and programming side projects.`

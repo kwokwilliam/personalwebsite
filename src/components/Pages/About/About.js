@@ -34,7 +34,8 @@ export default class About extends Component {
                     "Jest", "Flow", "Java",
                     "Python", "R", "MATLAB",
                     "C++", "LaTeX", "Firebase", "JQuery", "React Router", 'Bootstrap',
-                    "MaterialUI", "Git", "Docker", "AWS", "Redis", "NextJS", "Golang", "RabbitMQ", "MySQL"
+                    "MaterialUI", "Git", "Docker", "AWS", "Redis", "NextJS", "Golang", "RabbitMQ", "MySQL",
+                    "Django", "Flask", "Express"
                 ]
             },
             {
@@ -60,7 +61,7 @@ export default class About extends Component {
                 role: "Undergraduate Teaching Assistant - INFO 441",
                 timeAt: "April 2019 - Present",
                 blurb: `I teach students the foundational skills required to build server side applications. I host lab sections
-                of about 40 students and answer questions related to front end development. `,
+                of about 40 students and answer questions related to back end development. Technologies involved in this course involve Django, Docker, Redis, MySQL, and Microsoft Azure`,
                 links: [
                     // {
                     //     title: "Class Github Page",
@@ -270,6 +271,22 @@ export default class About extends Component {
                     "INFO 370 - Core Methods in Data Science",
                     "INFO 380 - Information Systems Analysis and Design",
                     "INFO 441 - Server Side Development"
+                ]
+            },
+            {
+                quarter: "Spring 2019",
+                classes: [
+                    "(TA) INFO 441 - Server Side Development",
+                    "INFO 442 - Cooperative Software Development",
+                    "INFO 443 - Software Architecture",
+                    "INFO 499 - Independent Research",
+                ]
+            },
+            {
+                quarter: "Summer 2019",
+                classes: [
+                    "None",
+                    "Software Engineering Internship at Qualtrics"
                 ]
             }
         ];
