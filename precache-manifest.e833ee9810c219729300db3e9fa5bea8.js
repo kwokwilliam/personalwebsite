@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/static/js/main.9be6814c.chunk.js"
   },
   {
-    "revision": "c9cb0229c7911c828859",
-    "url": "/static/js/runtime~main.0038ec2d.js"
+    "revision": "1c9238b8b78038920c13",
+    "url": "/static/js/runtime~main.652b0bd9.js"
   },
   {
     "revision": "5fb2cb8a2b6f42eb528a",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "/static/js/12.adbb1294.chunk.js"
   },
   {
-    "revision": "8b0066940158f047f6dc",
+    "revision": "d72412cd9aeed7a67336",
     "url": "/static/css/13.e75ff010.chunk.css"
   },
   {
-    "revision": "8b0066940158f047f6dc",
-    "url": "/static/js/13.97e89285.chunk.js"
+    "revision": "d72412cd9aeed7a67336",
+    "url": "/static/js/13.db2f7c99.chunk.js"
   },
   {
     "revision": "6f89dc4e6e125fd04dac",
@@ -304,12 +304,12 @@ self.__precacheManifest = [
     "url": "/static/media/Quicksand-Bold.0c044626.ttf"
   },
   {
-    "revision": "f87b9b4f34bdbf75b5c0cf3a5a137508",
-    "url": "/static/media/Quicksand-Regular.f87b9b4f.ttf"
-  },
-  {
     "revision": "c5f954788f341b22e1974433bb972ac1",
     "url": "/static/media/Quicksand-Light.c5f95478.ttf"
+  },
+  {
+    "revision": "f87b9b4f34bdbf75b5c0cf3a5a137508",
+    "url": "/static/media/Quicksand-Regular.f87b9b4f.ttf"
   },
   {
     "revision": "a1bfce1d4c9bb1d6a30d302b8e81aaa3",
@@ -448,7 +448,7 @@ self.__precacheManifest = [
     "url": "/static/media/vscodeshortcuts.f9d46733.md"
   },
   {
-    "revision": "ae24f025233e26e6766b4e8c70be32d5",
+    "revision": "15471355a219c66255205ca02ee997f2",
     "url": "/index.html"
   }
 ];
